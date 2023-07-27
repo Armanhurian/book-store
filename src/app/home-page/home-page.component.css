@@ -1,0 +1,30 @@
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+.imagesHome{
+    margin: 2rem;
+}
+@font-face {
+    font-family: yekan;
+    src: url(../../assets/YekanV3.0/Yekan.woff);
+    font-weight: bold;
+}
+.description-box{
+    flex-direction: column;
+}
+.description-box-subtitle{
+    font-family: yekan;
+    text-align: center;
+}
+.description-box-title{
+    text-align: center;
+    font-family: yekan;
+}
+.description-box-link{
+ margin: 1rem;
+ background-color: rgb(15 15 152 / 67%);
+ padding: 0.5rem 3.5rem;
+ border-radius: 0.4rem;
+ color: white;
+ text-decoration: none;
+ font-family: yekan;
+}
