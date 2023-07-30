@@ -1,27 +1,34 @@
 <div>
     <img class="imageLogin" src="../../assets/1685382174655.gif" alt="" >
 </div>
-<div>
-    <h3>ثبت نام در دفترچه</h3>
+<div class="form-container">
+    <div class="form-container-title">
+        <h2>ثبت نام در کتابچه</h2>
+    </div>
+    <div class="form-container-user">
+        <input #nameTextValue (keyup)="updateNameValue()" [(ngModel)]="nameInputValue" class="form-container-user-input" type="text" placeholder=" نام و نام خانوادگی">
+        <i class="fas fa-user form-container-user-icon"></i>
+        <small #nameText></small>
+    </div>
+    <div class="form-container-email">
+        <input #myEmailTextValue (keyup)="updateEmailValue()" [(ngModel)]="emailTextValue" class="form-container-email-input" type="text" placeholder=" ایمیل">
+        <i class="fas fa-envelope form-container-email-icon"></i>
+        <small #emailText></small>
+    </div>
+    <div class="form-container-password">
+        <input #passwordText class="form-container-password-input" type="password" placeholder=" رمز عبور">
+        <i class="fas fa-lock form-container-password-icon"></i>
+    </div>
+    <div class="form-container-repeat-password">
+        <input #passwordTextRepeat (keyup)="checkInputPassword()" [(ngModel)]="passwordRepeatTextValue" class="form-container-repeat-password-input" type="password" placeholder=" تکرار رمز عبور">
+        <i class="fas fa-lock form-container-repeat-password-icon"></i>
+        <small #passwordErrorText></small>
+    </div>
+    <div class="container--btn">
+        <a (click)="clickSubmitRegister($event)" routerLink="/register"  class="form-container-btn">ثبت نام</a>
+    </div>
+    <div>
+        <h5 class="redirectClass">اگر از قبل ثبت نام کردید لطفا روی <a class="redirect-link" routerLink="/login"> ورود </a>  کلیک کنید</h5>
+    </div>
 </div>
-<div>
-    <div>
-        <input type="text" placeholder=" نام و نام خانوادگی">
-        <i class="fas fa-user"></i>
-    </div>
-    <div>
-        <input type="text" placeholder=" ایمیل">
-        <i class="fas fa-envelope"></i>
-    </div>
-    <div>
-        <input type="number" placeholder=" شماره تلفن">
-        <i class="fas fa-phone"></i>
-    </div>
-    <div>
-        <input type="text" placeholder=" رمز عبور">
-        <i class="fas fa-lock"></i>
-    </div>
-</div>
-<div>
-    <h5>اگر از قبل ثبت نام کردید روی <a routerLink="/login"> ورود </a>  کلیک کنید</h5>
-</div>
+

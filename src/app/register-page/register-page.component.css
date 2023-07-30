@@ -1,5 +1,17 @@
+@import '../login-page/login-page.component.css';
+
 .imageLogin{
     width: 50%;
     display: flex;
     margin: auto;
+}
+small{
+    position: absolute;
+    right: -60px;
+    /* font-size: 5rem; */
+    z-index: 2;
+    top: 41px;
+    color: red;
+    font-weight: bold;
+    font-family: cursive;
 }
