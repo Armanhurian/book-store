@@ -1,6 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http'
 import swal from 'sweetalert2'
+import { map } from 'rxjs';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -10,6 +13,9 @@ import swal from 'sweetalert2'
 })
 export class RegisterPageComponent implements OnInit{
 
+  // users : any = []
+  
+  
 
   alphabet : string[] = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',]
 
@@ -28,7 +34,7 @@ export class RegisterPageComponent implements OnInit{
 
   emailRegex = /^(\w+@\w{5}\.)\w{3}$/g
 
-  
+  constructor (private http : HttpClient ,private router : Router , private dataService : DataService){}
 
   updateNameValue(){
 
@@ -74,6 +80,9 @@ export class RegisterPageComponent implements OnInit{
 
   clickSubmitRegister(event : any){
 
+      
+      //console.log(this.users);
+
 
     event.preventDefault()
 
@@ -88,7 +97,41 @@ export class RegisterPageComponent implements OnInit{
           confirmButtonText: 'ورود به صفحه اصلی',
           icon : 'success'
         }
-      )
+      ).then((res)=>{if(res.value){
+         this.router.navigate(['main'])
+      }})
+
+      let userObj = {
+        name : this.nameTextValue.nativeElement.value,
+        email : this.myEmailTextValue.nativeElement.value,
+        password : this.passwordText.nativeElement.value
+      }
+      
+      
+      
+      this.http.post('https://jsonplaceholder.typicode.com/posts',userObj).pipe(
+
+        map((item)=>{
+
+          let users = this.dataService.prevUser
+          localStorage.setItem('token',JSON.stringify(item))
+          let getMyData = localStorage.getItem('token')
+          let getParseData = getMyData ? JSON.parse(getMyData) : []
+          users.push(getParseData)
+          localStorage.setItem('users',JSON.stringify(users))
+      
+          
+        })
+        ).subscribe((data:any)=>{})
+        
+        
+        
+        // 
+        
+        
+        this.http.get('https://blokchainology.com/api/api/v1/tasks/').subscribe((data)=>{console.log(data)})
+      
+      
     }else if(this.passwordText.nativeElement.value === '' || this.nameTextValue.nativeElement.value === '' || this.myEmailTextValue.nativeElement.value === '' || this.passwordTextRepeat.nativeElement.value === '' ){
       swal.fire(
         {
@@ -120,7 +163,6 @@ export class RegisterPageComponent implements OnInit{
 
   
   ngOnInit():void{
-
 
 
   }

@@ -8,6 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MainPageComponent } from './main-page/main-page.component'
 
 const routes : Routes = [
   {path : '' , children : [
@@ -15,6 +17,7 @@ const routes : Routes = [
     {path : 'welcome' , component : HomePageComponent},
     {path : 'login' , component : LoginPageComponent},
     {path : 'register' , component : RegisterPageComponent},
+    {path : 'main' , component : MainPageComponent},
   ]},
 ]
 
@@ -24,12 +27,14 @@ const routes : Routes = [
     WelcomePageComponent,
     HomePageComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

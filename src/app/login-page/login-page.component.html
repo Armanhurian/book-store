@@ -6,15 +6,15 @@
         <h2>ورود به کتابچه</h2>
     </div>
     <div class="form-container-user">
-        <input class="form-container-user-input" type="text" placeholder=" نام و نام خانوادگی">
+        <input [(ngModel)]="nameText" class="form-container-user-input" type="text" placeholder=" نام و نام خانوادگی">
         <i class="fas fa-user form-container-user-icon"></i>
     </div>
     <div class="form-container-password">
-        <input class="form-container-password-input" type="password" placeholder=" رمز عبور">
+        <input [(ngModel)]="passwordText" class="form-container-password-input" type="password" placeholder=" رمز عبور">
         <i class="fas fa-lock form-container-password-icon"></i>
     </div>
     <div class="container--btn">
-        <a href="" class="form-container-btn">ورود</a>
+        <a  (click)="loginUser()" class="form-container-btn">ورود</a>
     </div>
     <div>
         <h5 class="redirectClass">اگر از قبل ثبت نام نکردید لطفا روی <a class="redirect-link" routerLink="/register">ثبت نام </a>  کلیک کنید</h5>

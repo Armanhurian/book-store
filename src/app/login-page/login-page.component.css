@@ -76,6 +76,7 @@ h2{
     text-decoration: none;
     padding: 0 2rem;
     font-family: yekan;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     background-color: #709ddf;
