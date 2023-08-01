@@ -61,7 +61,7 @@ h2{
 .form-container-user-icon ,.form-container-password-icon , .form-container-email-icon,.form-container-repeat-password-icon{
     position: absolute;
     top: 11px;
-    right: -55px;
+    right: 0.5rem;
     font-size: 1.1rem;
     color: #343a40;
 }

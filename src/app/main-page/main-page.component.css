@@ -1,0 +1,103 @@
+/* start navbar style */
+.user-Icon{
+    font-weight: 500;
+    margin-left: 0.8rem;
+    font-size: 1.4rem;
+    color: #495057;
+}
+.first-Row-Box{
+    width: 25%;
+    height: 7rem;
+}
+.navbar-icon-down{
+    color: #495057;
+}
+.users-icon-container{
+    cursor: pointer;
+    padding: 0.6rem;
+    margin-left: 1rem;
+}
+.navbar-container{
+    display: flex;
+    direction: rtl;
+    position: sticky;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+.navbar-image-logo-box{
+    width: 17rem;
+    padding: 0.5rem;
+}
+.navbar-list-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 66%;
+}
+.navbar-list{
+    display: flex;
+    font-family: yekan;
+    list-style: none;
+}
+.navbar-list-item{
+    margin-left: 3rem;
+}
+.navbar-list li a{
+    text-decoration: none;
+    color: #212529;
+}
+.navbar-list li i{
+    margin-left: 0.3rem;
+}
+.navbar-user-icon-box{    
+    width: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.home-icon{
+    color: #dc3545;
+}
+.category-icon{
+    color: #1da561ad;
+}
+.about-icon{
+    color: #2778c4;
+}
+.support-icon{
+    color: #ba00dc;
+}
+/* finish navbar style */
+.categories-Book-container{
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+}
+.categories-Book-box{
+    width: 30%;
+    margin-left: 1rem;
+}
+.categories-Book-images{
+    width: 100%;
+    border-radius: 0.4rem;
+    height: 27rem;
+}
+.categories-Book-title{
+    font-family: yekan;
+    margin: 2rem;
+}
+.categories-Book-description{
+    position: relative;
+}
+.categories-Book-title::after{
+    content: '';
+    position: absolute;
+    top: 0.7rem;
+    right: 1rem;
+    width: 3px;
+    height: 2rem;
+    background-color: rgb(32, 32, 216);
+}

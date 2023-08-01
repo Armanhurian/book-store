@@ -1,7 +1,7 @@
 @import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 .imagesHome{
-    margin: 2rem;
+    margin: 2rem 0;
 }
 @font-face {
     font-family: yekan;

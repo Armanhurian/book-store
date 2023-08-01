@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    direction: rtl;
+}
+@font-face {
+    font-family: yekan;
+    src: url(assets/YekanV3.0/Yekan.woff);
+    font-weight: bold;
+}
