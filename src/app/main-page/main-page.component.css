@@ -229,9 +229,71 @@
 .categories-Book-title::after{
     content: '';
     position: absolute;
-    top: 0.7rem;
-    right: 1rem;
+    top: 2.7rem;
+    right: 3rem;
     width: 3px;
     height: 2rem;
     background-color: rgb(32, 32, 216);
 }
+.categories-Book-description{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+.categories-Book-link-watch{
+    padding: 2rem;
+    font-family: yekan;
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+}
+.categories-Book-link-watch:hover{
+   color: #2778c4;
+   border-radius: 2rem;
+   transform: scale(1.1);
+}
+/* start swiper style */
+@font-face {
+    font-family: vazir;
+    src: url(../../assets/Farsi-Digits-Non-Latin/fonts/webfonts/Vazirmatn-RD-FD-NL-Medium.woff2);
+}
+swiper-container{
+    padding: 2rem 4rem;
+}
+.swiper-pagination-progressbar-fill{
+    background-color: rgba(12,34,52,0.6);
+}
+.slide-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'yekan';
+    margin: 1rem ;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    border-radius: 0.4rem;
+}
+.slide-container-images{
+    width: 100%;
+    border-radius: 0.5rem;
+    height: 20rem;
+}
+.slide-container-title{
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+.slide-container-price{
+    margin: 0;
+    font-size: 0.9rem;
+    color: #2778c4;
+    font-family: vazir;
+}
+.slide-container-creator{
+    font-size: 0.9rem;
+}
+/* finish swiper style */

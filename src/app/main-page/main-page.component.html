@@ -1,4 +1,5 @@
 
+
 <header>
   <nav class="navbar-container">
     <div class="first-Row-Box">
@@ -174,8 +175,131 @@
      </div>
   </div>
 
- 
   
 
-  
-  
+  <div >
+    <div class="categories-Book-description">
+      <h2 class="categories-Book-title">  برنامه نویسی و کامپیوتر </h2>
+      <a class="categories-Book-link-watch" href="">
+        مشاهده همه 
+        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+      </a>
+    </div>
+    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      
+      <swiper-slide *ngFor="let product of myProducts">
+        <div class="slide-container">
+          <img class="slide-container-images" [src]="product.image" alt="">
+          <h4 class="slide-container-title">{{product.title}}</h4>
+          <p class="slide-container-price">{{product.price}} تومان </p>
+          <p class="slide-container-creator">{{product.creator}} </p>
+        </div>
+      </swiper-slide>
+      
+    </swiper-container>
+  </div>
+  <div>
+    <div class="categories-Book-description">
+      <h2 class="categories-Book-title"> کتاب های علمی </h2>
+      <a class="categories-Book-link-watch" href="">
+        مشاهده همه 
+        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+      </a>
+    </div>
+    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      
+      <swiper-slide *ngFor="let product of myProducts">
+        <div class="slide-container">
+          <img class="slide-container-images" [src]="product.image" alt="">
+          <h4 class="slide-container-title">{{product.title}}</h4>
+          <p class="slide-container-price">{{product.price}} تومان </p>
+          <p class="slide-container-creator">{{product.creator}} </p>
+        </div>
+      </swiper-slide>
+      
+    </swiper-container>
+  </div>
+  <div>
+    <div class="categories-Book-description">
+      <h2 class="categories-Book-title">  کتاب های آموزشی </h2>
+      <a class="categories-Book-link-watch" href="">
+        مشاهده همه 
+        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+      </a>
+    </div>
+    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      
+      <swiper-slide *ngFor="let product of myProducts">
+        <div class="slide-container">
+          <img class="slide-container-images" [src]="product.image" alt="">
+          <h4 class="slide-container-title">{{product.title}}</h4>
+          <p class="slide-container-price">{{product.price}} تومان </p>
+          <p class="slide-container-creator">{{product.creator}} </p>
+        </div>
+      </swiper-slide>
+      
+    </swiper-container>
+  </div>
+  <div>
+    <div class="categories-Book-description">
+      <h2 class="categories-Book-title"> کتاب های تاریخی </h2>
+      <a class="categories-Book-link-watch" href="">
+        مشاهده همه 
+        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+      </a>
+    </div>
+    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      
+      <swiper-slide *ngFor="let product of myProducts">
+        <div class="slide-container">
+          <img class="slide-container-images" [src]="product.image" alt="">
+          <h4 class="slide-container-title">{{product.title}}</h4>
+          <p class="slide-container-price">{{product.price}} تومان </p>
+          <p class="slide-container-creator">{{product.creator}} </p>
+        </div>
+      </swiper-slide>
+      
+    </swiper-container>
+  </div>
+  <div>
+    <div class="categories-Book-description">
+      <h2 class="categories-Book-title"> داستان و رمان </h2>
+      <a class="categories-Book-link-watch" href="">
+        مشاهده همه 
+        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+      </a>
+    </div>
+    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      
+      <swiper-slide *ngFor="let product of myProducts">
+        <div class="slide-container">
+          <img class="slide-container-images" [src]="product.image" alt="">
+          <h4 class="slide-container-title">{{product.title}}</h4>
+          <p class="slide-container-price">{{product.price}} تومان </p>
+          <p class="slide-container-creator">{{product.creator}} </p>
+        </div>
+      </swiper-slide>
+      
+    </swiper-container>
+  </div>
+  <div>
+    <div class="categories-Book-description">
+      <h2 class="categories-Book-title"> آموزش زبان خارجه </h2>
+      <a class="categories-Book-link-watch" href="">
+        مشاهده همه 
+        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+      </a>
+    </div>
+    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      
+      <swiper-slide *ngFor="let product of myProducts">
+        <div class="slide-container">
+          <img class="slide-container-images" [src]="product.image" alt="">
+          <h4 class="slide-container-title">{{product.title}}</h4>
+          <p class="slide-container-price">{{product.price}} تومان </p>
+          <p class="slide-container-creator">{{product.creator}} </p>
+        </div>
+      </swiper-slide>
+      
+    </swiper-container>
+  </div>
