@@ -19,7 +19,12 @@ export class MainPageComponent implements OnInit{
   constructor( private Products : ProductService){}
 
 
-  myProducts:any = [] 
+  myComputerTypeProducts:any = [] 
+  myScienceBookTypeProducts:any = [] 
+  myEducationBookTypeProducts:any = [] 
+  myRomanceBookTypeProducts:any = [] 
+  myHistoricalBookTypeProducts:any = [] 
+  myLanguagesBookTypeProducts:any = [] 
 
 
 
@@ -57,9 +62,23 @@ export class MainPageComponent implements OnInit{
   
 
   ngOnInit(): void {
-    this.myProducts = this.Products.computerProductsInMainPage
-    console.log(this.myProducts);
-   
+
+    this.myComputerTypeProducts = this.Products.computerProductsInMainPage
+
+
+    this.myScienceBookTypeProducts = this.Products.scienceProductsInMainPage
+
+
+    this.myEducationBookTypeProducts = this.Products.educationProductsInMainPage
+
+
+    this.myHistoricalBookTypeProducts = this.Products.historicalProductsInMainPage
+
+
+    this.myRomanceBookTypeProducts = this.Products.romanceProductsInMainPage
+
+
+    this.myLanguagesBookTypeProducts = this.Products.languagesProductsInMainPage 
     
   }
 }
