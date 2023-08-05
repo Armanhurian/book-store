@@ -197,6 +197,10 @@
 .user-description-container-link-logout-item:hover{
     background-color: #f5f5f5;
 }
+.myLinkForDashbord{
+    color:black ;
+    text-decoration: none;
+}
 /* finish navbar style */
 .categories-Book-container{
     display: flex;
@@ -297,3 +301,108 @@ swiper-container{
     font-size: 0.9rem;
 }
 /* finish swiper style */
+.my-footer-container{
+    margin-top: 4rem;
+    padding: 2rem 4rem;
+    font-family: 'yekan';
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.125);
+}
+.my-footer-header-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.my-footer-header-image{
+    width: 11rem;
+    padding: 0.5rem 1rem;
+}
+.my-footer-header-icon-box{
+    display: flex;
+    gap: 3rem;
+}
+.my-footer-header-icon-link{
+    font-size: 1.5rem;
+    padding: 0.2rem 1rem;
+    background-color: white;
+    color: #00a2a4;
+    transition: all 200ms ease-in;
+    border-radius: 0.4rem;
+}
+.my-footer-header-icon-link:hover{
+  
+    background-color: #00a2a4;
+    color: white;
+    
+}
+.my-footer-section-box{
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+}
+.my-footer-section-box-about{
+    width: 50%;
+}
+.my-footer-section-box-about-subtitle{
+   font-size: 0.9rem;
+}
+.my-footer-section-box-about-title{
+    position: relative;
+}
+.my-footer-section-box-about-title::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #00a2a4;
+    border-radius: 0.1rem;
+    right: -31px;
+    top: 15px;
+    transform: rotate(134deg);
+}
+.my-footer-section-box-contact-title{
+    position: relative;
+    margin-right: 1rem;
+}
+.my-footer-section-box-contact-title::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #00a2a4;
+    border-radius: 0.1rem;
+    right: -31px;
+    top: 15px;
+    transform: rotate(134deg);
+}
+.my-footer-section-box-contact{
+    width: 50%;
+}
+
+.my-footer-section-box-contact-subtitle-item{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+.my-footer-section-box-contact-subtitle-item div{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+.my-footer-section-box-contact-subtitle-link{
+    text-decoration: none;
+        color: #6c757d;
+        font-size: 0.9rem;
+}
+.my-footer--footer-box{
+    text-align: center;
+}
+.my-footer--footer-box-myParagraph{
+    font-size: 1.1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.my-footer--footer-box-myParagraph a{
+    text-decoration: none;
+    color: #212529;
+}

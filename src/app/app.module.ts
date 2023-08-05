@@ -9,7 +9,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MainPageComponent } from './main-page/main-page.component'
+import { MainPageComponent } from './main-page/main-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactComponent } from './contact/contact.component'
 
 const routes : Routes = [
   {path : '' , children : [
@@ -18,6 +20,8 @@ const routes : Routes = [
     {path : 'login' , component : LoginPageComponent},
     {path : 'register' , component : RegisterPageComponent},
     {path : 'main' , component : MainPageComponent},
+    {path : 'about-us' , component : AboutUsComponent},
+    {path : 'contact' , component : ContactComponent},
   ]},
 ]
 
@@ -28,7 +32,9 @@ const routes : Routes = [
     HomePageComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    MainPageComponent
+    MainPageComponent,
+    AboutUsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

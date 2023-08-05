@@ -99,6 +99,8 @@ export class RegisterPageComponent implements OnInit{
         }
       ).then((res)=>{if(res.value){
          this.router.navigate(['main'])
+         localStorage.setItem('nameValueInput',this.nameInputValue) 
+         
       }})
 
       let userObj = {

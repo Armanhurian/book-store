@@ -16,6 +16,11 @@ export class MainPageComponent implements OnInit{
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
 
 
+  dashbordNameLists : any = []
+
+  // dashbordName1 : any =  localStorage.getItem('nameValueInput')
+  dashbordName : any =  ''
+
   constructor( private Products : ProductService){}
 
 
@@ -27,6 +32,16 @@ export class MainPageComponent implements OnInit{
   myLanguagesBookTypeProducts:any = [] 
 
 
+  dashbordNameFunc(){
+    this.dashbordNameLists.push(localStorage.getItem('dashbordName'))
+    this.dashbordNameLists.push(localStorage.getItem('nameValueInput'))
+    this.dashbordName = this.dashbordNameLists[this.dashbordNameLists.length - 1]
+  }
+
+  logoutHandler(){
+    console.log('log out');
+    localStorage.clear()
+  }
 
   showUserDescription(){
 
@@ -78,7 +93,12 @@ export class MainPageComponent implements OnInit{
     this.myRomanceBookTypeProducts = this.Products.romanceProductsInMainPage
 
 
-    this.myLanguagesBookTypeProducts = this.Products.languagesProductsInMainPage 
+    this.myLanguagesBookTypeProducts = this.Products.languagesProductsInMainPage
+    
+    this.dashbordNameFunc()
+      
+    console.log(this.dashbordName);
+    
     
   }
 }

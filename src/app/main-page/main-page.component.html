@@ -37,7 +37,10 @@
                           </g>
                       </g>
                     </svg>
-                    <span style="font-size: 1.1rem;">آرمان حوریان</span>
+                    <span *ngIf="dashbordName ; else noDashbord" style="font-size: 1.1rem;">{{dashbordName}}</span>
+                    <ng-template #noDashbord>
+                      <a class="myLinkForDashbord" routerLink="/login" style="font-size: 1.1rem;">ورود / ثبت نام</a>
+                    </ng-template>
                    </li>
                  </ul>
                  <a href="" class="user-description-container-link-favorite">
@@ -46,7 +49,7 @@
                      علاقه مندی های من
                    </li>
                  </a>
-                 <a routerLink="" class="user-description-container-link-logout">
+                 <a (click)="logoutHandler()" routerLink="/register" class="user-description-container-link-logout">
                    <li class="user-description-container-link-logout-item">
                      <i class="fas fa-right-from-bracket user-description-container-link-logout-icon"></i>
                       خروج از حساب کاربری
@@ -62,38 +65,38 @@
   <div class="navbar-list-box">
     <ul class="navbar-list">
        <li class="navbar-list-item">
-         <a href=""><i class="fas fa-house home-icon"></i>صفحه اصلی </a>
+         <a routerLink="/main"><i class="fas fa-house home-icon"></i>صفحه اصلی </a>
        </li>
        <li  class="navbar-list-item">
          <a (click)="showCategoryList($event)" href="" class="navbar-list-item-category-link"><i class="fas fa-layer-group category-icon"></i>دسته بندی ها <i style="margin-right: 0.2rem;" class="fas fa-caret-down navbar-icon-down"></i></a>
          <div #categoriesList class="categories-Book-list-container">
           <ul class="categories-Book-list">
-            <a href="" class="categories-Book-list-link">
+            <a routerLink="" class="categories-Book-list-link">
               <li class="categories-Book-item">برنامه نویسی و کامپیوتر</li>
             </a>
-            <a href="" class="categories-Book-list-link">
+            <a routerLink="" class="categories-Book-list-link">
               <li class="categories-Book-item">کتاب های علمی</li>
             </a>
-            <a href="" class="categories-Book-list-link">
+            <a routerLink="" class="categories-Book-list-link">
               <li class="categories-Book-item">کتاب های آموزشی</li>
             </a>
-            <a href="" class="categories-Book-list-link">
+            <a routerLink="" class="categories-Book-list-link">
                 <li class="categories-Book-item">کتاب های تاریخی</li>
             </a>
-            <a href="" class="categories-Book-list-link">
+            <a routerLink="" class="categories-Book-list-link">
               <li class="categories-Book-item">داستان و رمان</li>
             </a>
-            <a href="" class="categories-Book-list-link">
+            <a routerLink="" class="categories-Book-list-link">
               <li class="categories-Book-item">آموزش زبان خارجه</li>    
             </a>
           </ul>
          </div>
        </li>
        <li class="navbar-list-item">
-         <a href=""><i class="fas fa-headset support-icon"></i>ارتباط با ما</a>
+         <a routerLink="/contact"><i class="fas fa-headset support-icon"></i>ارتباط با ما</a>
        </li>
        <li class="navbar-list-item">
-         <a href=""><i class="fa-regular fa-face-smile about-icon"></i>درباره  ما</a>
+         <a routerLink="/about-us"><i class="fa-regular fa-face-smile about-icon"></i>درباره  ما</a>
        </li>
     </ul> 
 </div>
@@ -301,3 +304,70 @@
       
     </swiper-container>
   </div>
+
+<footer class="my-footer-container">
+   <div class="my-footer-header-box">
+      <div class="my-footer-header-image-box">
+        <img class="my-footer-header-image" src="../../assets/my-logo.PNG" alt="" srcset="">
+      </div>
+      <div class="my-footer-header-icon-box">
+        <a class="my-footer-header-icon-link" href="https://angular.io/">
+          <i class="fab fa-instagram my-footer-header-icon"></i>
+        </a>
+        <a class="my-footer-header-icon-link"  href="https://angular.io/">
+          <i class="fab fa-youtube my-footer-header-icon"></i>
+        </a>
+        <a class="my-footer-header-icon-link" href="https://angular.io/">
+          <i class="fab fa-linkedin my-footer-header-icon"></i>
+        </a>
+        <a class="my-footer-header-icon-link" href="https://angular.io/">
+          <i class="fab fa-twitter my-footer-header-icon"></i>
+        </a>
+        <a class="my-footer-header-icon-link" href="https://angular.io/">
+          <i class="fab fa-facebook my-footer-header-icon"></i>
+        </a>
+      </div>
+   </div>
+   <div class="my-footer-section-box">
+     <div class="my-footer-section-box-about">
+        <h2 class="my-footer-section-box-about-title">درباره کتابچه</h2>
+        <p class="my-footer-section-box-about-subtitle">کتابچه یک پلتفرم آنلاین با هدف تشویق کتاب خوانی تشکیل شده است از آنجایی که جوامع ما روزانه بیشتر با گوشی و کامپیوتر خودشان سروکار دارند بنابراین ما در گروه کتابچه تصمیم گرفتیم که به عنوان یک کامیونیتی کوچک بتوانیم روی فرهنگ کتابخوانی کشورمان تاثیر گذار باشیم. به همین جهت در کتابچه تمامی کتاب ها با قیمت مناسب و تخفیفات ویژه قرار داده شدند</p>
+     </div>
+     <div class="my-footer-section-box-contact">
+        <h2 class="my-footer-section-box-contact-title">راه های ارتباطی</h2>
+        <ul class="my-footer-section-box-contact-subtitle-list">
+          <li class="my-footer-section-box-contact-subtitle-item">
+            <div>
+              <i  class="fa-regular fa-envelope my-footer-section-box-contact-subtitle-icon"></i>
+              <p class="my-footer-section-box-contact-subtitle-text">ایمیل :</p>
+            </div>
+            <div>
+              <a class="my-footer-section-box-contact-subtitle-link" href="https://angular.io/">hurianarman@gmail.com</a>
+            </div>
+          </li>
+          <li class="my-footer-section-box-contact-subtitle-item">
+            <div>
+              <i  class="fa-solid fa-phone-flip my-footer-section-box-contact-subtitle-icon"></i>
+              <p class="my-footer-section-box-contact-subtitle-text">شماره تماس :</p>
+            </div>
+            <div>
+              <a class="my-footer-section-box-contact-subtitle-link" href="https://angular.io/"> 02122638024</a>
+            </div>
+          </li>
+          <li class="my-footer-section-box-contact-subtitle-item">
+            <div>
+              <i  class="fa-regular fa-address-book my-footer-section-box-contact-subtitle-icon"></i>
+              <p class="my-footer-section-box-contact-subtitle-text"> دفتر مرکزی :</p>
+            </div>
+            <div>
+              <a class="my-footer-section-box-contact-subtitle-link" href="https://angular.io/">تهران - خیابان شریعتی - پایین از تقاطع صدر - پلاک 1546</a>
+            </div>
+          </li>
+        </ul>
+     </div>
+   </div>
+   <div class="my-footer--footer-box">
+    <p class="my-footer--footer-box-myParagraph">Challenge by <a href="https://blokchainology.com/"><strong style="font-weight: bold;">blokchainology</strong></a>.Coded by <a href="https://blokchainology.com/team/"><strong style="font-weight: bold;">Arman Hurian</strong></a></p>
+ </div>
+</footer>
+
