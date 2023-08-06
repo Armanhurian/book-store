@@ -18,7 +18,7 @@ export class MainPageComponent implements OnInit{
 
   dashbordNameLists : any = []
 
-  // dashbordName1 : any =  localStorage.getItem('nameValueInput')
+
   dashbordName : any =  ''
 
   constructor( private Products : ProductService){}

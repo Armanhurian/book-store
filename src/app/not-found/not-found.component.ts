@@ -1,12 +1,11 @@
-import { Component, OnInit , ElementRef ,ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-about-us',
-  templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.css']
+  selector: 'app-not-found',
+  templateUrl: './not-found.component.html',
+  styleUrls: ['./not-found.component.css']
 })
-export class AboutUsComponent implements OnInit{
-
+export class NotFoundComponent {
   @ViewChild('showUserDes') 'showUserDes' : ElementRef
   @ViewChild('clickParent') 'clickParent' : ElementRef
   @ViewChild('categoriesList') 'categoriesList' : ElementRef

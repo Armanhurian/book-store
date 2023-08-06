@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { ContactComponent } from './contact/contact.component'
+import { ContactComponent } from './contact/contact.component';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 const routes : Routes = [
   {path : '' , children : [
@@ -22,6 +23,8 @@ const routes : Routes = [
     {path : 'main' , component : MainPageComponent},
     {path : 'about-us' , component : AboutUsComponent},
     {path : 'contact' , component : ContactComponent},
+    {path : '404' , component : NotFoundComponent},
+    {path : '**' , redirectTo : '/404'},
   ]},
 ]
 
@@ -34,7 +37,8 @@ const routes : Routes = [
     RegisterPageComponent,
     MainPageComponent,
     AboutUsComponent,
-    ContactComponent
+    ContactComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+@import '../../../navbar.css';
+.error-container{
+    font-family: yekan;
+}
+.error-container-image{
+    width: 35rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+.error-container-title{
+    text-align: center;
+}
+.error-container-link{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    width: 10rem;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background-color: #32ba8c;
+}

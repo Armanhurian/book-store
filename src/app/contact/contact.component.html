@@ -1,1 +1,135 @@
-<p>contact works!</p>
+<header>
+    <nav class="navbar-container">
+      <div class="first-Row-Box">
+        <img class="navbar-image-logo-box" src="../../assets/my-logo.PNG" alt="" srcset="">
+      </div>
+      <div class="searching-box">
+        <form class="searching-box-form" action="">
+          <button type="submit" class="searching-box-form-btn">
+            <svg class="text-dark-550 dark:text-white" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7.82495" cy="7.82492" r="6.74142" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+                <path d="M12.5137 12.8638L15.1568 15.4999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+          </button>
+          <label for="search"></label>
+          <input class="searching-box-form-input" type="text" id="search" placeholder="دنبال چی میگردی ؟">
+        </form>
+      </div> 
+      <div class="navbar-user-icon-box">
+            <div (click)="showUserDescription()" #clickParent class="users-icon-container">
+                <i class="fas fa-user user-Icon"></i>
+                <i class="fas fa-caret-down navbar-icon-down"></i>
+                <div #showUserDes class="user-description-container">
+                   <ul class="user-description-container-list">
+                     <li class="user-description-container-item">
+                      <svg width="50px" height="50px" viewBox="0 0 116 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                        <title>noun_956179_cc</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs></defs>
+                        <g id="profile-change-avatar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-635.000000, -282.000000)">
+                            <g id="hamedof" transform="translate(634.000000, 281.000000)" fill="#DDDDDD" fill-rule="nonzero">
+                                <g id="noun_956179_cc" transform="translate(1.000000, 1.000000)">
+                                    <path d="M58,0 C25.973913,0 0,25.973913 0,58 C0,68.8434783 3.02608696,79.0565217 8.32173913,87.7565217 C9.33043478,89.5217391 10.5913043,91.2869565 11.726087,92.8 C13.4913043,95.1956522 15.3826087,97.3391304 17.526087,99.3565217 C19.4173913,101.121739 21.3086957,102.886957 23.4521739,104.4 C33.0347826,111.713043 45.0130435,116 58,116 C70.9869565,116 82.9652174,111.713043 92.5478261,104.526087 C94.6913043,103.013043 96.5826087,101.247826 98.473913,99.4826087 C100.617391,97.4652174 102.508696,95.1956522 104.273913,92.926087 C105.534783,91.2869565 106.669565,89.6478261 107.678261,87.8826087 C112.973913,79.1826087 116,68.9695652 116,58.126087 C116,25.973913 90.026087,0 58,0 Z M58,11.473913 C73.2565217,11.473913 85.7391304,23.9565217 85.7391304,39.2130435 C85.7391304,54.4695652 73.2565217,66.9521739 58,66.9521739 C42.7434783,66.9521739 30.2608696,54.4695652 30.2608696,39.2130435 C30.2608696,23.9565217 42.7434783,11.473913 58,11.473913 Z M104.904348,82.5869565 C104.021739,84.226087 103.013043,85.8652174 102.004348,87.5043478 C98.9782609,92.0434783 95.1956522,96.0782609 90.9086957,99.4826087 C88.5130435,101.373913 85.9913043,103.013043 83.3434783,104.526087 C75.7782609,108.56087 67.2043478,110.956522 58.126087,110.956522 C49.0478261,110.956522 40.3478261,108.56087 32.9086957,104.526087 C30.2608696,103.013043 27.7391304,101.373913 25.3434783,99.4826087 C21.0565217,96.0782609 17.273913,92.0434783 14.2478261,87.5043478 C13.2391304,85.9913043 12.2304348,84.3521739 11.3478261,82.5869565 C16.7695652,74.5173913 25.4695652,68.7173913 35.6826087,67.3304348 C36.3130435,67.2043478 36.9434783,67.4565217 37.573913,67.8347826 C43.626087,72.2478261 50.8130435,74.6434783 58.2521739,74.6434783 C65.6913043,74.6434783 73.0043478,72.373913 78.9304348,67.8347826 C79.4347826,67.4565217 80.0652174,67.3304348 80.8217391,67.3304348 C90.7826087,68.7173913 99.4826087,74.5173913 104.904348,82.5869565 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                      </svg>
+                      <span *ngIf="dashbordName ; else noDashbord" style="font-size: 1.1rem;">{{dashbordName}}</span>
+                      <ng-template #noDashbord>
+                        <a class="myLinkForDashbord" routerLink="/login" style="font-size: 1.1rem;">ورود / ثبت نام</a>
+                      </ng-template>
+                     </li>
+                   </ul>
+                   <a href="" class="user-description-container-link-favorite">
+                     <li class="user-description-container-link-favorite-item">
+                       <i class="fa-regular fa-heart user-description-container-link-favorite-icon"></i>
+                       علاقه مندی های من
+                     </li>
+                   </a>
+                   <a (click)="logoutHandler()" routerLink="/register" class="user-description-container-link-logout">
+                     <li class="user-description-container-link-logout-item">
+                       <i class="fas fa-right-from-bracket user-description-container-link-logout-icon"></i>
+                        خروج از حساب کاربری
+                     </li>
+                   </a>
+                </div>
+            </div>
+            <div class="users-icon-container">
+                <i class="fas fa-bag-shopping shopping-icon"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="navbar-list-box">
+      <ul class="navbar-list">
+         <li class="navbar-list-item">
+           <a routerLink="/main"><i class="fas fa-house home-icon"></i>صفحه اصلی </a>
+         </li>
+         <li  class="navbar-list-item">
+           <a (click)="showCategoryList($event)" href="" class="navbar-list-item-category-link"><i class="fas fa-layer-group category-icon"></i>دسته بندی ها <i style="margin-right: 0.2rem;" class="fas fa-caret-down navbar-icon-down"></i></a>
+           <div #categoriesList class="categories-Book-list-container">
+            <ul class="categories-Book-list">
+              <a routerLink="" class="categories-Book-list-link">
+                <li class="categories-Book-item">برنامه نویسی و کامپیوتر</li>
+              </a>
+              <a routerLink="" class="categories-Book-list-link">
+                <li class="categories-Book-item">کتاب های علمی</li>
+              </a>
+              <a routerLink="" class="categories-Book-list-link">
+                <li class="categories-Book-item">کتاب های آموزشی</li>
+              </a>
+              <a routerLink="" class="categories-Book-list-link">
+                  <li class="categories-Book-item">کتاب های تاریخی</li>
+              </a>
+              <a routerLink="" class="categories-Book-list-link">
+                <li class="categories-Book-item">داستان و رمان</li>
+              </a>
+              <a routerLink="" class="categories-Book-list-link">
+                <li class="categories-Book-item">آموزش زبان خارجه</li>    
+              </a>
+            </ul>
+           </div>
+         </li>
+         <li class="navbar-list-item">
+           <a routerLink="/contact"><i class="fas fa-headset support-icon"></i>ارتباط با ما</a>
+         </li>
+         <li class="navbar-list-item">
+           <a routerLink="/about-us"><i class="fa-regular fa-face-smile about-icon"></i>درباره  ما</a>
+         </li>
+      </ul> 
+  </div>
+</header>
+
+<div class="contacts-container">
+  <h2 class="contacts-container-title">ارتباط با ما</h2>
+  <div class="contact-description-box">
+    <div class="contacts-container-right-box">
+      <div class="contacts-container-right-box-header">
+        <div class="contacts-container-right-box__header">
+          <i class="contacts-container-right-box-header-icon fas fa-envelope-open-text"></i>
+          <h2 class="contacts-container-right-box-header-title">پیام به پشتیبانی</h2>
+        </div>
+        <p class="contacts-container-right-box-header-text">نظرات، مشکلات و پیشنهادهایتان را برای ما بنویسید.</p>
+        <form action="" class="contacts-container-right-box-header-form">  
+          <input class="contacts-container-right-box-header-input" type="text" placeholder="لطفا ایمیل خود را وارد کنید">
+          <textarea class="contacts-container-right-box-header-textarea" name="" id="" cols="30" rows="10" placeholder="نظرات خود را اینجا بنویسید ..."></textarea>
+          <button class="contacts-container-right-box-header-btn">ارسال پیام</button>
+        </form>
+      </div>
+      
+    </div>
+    <div class="contacts-container-left-box">
+      <div class="contacts-container-left-box-header">
+        <div class="contacts-container-right-box__header">
+          <i class="fas fa-location-dot contacts-container-left-header-icon"></i>
+          <h2 class="contacts-container-left-box-header-title"> آدرس</h2>
+        </div>
+        <p class="contacts-container-left-box-header-subtitle">تهران - خیابان شریعتی - پایین از تقاطع صدر - پلاک 1546</p>
+        <div >
+          <img class="contacts-container-left-box-header-image" src="../../assets/map.webp" alt="" srcset="">
+          <a href="" class="contacts-container-left-box-header-link">مسیریابی با نقشه</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
