@@ -7,7 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -45,6 +45,7 @@ const routes : Routes = [
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

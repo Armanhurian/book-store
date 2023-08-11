@@ -2,6 +2,16 @@
 body{
     margin: 0;
     direction: rtl;
+    
+}
+body::-webkit-scrollbar{
+    background-color: rgba(234, 230, 230, 0.797);
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #32ba8c;
+    border-radius: 2rem;
+    width: 8px;
 }
 @font-face {
     font-family: yekan;

@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild ,ElementRef} from '@angular/core';
+import { FormControl , FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +12,8 @@ export class ContactComponent implements OnInit{
   @ViewChild('showUserDes') 'showUserDes' : ElementRef
   @ViewChild('clickParent') 'clickParent' : ElementRef
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
+  @ViewChild('emailTextValue') 'emailTextValue' : ElementRef
+  @ViewChild('textareaValue') 'textareaValue' : ElementRef
 
   dashbordNameLists : any = []
 
@@ -57,6 +61,56 @@ export class ContactComponent implements OnInit{
    
     }
     
+    
+  }
+
+  myFormGroup = new FormGroup({
+    email : new FormControl(''),
+    textarea : new FormControl(''),
+  })
+
+  emailRegex = /^(\w+@\w{5}\.)\w{3}$/g
+
+  submitComment(){
+
+    console.log(this.myFormGroup.value.email);
+    console.log(this.myFormGroup.value.textarea);
+
+    if(this.myFormGroup.value.email && this.myFormGroup.value.textarea){
+      if(!this.emailRegex.test(this.myFormGroup.value.email)){
+        Swal.fire(
+          {
+            title: 'متاسفم !',
+            text : '  فرمت ایمیل وارد شده اشتباه است !',
+            confirmButtonText: 'متوجه شدم ',
+            icon : 'error'
+          }
+        )
+      }else{
+        Swal.fire(
+          {
+            title: 'تبریک',
+            text : ' نظر و پیشنهاد شما با موفقیت ارسال شد',
+            confirmButtonText: 'متوجه شدم',
+            icon : 'success'
+          }
+        ).then((res)=>{
+          if(res){
+            this.emailTextValue.nativeElement.value = ''
+            this.textareaValue.nativeElement.value = ''
+          }
+      })
+      }
+    }else{
+      Swal.fire(
+        {
+          title: 'متاسفم !',
+          text : ' لطفا اطلاعات مورد نظر را کامل کنید',
+          confirmButtonText: 'متوجه شدم ',
+          icon : 'error'
+        }
+      )
+    }
     
   }
   

@@ -110,10 +110,10 @@
           <h2 class="contacts-container-right-box-header-title">پیام به پشتیبانی</h2>
         </div>
         <p class="contacts-container-right-box-header-text">نظرات، مشکلات و پیشنهادهایتان را برای ما بنویسید.</p>
-        <form action="" class="contacts-container-right-box-header-form">  
-          <input class="contacts-container-right-box-header-input" type="text" placeholder="لطفا ایمیل خود را وارد کنید">
-          <textarea class="contacts-container-right-box-header-textarea" name="" id="" cols="30" rows="10" placeholder="نظرات خود را اینجا بنویسید ..."></textarea>
-          <button class="contacts-container-right-box-header-btn">ارسال پیام</button>
+        <form action="" [formGroup]="myFormGroup" (ngSubmit)="submitComment()" class="contacts-container-right-box-header-form" form>  
+          <input formControlName="email" #emailTextValue class="contacts-container-right-box-header-input" type="text" placeholder="لطفا ایمیل خود را وارد کنید">
+          <textarea formControlName="textarea" #textareaValue class="contacts-container-right-box-header-textarea" name="" id="" cols="30" rows="10" placeholder="نظرات خود را اینجا بنویسید ..."></textarea>
+          <button type="submit" class="contacts-container-right-box-header-btn">ارسال پیام</button>
         </form>
       </div>
       
@@ -124,10 +124,10 @@
           <i class="fas fa-location-dot contacts-container-left-header-icon"></i>
           <h2 class="contacts-container-left-box-header-title"> آدرس</h2>
         </div>
-        <p class="contacts-container-left-box-header-subtitle">تهران - خیابان شریعتی - پایین از تقاطع صدر - پلاک 1546</p>
+        <p class="contacts-container-left-box-header-subtitle">تهران - خیابان شریعتی - پایین از تقاطع صدر - روبروی سوپر تهران - پلاک 1546</p>
         <div >
           <img class="contacts-container-left-box-header-image" src="../../assets/map.webp" alt="" srcset="">
-          <a href="" class="contacts-container-left-box-header-link">مسیریابی با نقشه</a>
+          <a  href="https://balad.ir/p/PrJaDsosKlXvus" class="contacts-container-left-box-header-link">مسیریابی با نقشه</a>
         </div>
       </div>
     </div>
