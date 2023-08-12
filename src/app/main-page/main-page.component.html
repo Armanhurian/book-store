@@ -71,22 +71,22 @@
          <a (click)="showCategoryList($event)" href="" class="navbar-list-item-category-link"><i class="fas fa-layer-group category-icon"></i>دسته بندی ها <i style="margin-right: 0.2rem;" class="fas fa-caret-down navbar-icon-down"></i></a>
          <div #categoriesList class="categories-Book-list-container">
           <ul class="categories-Book-list">
-            <a routerLink="" class="categories-Book-list-link">
+            <a routerLink="/computers-book" class="categories-Book-list-link">
               <li class="categories-Book-item">برنامه نویسی و کامپیوتر</li>
             </a>
-            <a routerLink="" class="categories-Book-list-link">
+            <a routerLink="/science-book" class="categories-Book-list-link">
               <li class="categories-Book-item">کتاب های علمی</li>
             </a>
-            <a routerLink="" class="categories-Book-list-link">
+            <a routerLink="/education-book" class="categories-Book-list-link">
               <li class="categories-Book-item">کتاب های آموزشی</li>
             </a>
-            <a routerLink="" class="categories-Book-list-link">
+            <a routerLink="/historical-book" class="categories-Book-list-link">
                 <li class="categories-Book-item">کتاب های تاریخی</li>
             </a>
-            <a routerLink="" class="categories-Book-list-link">
+            <a routerLink="/romance-book" class="categories-Book-list-link">
               <li class="categories-Book-item">داستان و رمان</li>
             </a>
-            <a routerLink="" class="categories-Book-list-link">
+            <a routerLink="/teach-languages-book" class="categories-Book-list-link">
               <li class="categories-Book-item">آموزش زبان خارجه</li>    
             </a>
           </ul>
@@ -102,7 +102,6 @@
 </div>
 </header>
 
-
 <div>
   <img class="cover-image" src="../../assets/بهترین-کتاب-برای-زنان-خانه-دار.jpg" alt="" srcset="">
 </div>
@@ -115,7 +114,7 @@
   </div>
     <div class="categories-Book-container">
       <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-        <a class="categories-Book-box-link" href="">
+        <a class="categories-Book-box-link" routerLink="/computers-book">
          <div class="img"><img class="categories-Book-images" src="../../assets/Capture-computerr.PNG" alt="" srcset=""></div>
          <div class="info">
            <h3 style="font-family: yekan;">برنامه نویسی و کامپیوتر</h3>
@@ -124,7 +123,7 @@
         </a>
       </div>
       <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-        <a class="categories-Book-box-link" href="">
+        <a class="categories-Book-box-link" routerLink="/science-book">
          <div class="img"><img class="categories-Book-images" src="../../assets/Capture-science.PNG" alt="" srcset=""></div>
          <div class="info">
            <h3 style="font-family: yekan;"> کتاب های علمی</h3>
@@ -133,7 +132,7 @@
         </a>
       </div>
       <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-        <a class="categories-Book-box-link" href="">
+        <a class="categories-Book-box-link" routerLink="/education-book">
          <div class="img"><img class="categories-Book-images" src="../../assets/Capture-education.PNG" alt="" srcset=""></div>
          <div class="info">
            <h3 style="font-family: yekan;">کتاب های آموزشی</h3>
@@ -147,7 +146,7 @@
      <div class="categories-Book-container">
        
        <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-         <a class="categories-Book-box-link" href="">
+         <a class="categories-Book-box-link" routerLink="/romance-book">
           <div class="img"><img class="categories-Book-images" src="../../assets/Capture-romance.PNG" alt="" srcset=""></div>
           <div class="info">
             <h3 style="font-family: yekan;">داستان و رمان</h3>
@@ -156,7 +155,7 @@
          </a>
        </div>
        <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-         <a class="categories-Book-box-link" href="">
+         <a class="categories-Book-box-link" routerLink="/historical-book">
           <div class="img"><img class="categories-Book-images" src="../../assets/Capture-history.PNG" alt="" srcset=""></div>
           <div class="info">
             <h3 style="font-family: yekan;">کتاب های تاریخی</h3>
@@ -165,7 +164,7 @@
          </a>
        </div>
        <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-         <a class="categories-Book-box-link" href="">
+         <a class="categories-Book-box-link" routerLink="/teach-languages-book">
           <div class="img"><img class="categories-Book-images" src="../../assets/Capture-teach-languages.PNG" alt="" srcset=""></div>
           <div class="info">
             <h3 style="font-family: yekan;">آموزش زبان خارجه</h3>
@@ -183,7 +182,7 @@
   <div >
     <div class="categories-Book-description">
       <h2 class="categories-Book-title">  برنامه نویسی و کامپیوتر </h2>
-      <a class="categories-Book-link-watch" href="">
+      <a class="categories-Book-link-watch" routerLink="/computers-book">
         مشاهده همه 
         <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
       </a>
@@ -204,7 +203,7 @@
   <div>
     <div class="categories-Book-description">
       <h2 class="categories-Book-title"> کتاب های علمی </h2>
-      <a class="categories-Book-link-watch" href="">
+      <a class="categories-Book-link-watch" routerLink="/science-book">
         مشاهده همه 
         <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
       </a>
@@ -225,7 +224,7 @@
   <div>
     <div class="categories-Book-description">
       <h2 class="categories-Book-title">  کتاب های آموزشی </h2>
-      <a class="categories-Book-link-watch" href="">
+      <a class="categories-Book-link-watch" routerLink="/education-book">
         مشاهده همه 
         <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
       </a>
@@ -245,7 +244,7 @@
   <div>
     <div class="categories-Book-description">
       <h2 class="categories-Book-title"> کتاب های تاریخی </h2>
-      <a class="categories-Book-link-watch" href="">
+      <a class="categories-Book-link-watch" routerLink="/historical-book">
         مشاهده همه 
         <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
       </a>
@@ -265,7 +264,7 @@
   <div>
     <div class="categories-Book-description">
       <h2 class="categories-Book-title"> داستان و رمان </h2>
-      <a class="categories-Book-link-watch" href="">
+      <a class="categories-Book-link-watch" routerLink="/romance-book">
         مشاهده همه 
         <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
       </a>
@@ -286,7 +285,7 @@
   <div>
     <div class="categories-Book-description">
       <h2 class="categories-Book-title"> آموزش زبان خارجه </h2>
-      <a class="categories-Book-link-watch" href="">
+      <a class="categories-Book-link-watch" routerLink="/teach-languages-book">
         مشاهده همه 
         <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
       </a>

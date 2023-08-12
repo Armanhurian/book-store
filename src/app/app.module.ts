@@ -12,7 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
-import { NotFoundComponent } from './not-found/not-found.component'
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ComputerPageComponent } from './computer-page/computer-page.component';
+import { EducationPageComponent } from './education-page/education-page.component';
+import { SciencePageComponent } from './science-page/science-page.component';
+import { RomancePageComponent } from './romance-page/romance-page.component';
+import { HistoricalPageComponent } from './historical-page/historical-page.component';
+import { LanguagesPageComponent } from './languages-page/languages-page.component'
 
 const routes : Routes = [
   {path : '' , children : [
@@ -23,6 +29,12 @@ const routes : Routes = [
     {path : 'main' , component : MainPageComponent},
     {path : 'about-us' , component : AboutUsComponent},
     {path : 'contact' , component : ContactComponent},
+    {path : 'computers-book' , component : ComputerPageComponent},
+    {path : 'science-book' , component : SciencePageComponent},
+    {path : 'education-book' , component : EducationPageComponent},
+    {path : 'historical-book' , component : HistoricalPageComponent},
+    {path : 'romance-book' , component : RomancePageComponent},
+    {path : 'teach-languages-book' , component : LanguagesPageComponent},
     {path : '404' , component : NotFoundComponent},
     {path : '**' , redirectTo : '/404'},
   ]},
@@ -38,7 +50,13 @@ const routes : Routes = [
     MainPageComponent,
     AboutUsComponent,
     ContactComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ComputerPageComponent,
+    EducationPageComponent,
+    SciencePageComponent,
+    RomancePageComponent,
+    HistoricalPageComponent,
+    LanguagesPageComponent
   ],
   imports: [
     BrowserModule,
