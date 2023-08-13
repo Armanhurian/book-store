@@ -1,5 +1,124 @@
 @import '../../../navbar.css';
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+@font-face {
+    font-family: vazir;
+    src: url(../../assets/Farsi-Digits-Non-Latin/fonts/webfonts/Vazirmatn-RD-FD-NL-Black.woff2);
+}
+.section-category-container{
+    font-family: yekan;
+    margin-top: 2.5rem;
+    padding: 0 4rem;
+}
+.section-category-filtered-container{
+    
+    border:  1px solid #d4d4d4;
+    border-radius: 0.5rem;
+    padding: 0 1.1rem;
+    width: 17rem;
+}
+.section-category-filtered-box-header{
+    border-bottom:  1px solid #d4d4d4;
+}
+.section-category-filtered-price-range-box{
+    display: flex;
+    flex-direction: column;
+}
+.section-category-filtered-offer-product-box ,.section-category-filtered-send-special-product-box ,.section-category-filtered-price-title-sub-box{
+    margin: 0.6rem 0;
+}
+.section-category-filtered-offer-product-box-text ,.section-category-filtered-send-special-title ,.section-category-filtered-price-box-title,.section-category-filtered-send-special-checkbox ,.section-category-filtered-price-box-icon ,.section-category-filtered-offer-product-box-checkbox{
+    cursor: pointer;
+    margin: 1rem 0;
+}
+.section-category-filtered-price-box-icon{
+    color: #333;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+.section-category-filtered-box-header-title {
+    font-size: 1.1rem;
+    color: #333;
+}
+.section-category-filtered-box-header-icon{
+    color: #333;
+}
+.checkbox-container{
+    position: relative;
+}
+.section-category-filtered-offer-product-box-checkbox{
+    position: absolute;
+    visibility: hidden;
+}
+.checkBox-offer-lable{
+    position: absolute;
+    left: 0;
+    width  : 50px;
+    height: 1.2rem;
+    cursor : pointer;
+    border-radius : 25px;
+    background-color: white;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 0 5px #d4d4d4;
+}
+.section-category-filtered-offer-product-box-checkbox:checked + .checkBox-offer-lable{  
+    background-color: #053a5f;
+}
+.section-category-filtered-offer-product-box-checkbox:checked::after{
+    left: 45px;    
+    background-color: #fff;
+}
+
+.section-category-filtered-offer-product-box-checkbox::after{
+    content: "";
+    position: absolute;
+    transition: all 200ms ease;
+    left: 15px;
+    z-index: 2;
+    width: 16px;
+    height: 16px;
+    visibility: visible;
+    background-color: #d4d4d4;
+    border-radius: 50%;
+}
+.checkbox-second-container{
+    position: relative;
+}
+.section-category-filtered-send-special-checkbox{
+    position: absolute;
+    visibility: hidden;
+}
+.checkBox-send-special-lable{
+    position: absolute;
+    left: 0;
+    width  : 50px;
+    height: 1.2rem;
+    cursor : pointer;
+    border-radius : 25px;
+    background-color: white;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 0 5px #d4d4d4;
+}
+.section-category-filtered-send-special-checkbox:checked + .checkBox-send-special-lable{  
+    background-color: #053a5f;
+}
+.section-category-filtered-send-special-checkbox:checked::after{
+    left: 45px;    
+    background-color: #fff;
+}
+
+.section-category-filtered-send-special-checkbox::after{
+    content: "";
+    position: absolute;
+    transition: all 200ms ease;
+    left: 15px;
+    z-index: 2;
+    width: 16px;
+    height: 16px;
+    visibility: visible;
+    background-color: #d4d4d4;
+    border-radius: 50%;
+}
 
 
 input[type="range"]::-moz-range-thumb {
@@ -14,7 +133,8 @@ input[type="range"] {
      appearance: none;
      background: transparent;
      cursor: pointer;
-     width: 15rem;
+     width: 100%;
+     margin-bottom: 1rem;
  }
  
 input[type="range"]:focus {
@@ -62,4 +182,38 @@ input[type="range"]:focus::-moz-range-thumb {
    outline: 3px solid #053a5f;
    outline-offset: 0.125rem; 
 }
- 
+.section-category-filtered-price-range-label{
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+.section-category-filtered-price-text-input::placeholder{
+    font-size: 0.8rem;
+    
+}
+.section-category-filtered-price-range-box{
+    position: relative;
+    display: none;
+}
+.text-in-input1{
+    position: absolute;
+    top: 3.4rem;
+    left: 0.4rem;
+    font-size: 0.8rem;
+    color: #7d7d7d;
+}
+.text-in-input2{
+    position: absolute;
+    top: 8rem;
+    left: 0.4rem;
+    color: #7d7d7d;
+    font-size: 0.8rem;
+}
+.section-category-filtered-price-text-input{
+
+    margin-bottom: 0.7rem;
+    outline: none;
+    padding: 0.2rem 0.4rem;
+    border: 1px solid #bbb;
+    border-radius: 0.4rem;
+    font-family: vazir;
+}

@@ -9,6 +9,10 @@ export class ComputerPageComponent implements OnInit{
   @ViewChild('showUserDes') 'showUserDes' : ElementRef
   @ViewChild('clickParent') 'clickParent' : ElementRef
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
+  @ViewChild('showPriceContainer') 'showPriceContainer' : ElementRef
+  @ViewChild('inputElemMinPrice') 'inputElemMinPrice' : ElementRef
+  @ViewChild('inputElemMaxPrice') 'inputElemMaxPrice' : ElementRef
+
 
   dashbordNameLists : any = []
 
@@ -43,6 +47,30 @@ export class ComputerPageComponent implements OnInit{
     }
     
   }
+
+  clickIconHandle(){
+
+    if(this.showPriceContainer.nativeElement.style.display !== 'flex'){
+
+      this.showPriceContainer.nativeElement.style.display = 'flex'
+
+    }else{
+      
+      this.showPriceContainer.nativeElement.style.display = 'none'
+    }
+    
+    
+  }
+
+  changeInputRange(event:any){
+    console.log(event.target.value/100);
+    let newInputElemMaxPrice = [...this.inputElemMaxPrice.nativeElement.value].filter((item)=> item !== ',')
+    console.log(Number(newInputElemMaxPrice.join('')));
+    
+    this.inputElemMinPrice.nativeElement.value = Math.floor(Number(newInputElemMaxPrice.join('')) * (event.target.value/100))
+   
+  }
+
   showCategoryList(event:any){
     event.preventDefault()
     if(this.categoriesList.nativeElement.style.opacity!== '1'){

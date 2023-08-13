@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 body{
     margin: 0;
-    direction: rtl;
-    
+    direction: rtl;   
 }
+
 body::-webkit-scrollbar{
     background-color: rgba(234, 230, 230, 0.797);
     width: 10px;
