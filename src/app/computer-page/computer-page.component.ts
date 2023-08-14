@@ -1,4 +1,4 @@
-import { Component,OnInit , ElementRef ,ViewChild } from '@angular/core';
+import { Component,OnInit , ElementRef ,ViewChild, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-computer-page',
@@ -10,6 +10,7 @@ export class ComputerPageComponent implements OnInit{
   @ViewChild('clickParent') 'clickParent' : ElementRef
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
   @ViewChild('showPriceContainer') 'showPriceContainer' : ElementRef
+  @ViewChild('changedIcon') 'changedIcon' : ElementRef
   @ViewChild('inputElemMinPrice') 'inputElemMinPrice' : ElementRef
   @ViewChild('inputElemMaxPrice') 'inputElemMaxPrice' : ElementRef
 
@@ -53,10 +54,15 @@ export class ComputerPageComponent implements OnInit{
     if(this.showPriceContainer.nativeElement.style.display !== 'flex'){
 
       this.showPriceContainer.nativeElement.style.display = 'flex'
-
+      this.changedIcon.nativeElement.classList.remove('fa-chevron-down')
+      this.changedIcon.nativeElement.classList.add('fa-chevron-up')
+      
+      
     }else{
       
       this.showPriceContainer.nativeElement.style.display = 'none'
+      this.changedIcon.nativeElement.classList.remove('fa-chevron-up')
+      this.changedIcon.nativeElement.classList.add('fa-chevron-down')
     }
     
     

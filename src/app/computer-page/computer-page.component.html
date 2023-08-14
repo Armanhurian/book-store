@@ -102,8 +102,8 @@
 
 <!-- start body of catogories -->
 
-<div class="section-category-container d-flex">
-  <div class="section-category-filtered-container ">
+<div  class="section-category-container  ">
+  <div  class="section-category-filtered-container ">
     <div class="section-category-filtered-box">
        <div class="section-category-filtered-box-header d-flex">
          <i class="fas fa-sliders section-category-filtered-box-header-icon d-flex align-items-center"></i>
@@ -119,10 +119,10 @@
        <div class="section-category-filtered-price-box">
         <div class="d-flex justify-content-between section-category-filtered-price-title-sub-box">
           <p (click)="clickIconHandle()" class="section-category-filtered-price-box-title  d-flex align-items-center"> فیلتر بر اساس  قیمت</p>
-          <i (click)="clickIconHandle()" class="fas fa-chevron-down section-category-filtered-price-box-icon d-flex align-items-center"></i>
+          <i #changedIcon (click)="clickIconHandle()" class="fas fa-chevron-down section-category-filtered-price-box-icon d-flex align-items-center"></i>
         </div>
         <div #showPriceContainer class="section-category-filtered-price-range-box"> 
-
+  
           <input (change)="changeInputRange($event)" class="section-category-filtered-price-range-input" type="range" value="0"/>
           <label class="section-category-filtered-price-range-label" for="from-price">قیمت از</label>
           <input #inputElemMinPrice id="from-price" value="0" type="text" class="section-category-filtered-price-text-input">
@@ -130,7 +130,7 @@
           <label class="section-category-filtered-price-range-label" for="to-price"> قیمت تا</label>
           <input #inputElemMaxPrice id="to-price" value="650,000" type="text" class="section-category-filtered-price-text-input">   
           <p class="text-in-input2">تومان</p>
-
+  
         </div>
        </div>
        <div class="section-category-filtered-send-special-product-box d-flex justify-content-between">
@@ -142,10 +142,135 @@
        </div>
     </div>
   </div>
-
-  <div class="section-show-products-container ">
-
-  </div>
 </div>
+
+  
+<div class="section-show-products-container row">
+    
+    <a class="col-4 section-show-products-container-linkBox" routerLink="">
+      <div class="section-show-products-box">
+        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
+        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
+          <p class="show-products-second-box-current-price">200,000 تومان</p>
+        </div>
+        <div class="offerBox">
+          <span class="offerBox-title">% 30</span>
+          <p  class="show-products-third-box-prev-price">300,000</p>
+        </div>
+        <div class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+    <a class="col-4 section-show-products-container-linkBox" routerLink="">
+      <div class="section-show-products-box">
+        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
+        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
+          <p class="show-products-second-box-current-price">200,000 تومان</p>
+        </div>
+        <div class="offerBox">
+          <span class="offerBox-title">% 30</span>
+          <p  class="show-products-third-box-prev-price">300,000</p>
+        </div>
+        <div class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+    <a class="col-4 section-show-products-container-linkBox" routerLink="">
+      <div class="section-show-products-box">
+        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
+        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
+          <p class="show-products-second-box-current-price">200,000 تومان</p>
+        </div>
+        <div class="offerBox">
+          <span class="offerBox-title">% 30</span>
+          <p  class="show-products-third-box-prev-price">300,000</p>
+        </div>
+        <div class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+    <a class="col-4 section-show-products-container-linkBox" routerLink="">
+      <div class="section-show-products-box">
+        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
+        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
+          <p class="show-products-second-box-current-price">200,000 تومان</p>
+        </div>
+        <div class="offerBox">
+          <span class="offerBox-title">% 30</span>
+          <p  class="show-products-third-box-prev-price">300,000</p>
+        </div>
+        <div class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+    <a class="col-4 section-show-products-container-linkBox" routerLink="">
+      <div class="section-show-products-box">
+        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
+        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
+          <p class="show-products-second-box-current-price">200,000 تومان</p>
+        </div>
+        <div class="offerBox">
+          <span class="offerBox-title">% 30</span>
+          <p  class="show-products-third-box-prev-price">300,000</p>
+        </div>
+        <div class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+    <a class="col-4 section-show-products-container-linkBox" routerLink="">
+      <div class="section-show-products-box">
+        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
+        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
+          <p class="show-products-second-box-current-price">200,000 تومان</p>
+        </div>
+        <div class="offerBox">
+          <span class="offerBox-title">% 30</span>
+          <p  class="show-products-third-box-prev-price">300,000</p>
+        </div>
+        <div class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+    <a class="col-4 section-show-products-container-linkBox" routerLink="">
+      <div class="section-show-products-box">
+        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
+        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
+          <p class="show-products-second-box-current-price">200,000 تومان</p>
+        </div>
+        <div class="offerBox">
+          <span class="offerBox-title">% 30</span>
+          <p  class="show-products-third-box-prev-price">300,000</p>
+        </div>
+        <div class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+  
+</div>
+
+
+
+
 
 <!-- finish body of catogories -->
