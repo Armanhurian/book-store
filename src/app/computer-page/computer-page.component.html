@@ -110,9 +110,9 @@
          <p class="section-category-filtered-box-header-title d-flex align-items-center m-3">فیلترها</p>
        </div>
        <div class="section-category-filtered-offer-product-box d-flex justify-content-between">
-         <label for="offer" class="section-category-filtered-offer-product-box-text d-flex align-items-center">کتاب های با تخفیف</label>
-         <div class="checkbox-container d-flex align-items-center">
-           <input class="section-category-filtered-offer-product-box-checkbox d-flex align-items-center" type="checkbox" name="" id="offer">
+         <label #checkBoxOfferLable  for="offer" class="section-category-filtered-offer-product-box-text d-flex align-items-center">کتاب های با تخفیف</label>
+         <div  class="checkbox-container d-flex align-items-center">
+           <input (click)="offerLableClick()" class="section-category-filtered-offer-product-box-checkbox d-flex align-items-center" type="checkbox" name="" id="offer">
            <label for="offer" class="checkBox-offer-lable"></label>
          </div>
        </div>
@@ -147,130 +147,26 @@
   
 <div class="section-show-products-container row">
     
-    <a class="col-4 section-show-products-container-linkBox" routerLink="">
-      <div class="section-show-products-box">
-        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
-        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
-        <div class="show-products-second-box">
-          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
-          <p class="show-products-second-box-current-price">200,000 تومان</p>
-        </div>
-        <div class="offerBox">
-          <span class="offerBox-title">% 30</span>
-          <p  class="show-products-third-box-prev-price">300,000</p>
-        </div>
-        <div class="show-products-third-box">
-          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
-        </div>
-      </div> 
-    </a>
-    <a class="col-4 section-show-products-container-linkBox" routerLink="">
-      <div class="section-show-products-box">
-        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
-        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
-        <div class="show-products-second-box">
-          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
-          <p class="show-products-second-box-current-price">200,000 تومان</p>
-        </div>
-        <div class="offerBox">
-          <span class="offerBox-title">% 30</span>
-          <p  class="show-products-third-box-prev-price">300,000</p>
-        </div>
-        <div class="show-products-third-box">
-          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
-        </div>
-      </div> 
-    </a>
-    <a class="col-4 section-show-products-container-linkBox" routerLink="">
-      <div class="section-show-products-box">
-        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
-        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
-        <div class="show-products-second-box">
-          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
-          <p class="show-products-second-box-current-price">200,000 تومان</p>
-        </div>
-        <div class="offerBox">
-          <span class="offerBox-title">% 30</span>
-          <p  class="show-products-third-box-prev-price">300,000</p>
-        </div>
-        <div class="show-products-third-box">
-          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
-        </div>
-      </div> 
-    </a>
-    <a class="col-4 section-show-products-container-linkBox" routerLink="">
-      <div class="section-show-products-box">
-        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
-        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
-        <div class="show-products-second-box">
-          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
-          <p class="show-products-second-box-current-price">200,000 تومان</p>
-        </div>
-        <div class="offerBox">
-          <span class="offerBox-title">% 30</span>
-          <p  class="show-products-third-box-prev-price">300,000</p>
-        </div>
-        <div class="show-products-third-box">
-          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
-        </div>
-      </div> 
-    </a>
-    <a class="col-4 section-show-products-container-linkBox" routerLink="">
-      <div class="section-show-products-box">
-        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
-        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
-        <div class="show-products-second-box">
-          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
-          <p class="show-products-second-box-current-price">200,000 تومان</p>
-        </div>
-        <div class="offerBox">
-          <span class="offerBox-title">% 30</span>
-          <p  class="show-products-third-box-prev-price">300,000</p>
-        </div>
-        <div class="show-products-third-box">
-          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
-        </div>
-      </div> 
-    </a>
-    <a class="col-4 section-show-products-container-linkBox" routerLink="">
-      <div class="section-show-products-box">
-        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
-        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
-        <div class="show-products-second-box">
-          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
-          <p class="show-products-second-box-current-price">200,000 تومان</p>
-        </div>
-        <div class="offerBox">
-          <span class="offerBox-title">% 30</span>
-          <p  class="show-products-third-box-prev-price">300,000</p>
-        </div>
-        <div class="show-products-third-box">
-          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
-        </div>
-      </div> 
-    </a>
-    <a class="col-4 section-show-products-container-linkBox" routerLink="">
-      <div class="section-show-products-box">
-        <img class="productImage" src="../../assets/product-images/104523.jpg" alt="" srcset="">
-        <h5 class="section-show-products-box-title">جنگ تا پیروزی</h5>
-        <div class="show-products-second-box">
-          <p class="show-products-second-box-creator">امیرعباس هویدا</p>
-          <p class="show-products-second-box-current-price">200,000 تومان</p>
-        </div>
-        <div class="offerBox">
-          <span class="offerBox-title">% 30</span>
-          <p  class="show-products-third-box-prev-price">300,000</p>
-        </div>
-        <div class="show-products-third-box">
-          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
-        </div>
-      </div> 
-    </a>
   
-</div>
+    <a *ngFor="let product of products"  class="col-4 section-show-products-container-linkBox" [routerLink]="product.id">
+      <div class="section-show-products-box">
+        <img class="productImage" [src]="product.image" alt="" srcset="">
+        <h5 class="section-show-products-box-title">{{product.title}}</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">{{product.creator}}</p>
+          <p class="show-products-second-box-current-price">{{product.price}} تومان</p>
+        </div>
+        <div *ngIf="product.Discount" class="offerBox">
+          <span class="offerBox-title">% {{product.Discount}}</span>
+          <p class="show-products-third-box-prev-price">{{ ((100 * product.price) / (100 - product.Discount)).toFixed() }} تومان</p>
+        </div>
+        <div *ngIf="product.fastSending" class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+    
+  </div>
 
-
-
-
-
+  
 <!-- finish body of catogories -->

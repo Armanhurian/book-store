@@ -78,22 +78,22 @@ export class MainPageComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.myComputerTypeProducts = this.Products.computerProductsInMainPage
+    this.myComputerTypeProducts = this.Products.computerProductsInMainPage.slice(0,10)
 
 
-    this.myScienceBookTypeProducts = this.Products.scienceProductsInMainPage
+    this.myScienceBookTypeProducts = this.Products.scienceProductsInMainPage.slice(0,10)
 
 
-    this.myEducationBookTypeProducts = this.Products.educationProductsInMainPage
+    this.myEducationBookTypeProducts = this.Products.educationProductsInMainPage.slice(0,10)
 
 
-    this.myHistoricalBookTypeProducts = this.Products.historicalProductsInMainPage
+    this.myHistoricalBookTypeProducts = this.Products.historicalProductsInMainPage.slice(0,10)
 
 
-    this.myRomanceBookTypeProducts = this.Products.romanceProductsInMainPage
+    this.myRomanceBookTypeProducts = this.Products.romanceProductsInMainPage.slice(0,10)
 
 
-    this.myLanguagesBookTypeProducts = this.Products.languagesProductsInMainPage
+    this.myLanguagesBookTypeProducts = this.Products.languagesProductsInMainPage.slice(0,10)
     
     this.dashbordNameFunc()
       

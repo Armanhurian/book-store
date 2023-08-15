@@ -18,7 +18,8 @@ import { EducationPageComponent } from './education-page/education-page.componen
 import { SciencePageComponent } from './science-page/science-page.component';
 import { RomancePageComponent } from './romance-page/romance-page.component';
 import { HistoricalPageComponent } from './historical-page/historical-page.component';
-import { LanguagesPageComponent } from './languages-page/languages-page.component'
+import { LanguagesPageComponent } from './languages-page/languages-page.component';
+import { BuyProductPageComponent } from './buy-product-page/buy-product-page.component'
 
 const routes : Routes = [
   {path : '' , children : [
@@ -29,12 +30,15 @@ const routes : Routes = [
     {path : 'main' , component : MainPageComponent},
     {path : 'about-us' , component : AboutUsComponent},
     {path : 'contact' , component : ContactComponent},
-    {path : 'computers-book' , component : ComputerPageComponent},
+    {path : 'computers-book' , children : [
+      {path : '' , component : ComputerPageComponent},
+      {path : ':id' , component : BuyProductPageComponent},
+    ]},
     {path : 'science-book' , component : SciencePageComponent},
     {path : 'education-book' , component : EducationPageComponent},
     {path : 'historical-book' , component : HistoricalPageComponent},
     {path : 'romance-book' , component : RomancePageComponent},
-    {path : 'teach-languages-book' , component : LanguagesPageComponent},
+    {path : 'teach-languages-book' , component : LanguagesPageComponent },
     {path : '404' , component : NotFoundComponent},
     {path : '**' , redirectTo : '/404'},
   ]},
@@ -56,7 +60,8 @@ const routes : Routes = [
     SciencePageComponent,
     RomancePageComponent,
     HistoricalPageComponent,
-    LanguagesPageComponent
+    LanguagesPageComponent,
+    BuyProductPageComponent
   ],
   imports: [
     BrowserModule,

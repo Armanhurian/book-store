@@ -224,7 +224,7 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .section-show-products-container{
-    padding: 2rem;
+    padding: 0 2rem;
     width: 70%;
     height: auto;
     display: flex;
@@ -250,11 +250,17 @@ input[type="range"]:focus::-moz-range-thumb {
 .productImage{
     width: 100%;
     border-radius: 0.4rem;
+    height: 17rem;
+}
+.checkBoxActive{
+    border-bottom: 2px solid blue;
 }
 .section-show-products-box-title{
     margin: 1rem;
     text-align: center;
     color: #212529;
+    font-size: 1.04rem;
+    line-height: 2rem;
 }
 .show-products-second-box{
     margin:  0;
