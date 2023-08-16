@@ -123,12 +123,12 @@
         </div>
         <div #showPriceContainer class="section-category-filtered-price-range-box"> 
   
-          <input (change)="changeInputRange($event)" class="section-category-filtered-price-range-input" type="range" value="0"/>
+          <input #inputRangeElemPrice (change)="changeInputRange($event)" class="section-category-filtered-price-range-input" type="range" value="0"/>
           <label class="section-category-filtered-price-range-label" for="from-price">قیمت از</label>
           <input #inputElemMinPrice id="from-price" value="0" type="text" class="section-category-filtered-price-text-input">
           <p class="text-in-input1">تومان</p>
           <label class="section-category-filtered-price-range-label" for="to-price"> قیمت تا</label>
-          <input #inputElemMaxPrice id="to-price" value="650,000" type="text" class="section-category-filtered-price-text-input">   
+          <input #inputElemMaxPrice id="to-price" value="250,000" type="text" class="section-category-filtered-price-text-input">   
           <p class="text-in-input2">تومان</p>
   
         </div>
@@ -145,7 +145,7 @@
 </div>
 
   
-<div class="section-show-products-container row">
+<div *ngIf="products.length ; else noProduct" class="section-show-products-container row">
     
   
     <a *ngFor="let product of products"  class="col-4 section-show-products-container-linkBox" [routerLink]="product.id">
@@ -167,6 +167,10 @@
     </a>
     
   </div>
+  <ng-template #noProduct>
+   <img class="photo-not-available" src="../../assets/not-available.jfif" alt="" srcset="">
+   <span class="my-special-alert">کتابی یافت نشد !!</span>
+  </ng-template>
 
   
 <!-- finish body of catogories -->

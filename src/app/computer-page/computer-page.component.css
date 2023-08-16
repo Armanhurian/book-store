@@ -255,6 +255,21 @@ input[type="range"]:focus::-moz-range-thumb {
 .checkBoxActive{
     border-bottom: 2px solid blue;
 }
+.my-special-alert{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin: 1rem 0;
+    font-family: vazir;
+}
+.photo-not-available{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin:  0 auto;
+    width: 20%;
+    margin-top: 5rem;
+}
 .section-show-products-box-title{
     margin: 1rem;
     text-align: center;

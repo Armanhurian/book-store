@@ -8,7 +8,7 @@ export class ProductService {
 
   constructor() { }
 
-  computerProductsInMainPage:object[] = [
+  computerProductsInMainPage:any[] = [
     {
       id : 1 ,
       title : "توسعه دهنده کامپیوتر و تایپ اسکریپت" ,
@@ -26,7 +26,7 @@ export class ProductService {
     {
       id : 2 ,
       title : " شما js را نمی شناسید " ,
-      price : 89000,
+      price : 75000,
       creator : "کایله سیمپسون",
       type : " برنامه نویسی و کامپیوتر ",
       image : ".././../assets/product-images/91dn7PZgDGL._AC_UL900_SR615,900_.jpg",
@@ -40,7 +40,7 @@ export class ProductService {
     {
       id : 3 ,
       title : "بخش های خوب جاوا اسکریپت" ,
-      price : 135000,
+      price : 66000,
       creator : "داگلاس کراکفورد",
       type : "برنامه نویسی و کامپیوتر ",
       image : ".././../assets/product-images/81kqrwS1nNL.jpg",
@@ -68,7 +68,7 @@ export class ProductService {
     {
       id : 5 ,
       title : " الگوهای طراحی جاوا اسکریپت" ,
-      price : 80000,
+      price : 50000,
       creator : "آدی عثمانی",
       type :"برنامه نویسی و کامپیوتر " ,
       image : ".././../assets/product-images/91WlvEND3rL._AC_UF1000,1000_QL80_.jpg",
@@ -98,7 +98,7 @@ export class ProductService {
     {
       id : 7 ,
       title : " آموزش نکست جی اس " ,
-      price : 100000,
+      price : 35000,
       creator : "آدام بودوچ",
       type : "برنامه نویسی و کامپیوتر",
       image : ".././../assets/product-images/Boduch-Next-MEAP-HI.png",
@@ -112,7 +112,7 @@ export class ProductService {
     {
       id : 8 ,
       title : " پروژه های انگولار" ,
-      price : 110000,
+      price : 180000,
       creator : "مارک تامپسون",
       type : "برنامه نویسی و کامپیوتر",
       image : ".././../assets/product-images/n7xb6wcjqdjojdcqtfyy.jfif",
@@ -182,7 +182,7 @@ export class ProductService {
     {
       id : 13 ,
       title : " آموزش ساخت گیت" ,
-      price : 125000,
+      price : 65000,
       creator : "ناتاله وینتو",
       type : "برنامه نویسی و کامپیوتر",
       image : ".././../assets/product-images/2023_Gitops_Cookbook_Coverart.png",

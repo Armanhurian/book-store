@@ -13,6 +13,7 @@ export class ComputerPageComponent implements OnInit{
   @ViewChild('showPriceContainer') 'showPriceContainer' : ElementRef
   @ViewChild('changedIcon') 'changedIcon' : ElementRef
   @ViewChild('checkBoxOfferLable') 'checkBoxOfferLable' : ElementRef
+  @ViewChild('inputRangeElemPrice') 'inputRangeElemPrice' : ElementRef
   @ViewChild('inputElemMinPrice') 'inputElemMinPrice' : ElementRef
   @ViewChild('inputElemMaxPrice') 'inputElemMaxPrice' : ElementRef
 
@@ -26,10 +27,12 @@ export class ComputerPageComponent implements OnInit{
 
   currentPrices : number[] = []
   
-  products : any[] = []
-
+  products : any[] = [] ;
+  
   offerFilteredProducts : any[] = []
-
+  
+  rangePriceFilteredProducts : any[] = []
+  
 
   dashbordNameFunc(){
     this.dashbordNameLists.push(localStorage.getItem('dashbordName'))
@@ -78,14 +81,7 @@ export class ComputerPageComponent implements OnInit{
     
   }
 
-  changeInputRange(event:any){
-    console.log(event.target.value/100);
-    let newInputElemMaxPrice = [...this.inputElemMaxPrice.nativeElement.value].filter((item)=> item !== ',')
-    console.log(Number(newInputElemMaxPrice.join('')));
-    
-    this.inputElemMinPrice.nativeElement.value = Math.floor(Number(newInputElemMaxPrice.join('')) * (event.target.value/100))
-   
-  }
+  
 
   showCategoryList(event:any){
     event.preventDefault()
@@ -102,6 +98,8 @@ export class ComputerPageComponent implements OnInit{
     
     
   }
+
+  
   
   
   ngOnInit(): void {
@@ -118,7 +116,8 @@ export class ComputerPageComponent implements OnInit{
 
     console.log('offer click shod');
 
-    this.offerFilteredProducts =  this.products.filter(item => item.Discount !== 0)
+    this.offerFilteredProducts =  this.productService.computerProductsInMainPage.filter(item => item.Discount !== 0)
+    
 
     if(!this.checkBoxOfferLable.nativeElement.className.includes('checkBoxActive')){
 
@@ -126,15 +125,45 @@ export class ComputerPageComponent implements OnInit{
 
       this.products = this.offerFilteredProducts
 
+      if(this.inputElemMinPrice.nativeElement.value != 0){
+
+        this.products = this.offerFilteredProducts.filter(item => item.price >= Number(this.inputElemMinPrice.nativeElement.value))
+        
+      }
+      
       
     }else{
       
       this.checkBoxOfferLable.nativeElement.classList.remove('checkBoxActive')
       
       this.products = this.productService.computerProductsInMainPage
+
+      if(this.inputElemMinPrice.nativeElement.value != 0){
+
+        this.products = this.productService.computerProductsInMainPage.filter(item => item.price >= Number(this.inputElemMinPrice.nativeElement.value))
+        
+      }
     }
     
      
   }
 
+  changeInputRange(event:any){
+
+    let newInputElemMaxPrice = [...this.inputElemMaxPrice.nativeElement.value].filter((item)=> item !== ',')
+  
+    this.inputElemMinPrice.nativeElement.value = Math.floor(Number(newInputElemMaxPrice.join('')) * (event.target.value/100))
+    
+    this.rangePriceFilteredProducts = this.productService.computerProductsInMainPage.filter( item => item.price >= Number(this.inputElemMinPrice.nativeElement.value))
+    
+    this.products = this.rangePriceFilteredProducts
+   
+
+    if(this.checkBoxOfferLable.nativeElement.className.includes('checkBoxActive')){
+
+      this.products = this.rangePriceFilteredProducts.filter(item => item.Discount !== 0)
+      
+    }
+  }
+  
 }
