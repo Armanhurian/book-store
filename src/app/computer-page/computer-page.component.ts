@@ -1,5 +1,6 @@
 import { Component,OnInit , ElementRef ,ViewChild, HostListener } from '@angular/core';
 import { ProductService } from '../services/product.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-computer-page',
@@ -12,14 +13,19 @@ export class ComputerPageComponent implements OnInit{
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
   @ViewChild('showPriceContainer') 'showPriceContainer' : ElementRef
   @ViewChild('changedIcon') 'changedIcon' : ElementRef
+  @ViewChild('offerLableChanged') 'offerLableChanged' : ElementRef
+  @ViewChild('sendSpecialLableChanged') 'sendSpecialLableChanged' : ElementRef
   @ViewChild('checkBoxOfferLable') 'checkBoxOfferLable' : ElementRef
+  @ViewChild('checkBoxSendSpecialLable') 'checkBoxSendSpecialLable' : ElementRef
   @ViewChild('inputRangeElemPrice') 'inputRangeElemPrice' : ElementRef
   @ViewChild('inputElemMinPrice') 'inputElemMinPrice' : ElementRef
   @ViewChild('inputElemMaxPrice') 'inputElemMaxPrice' : ElementRef
+  @ViewChild('myInputSearchValue') 'myInputSearchValue' : ElementRef
 
 
   constructor( private productService : ProductService ){}
 
+  inputSearchText : string = ''
 
   dashbordNameLists : any = []
 
@@ -32,6 +38,8 @@ export class ComputerPageComponent implements OnInit{
   offerFilteredProducts : any[] = []
   
   rangePriceFilteredProducts : any[] = []
+
+  sendSpecialFilteredProducts : any[] = []
   
 
   dashbordNameFunc(){
@@ -81,7 +89,7 @@ export class ComputerPageComponent implements OnInit{
     
   }
 
-  
+
 
   showCategoryList(event:any){
     event.preventDefault()
@@ -99,12 +107,54 @@ export class ComputerPageComponent implements OnInit{
     
   }
 
+  inputSearchValue = new FormGroup({
+
+    searchValue  : new FormControl('')
+    
+  })
+
+  keyUpSearchInput(event:any){
+
+    if(event.target.value){
+
+      this.inputSearchText = event.target.value
+      
+    }else{
+       
+      this.inputSearchText = ''
+      
+    }
+    
+  }
   
+  removeSearch(){
+
+    this.myInputSearchValue.nativeElement.value = ''
+    this.inputSearchText = ''
+    
+  }
   
+  clickSearchHandler(){
+
+    this.inputElemMinPrice.nativeElement.value = 0
+
+    this.inputRangeElemPrice.nativeElement.value = 0
+
+    this.offerLableChanged.nativeElement.checked = false
+
+    this.checkBoxOfferLable.nativeElement.classList.remove('checkBoxActive')
+
+    this.sendSpecialLableChanged.nativeElement.checked = false
+
+    this.checkBoxSendSpecialLable.nativeElement.classList.remove('checkBoxActive')
+
+    this.products = this.productService.computerProductsInMainPage.filter(item => item.title.includes(this.myInputSearchValue.nativeElement.value))
+
+  }
   
   ngOnInit(): void {
 
-    this.dashbordNameFunc()
+    this.dashbordNameFunc()  
     
     this.products = this.productService.computerProductsInMainPage
     
@@ -114,11 +164,8 @@ export class ComputerPageComponent implements OnInit{
 
   offerLableClick(){
 
-    console.log('offer click shod');
-
     this.offerFilteredProducts =  this.productService.computerProductsInMainPage.filter(item => item.Discount !== 0)
     
-
     if(!this.checkBoxOfferLable.nativeElement.className.includes('checkBoxActive')){
 
       this.checkBoxOfferLable.nativeElement.classList.add('checkBoxActive')
@@ -131,6 +178,11 @@ export class ComputerPageComponent implements OnInit{
         
       }
       
+      if(this.checkBoxSendSpecialLable.nativeElement.className.includes('checkBoxActive')){
+
+        this.products = this.products.filter(item => item.fastSending === true)
+
+      }
       
     }else{
       
@@ -142,6 +194,12 @@ export class ComputerPageComponent implements OnInit{
 
         this.products = this.productService.computerProductsInMainPage.filter(item => item.price >= Number(this.inputElemMinPrice.nativeElement.value))
         
+      }
+
+      if(this.checkBoxSendSpecialLable.nativeElement.className.includes('checkBoxActive')){
+
+        this.products = this.products.filter(item => item.fastSending === true)
+
       }
     }
     
@@ -164,6 +222,57 @@ export class ComputerPageComponent implements OnInit{
       this.products = this.rangePriceFilteredProducts.filter(item => item.Discount !== 0)
       
     }
+
+    if(this.checkBoxSendSpecialLable.nativeElement.className.includes('checkBoxActive')){
+
+      this.products = this.products.filter(item => item.fastSending === true)
+
+    }
   }
   
+  sendSpecialClick(){
+
+    this.sendSpecialFilteredProducts = this.productService.computerProductsInMainPage.filter(item => item.fastSending === true)
+
+
+    
+    if(!this.checkBoxSendSpecialLable.nativeElement.className.includes('checkBoxActive')){
+      
+      this.checkBoxSendSpecialLable.nativeElement.classList.add('checkBoxActive')
+      
+      this.products = this.sendSpecialFilteredProducts 
+
+      if(this.inputElemMinPrice.nativeElement.value != 0){
+
+        this.products = this.sendSpecialFilteredProducts.filter(item => item.price >= Number(this.inputElemMinPrice.nativeElement.value))
+        
+      }
+
+      if(this.checkBoxOfferLable.nativeElement.className.includes('checkBoxActive')){
+
+        this.products = this.products.filter(item => item.Discount !== 0)
+
+      }
+      
+    }else{
+      
+      this.checkBoxSendSpecialLable.nativeElement.classList.remove('checkBoxActive')
+      
+      this.products = this.productService.computerProductsInMainPage
+
+      if(this.inputElemMinPrice.nativeElement.value != 0){
+
+        this.products = this.productService.computerProductsInMainPage.filter(item => item.price >= Number(this.inputElemMinPrice.nativeElement.value))
+        
+      }
+
+      if(this.checkBoxOfferLable.nativeElement.className.includes('checkBoxActive')){
+
+        this.products = this.products.filter(item => item.Discount !== 0)
+
+      }
+
+    }
+    
+  }
 }
