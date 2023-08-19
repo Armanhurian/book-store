@@ -14,6 +14,106 @@
     justify-content: center;
     width: 100%;
 }
+.user-Icon,.shopping-icon,.user-description-container-link-favorite-icon1,.share-Icon{
+    padding: 0.3rem;
+    position: relative;
+}
+.shopping-icon:hover::after{
+    visibility: visible;
+    opacity: 1;
+}
+.user-Icon:hover::after{
+    visibility: visible;
+    opacity: 1;
+}
+.share-Icon:hover::after{
+    visibility: visible;
+    opacity: 1;
+}
+.user-description-container-link-favorite-icon1:hover::after{
+    visibility: visible;
+    opacity: 1;
+}
+.shopping-icon::after{
+    content:"سبد خرید";
+    position: absolute;
+    top: -1.7rem;
+    right: -0.9rem;
+    border-radius: 0.4rem;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #343a40;
+    color: white;
+    font-size: 0.7rem;
+    width: 60px;
+    padding: 0.4rem 0.5rem;
+    text-align: center;
+    font-family: yekan;
+}
+.shopping-icon::after{
+    content:"سبد خرید";
+    position: absolute;
+    top: -1.7rem;
+    right: -0.9rem;
+    border-radius: 0.4rem;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #343a40;
+    color: white;
+    font-size: 0.7rem;
+    width: 60px;
+    padding: 0.4rem 0.5rem;
+    text-align: center;
+    font-family: yekan;
+}
+.user-description-container-link-favorite-icon1::after{
+    content:"علاقمندی ها";
+    position: absolute;
+    top: -1.7rem;
+    right: -0.9rem;
+    border-radius: 0.4rem;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #dc3545;
+    color: white;
+    font-size: 0.7rem;
+    width: 70px;
+    padding: 0.4rem 0.5rem;
+    text-align: center;
+    font-family: yekan;
+}
+.share-Icon::after{
+    content:" اشتراک گذاری";
+    position: absolute;
+    top: -1.7rem;
+    right: -1.6rem;
+    border-radius: 0.4rem;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #00a2a4;
+    color: white;
+    font-size: 0.7rem;
+    width: 80px;
+    padding: 0.4rem 0.5rem;
+    text-align: center;
+    font-family: yekan;
+}
+.user-Icon::after{
+    content:" نام کاربری";
+    position: absolute;
+    top: -1.7rem;
+    right: -1.6rem;
+    border-radius: 0.4rem;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #f27474;
+    color: white;
+    font-size: 0.7rem;
+    width: 80px;
+    padding: 0.4rem 0.5rem;
+    text-align: center;
+    font-family: yekan;
+}
 .section-category-details-image{
     width: 17rem;
     display: flex;
@@ -23,8 +123,8 @@
 }
 .user-description-container{
     position: absolute;
-    right: 19rem;
-    top: 22rem;
+    right: 21rem;
+    top: 22.5rem;
     
 }
 .section-category-details-imageBox-item{
@@ -34,7 +134,7 @@
 .section-category-details-container{
     display: flex;
 }
-.user-description-container-link-favorite-icon,.share-Icon,.shopping-icon,.user-Icon{
+.user-description-container-link-favorite-icon,.user-description-container-link-favorite-icon1,.share-Icon,.shopping-icon,.user-Icon{
     font-size: 1.5rem;
     color: #343a40;
     cursor: pointer;
@@ -60,6 +160,21 @@
 .section-category-details-titleBox-subtitleBox{
     margin-top: 1rem;
 }
+.shopping-icon-count{
+    width: 18px;
+    height: 19px;
+    background-color: #dc3545;
+    position: absolute;
+    color: white;
+    font-family: 'vazir';
+    display: flex;
+    justify-content: center;
+    top: 18px;
+    right: -11px;
+    align-items: center;
+    border-radius: 50%;
+}
+
 .section-category-details-titleBox-subtitle-paragraph{
     
     font-family: vazir;
@@ -74,5 +189,93 @@
     padding: 1rem;
 }
 .section-category-details-options{
-    margin: 2rem 1rem;
+    box-shadow: 0 0 10px #dee2e6;
+    border: 1px solid #bbb;
+    border-radius: 1.5rem;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1.5rem;
+}
+.section-category-details-options-list{
+    list-style: none;
+    height: auto;
+    font-family: yekan;
+    padding: 0;
+    border-bottom: 1px solid #bbb;
+}
+.section-category-details-options-title{
+    font-family: vazir;
+    margin-bottom: 1.5rem;
+}
+.section-category-details-options-item{
+
+    word-spacing: 0.2rem;
+    width: 106%;
+    margin-bottom: 1rem;
+}
+.section-category-details-options-price {
+    font-family: vazir;
+    margin-bottom: 1rem;
+}
+.section-category-details-options-price-box{
+    margin-top: 1rem;
+}
+.section-category-details-options-price-percent{
+    color: white;
+    background-color: #dc3545;
+    border-radius: 0.8rem;
+    padding: 0.2rem 0.4rem;
+}
+.section-category-details-options-prev-price{
+
+    color: #9e9e9e;
+    text-decoration: line-through;
+}
+.section-category-details-options-price-btn{
+    
+    font-family: yekan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    width: 100%;
+    background-color: #00a2a4;
+    color: white;
+    border: none;
+    border-radius: 1rem; 
+}
+.title-for-link-shopping-basket{
+    font-family: yekan;
+    font-size: 0.8rem;
+    color: #343a40;
+}
+.link-for-shopping-basket{
+    font-family: 'vazir';
+    text-decoration: none;
+    color: #00a2a4;
+    font-size: 0.9rem;
+    margin-right: 0.2rem;
+    display: block;
+}
+.add-remove-shopping-basket-box{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: vazir;
+    padding: 0.3rem 0.8rem;
+    box-shadow: 0 0 13px rgba(0,0,0,0.3);
+    border-radius: 1rem;
+}
+.add-shopping-basket-box{
+    color: #00a2a4;
+    font-size: 1.1rem;
+}
+.remove-shopping-basket-box,.minus-in-shopping-basket-box{
+    color: #dc3545;
+    font-size: 1.1rem;
+}
+.add-shopping-basket-box,.remove-shopping-basket-box ,.minus-in-shopping-basket-box{
+    padding:0.3rem 0.6rem;
+    cursor: pointer;
 }

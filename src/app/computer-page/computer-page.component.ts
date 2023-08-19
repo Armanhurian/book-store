@@ -164,6 +164,8 @@ export class ComputerPageComponent implements OnInit{
 
   offerLableClick(){
 
+    this.myInputSearchValue.nativeElement.value = ''
+
     this.offerFilteredProducts =  this.productService.computerProductsInMainPage.filter(item => item.Discount !== 0)
     
     if(!this.checkBoxOfferLable.nativeElement.className.includes('checkBoxActive')){
@@ -208,6 +210,8 @@ export class ComputerPageComponent implements OnInit{
 
   changeInputRange(event:any){
 
+    this.myInputSearchValue.nativeElement.value = ''
+
     let newInputElemMaxPrice = [...this.inputElemMaxPrice.nativeElement.value].filter((item)=> item !== ',')
   
     this.inputElemMinPrice.nativeElement.value = Math.floor(Number(newInputElemMaxPrice.join('')) * (event.target.value/100))
@@ -234,7 +238,7 @@ export class ComputerPageComponent implements OnInit{
 
     this.sendSpecialFilteredProducts = this.productService.computerProductsInMainPage.filter(item => item.fastSending === true)
 
-
+    this.myInputSearchValue.nativeElement.value = ''
     
     if(!this.checkBoxSendSpecialLable.nativeElement.className.includes('checkBoxActive')){
       

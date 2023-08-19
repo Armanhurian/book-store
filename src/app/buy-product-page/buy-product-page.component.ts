@@ -24,6 +24,8 @@ export class BuyProductPageComponent implements OnInit{
 
   products : any[] = []
 
+  basketShopping : any[] = []
+
   dashbordNameFunc(){
     this.dashbordNameLists.push(localStorage.getItem('dashbordName'))
     this.dashbordNameLists.push(localStorage.getItem('nameValueInput'))
@@ -69,10 +71,38 @@ export class BuyProductPageComponent implements OnInit{
   }
     
   ngOnInit(): void {
+
+    this.dashbordNameFunc()
     
     this.productId = Number(this.route.snapshot.params['id'])
 
     this.products = this.productService.computerProductsInMainPage.filter(item => item.id === this.productId)
+    
+  }
+
+  plusProductInShoppingBasket(){
+
+    this.products.forEach( item => this.basketShopping.push(item))
+
+    console.log(this.basketShopping);
+  }
+  
+  minusProductInShoppingBasket(){
+    
+    this.basketShopping.splice(this.basketShopping.length-1,1)
+
+    console.log(this.basketShopping);
+  }
+  removeToShoppingBasket(){
+
+    this.basketShopping = []
+
+  }
+  addToShoppingBasket(){
+    
+    this.products.forEach( item => this.basketShopping.push(item))
+    
+    console.log(this.basketShopping);
     
   }
 }

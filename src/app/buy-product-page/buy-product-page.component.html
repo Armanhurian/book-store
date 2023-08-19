@@ -49,8 +49,8 @@
         <div class="section-category-details-imageBox">
             <img class="section-category-details-image" [src]="product.image" alt="" srcset="">
             <ul class="section-category-details-imageBox-list d-flex gap-5 justify-content-center">
-              <li class="section-category-details-imageBox-item"><i class="fas fa-bag-shopping shopping-icon"></i></li>
-              <li class="section-category-details-imageBox-item"><i class="fa-regular fa-heart user-description-container-link-favorite-icon"></i></li>
+              <li class="section-category-details-imageBox-item" style="position: relative;"><i class="fas fa-bag-shopping shopping-icon"></i><span *ngIf="basketShopping.length" class="shopping-icon-count">{{basketShopping.length}}</span></li>
+              <li class="section-category-details-imageBox-item"><i class="fa-regular fa-heart user-description-container-link-favorite-icon1"></i></li>
               <li class="section-category-details-imageBox-item"><i class="fas fa-share-nodes share-Icon"></i></li>
               <li (click)="showUserDescription()" #clickParent class="section-category-details-imageBox-item"><i class="fas fa-user user-Icon"></i></li>
               <div #showUserDes class="user-description-container">
@@ -91,7 +91,7 @@
           </ul>
         </div>
         <div class="section-category-details-titleBox">
-            <h4 class="section-category-details-titleBox-title">کتاب {{product.title}}</h4>
+            <h4 class="section-category-details-titleBox-title"> {{product.title}}</h4>
             <h6 class="section-category-details-titleBox-title">اثر  {{product.creator}}</h6>
             <div class="section-category-details-titleBox-subtitleBox">
               <p class="section-category-details-titleBox-subtitle-paragraph">درباره ی کتاب</p>
@@ -101,24 +101,39 @@
       </div>
 
         <div class="section-category-details-options">
+            <h5 class="section-category-details-options-title">ویژگی ها</h5>
             <ul class="section-category-details-options-list">
-                <li class="section-category-details-options-item">رده‌بندی کتاب : {{product.type}}</li>
-                <li class="section-category-details-options-item">قطع : {{product.piece}}</li>
-                <li class="section-category-details-options-item">نوع جلد : {{product.cover}}</li>
-                <li class="section-category-details-options-item">وزن : {{product.weight}}</li>
+              <li class="section-category-details-options-item">قطع : {{product.piece}}</li>
+              <li class="section-category-details-options-item">نوع جلد : {{product.cover}}</li>
+              <li class="section-category-details-options-item">وزن : {{product.weight}}</li>
+              <li class="section-category-details-options-item">رده‌بندی کتاب : {{product.type}}</li>
             </ul>
-            <div class="section-category-details-options-price">
-                <h5 class="section-category-details-options-price-title">قیمت :</h5>
+            <div class="section-category-details-options-price d-flex justify-content-between align-items-center">
+                <h6 class="section-category-details-options-price-title">قیمت :</h6>
                 <div class="section-category-details-options-price-box">
-                    <div *ngIf="product.Discount" class="section-category-details-options-price-offers-box">
+                    <div *ngIf="product.Discount" class="section-category-details-options-price-offers-box d-flex gap-2 align-items-center">
                         <p class="section-category-details-options-prev-price">{{ ((100 * product.price) / (100 - product.Discount)).toFixed() }}</p>
                         <p class="section-category-details-options-price-percent">% {{product.Discount}}</p>
                     </div>
-                    <h5 class="section-category-details-options-price-current-price">{{product.price}}  تومان</h5>
+                    <p class="section-category-details-options-price-current-price">{{product.price}}  تومان</p>
                 </div>
             </div>
-            <div class="section-category-details-options-price--btnBox">
-                <button class="section-category-details-options-price-btn">افزودن به سبد خرید</button>
+            <div class="section-category-details-options-price--btnBox d-flex justify-content-between align-items-center">
+                <button *ngIf="!basketShopping.length; else linkShoppingCount" (click)="addToShoppingBasket()" class="section-category-details-options-price-btn">افزودن به سبد خرید</button>
+                <ng-template #linkShoppingCount >
+                <span class="title-for-link-shopping-basket">
+                  مشاهده 
+                  <a class="link-for-shopping-basket" routerLink="">سبد خرید</a>
+                </span>
+                <span class="add-remove-shopping-basket-box">
+                  <i (click)="plusProductInShoppingBasket()" class="fas fa-plus add-shopping-basket-box"></i>
+                  <span class="shopping-basket-box-count">{{basketShopping.length}}</span>
+                  <i (click)="removeToShoppingBasket()" *ngIf="basketShopping.length===1;else minusIcon" class="fa-regular fa-trash-can remove-shopping-basket-box"></i>
+                  <ng-template #minusIcon>
+                    <i (click)="minusProductInShoppingBasket()" class="fas fa-minus minus-in-shopping-basket-box"></i>
+                  </ng-template>
+                </span>
+                </ng-template>
             </div>
         </div>
     </div>
