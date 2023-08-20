@@ -43,6 +43,11 @@
   <!-- start body of section category details -->
   
   <div class="section-category-details" *ngFor="let product of products">
+
+    <span #alertBoxForSharingLink class="alert-box-for-sharingLink">
+      <i class="fas fa-circle-check alert-box-for-sharingLink-icon"></i>
+      کپی شد
+    </span>
       
     <div class="section-category-details-container ">
       <div class="section-category-details-right-container">
@@ -51,7 +56,7 @@
             <ul class="section-category-details-imageBox-list d-flex gap-5 justify-content-center">
               <li class="section-category-details-imageBox-item" style="position: relative;"><i class="fas fa-bag-shopping shopping-icon"></i><span *ngIf="basketShopping.length" class="shopping-icon-count">{{basketShopping.length}}</span></li>
               <li class="section-category-details-imageBox-item"><i (click)="addToFavorite($event)" class="fa-solid fa-heart user-description-container-link-favorite-icon1"></i></li>
-              <li class="section-category-details-imageBox-item"><i class="fas fa-share-nodes share-Icon"></i></li>
+              <li class="section-category-details-imageBox-item"><i (click)="copyShareLink()" class="fas fa-share-nodes share-Icon"></i></li>
               <li (click)="showUserDescription()" #clickParent class="section-category-details-imageBox-item"><i class="fas fa-user user-Icon"></i></li>
               <div #showUserDes class="user-description-container">
                   <ul class="user-description-container-list">

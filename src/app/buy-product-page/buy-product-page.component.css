@@ -264,3 +264,25 @@
     padding:0.3rem 0.6rem;
     cursor: pointer;
 }
+.alert-box-for-sharingLink{
+
+    position: absolute;
+    left: 7rem;
+    top: 1.2rem;
+    border-radius: 0.5rem;
+    background-color: #343a40;
+    color: white;
+    font-family: vazir;
+    padding: 0.3rem 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: 10rem;
+    opacity: 1;
+    visibility: hidden;
+    transition: all 200ms ease-in;
+}
+.alert-box-for-sharingLink-icon{
+    color: #1ad51a;
+    font-size: 1.3rem;
+}
