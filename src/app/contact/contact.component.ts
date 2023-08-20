@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild ,ElementRef} from '@angular/core';
 import { FormControl , FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { GenerateService } from '../services/generate.service';
 
 @Component({
   selector: 'app-contact',
@@ -20,6 +21,11 @@ export class ContactComponent implements OnInit{
 
   dashbordName : any =  ''
 
+  like : boolean = false
+
+  count : number = 0
+
+  constructor(private generate : GenerateService){}
 
   dashbordNameFunc(){
     this.dashbordNameLists.push(localStorage.getItem('dashbordName'))
@@ -116,6 +122,18 @@ export class ContactComponent implements OnInit{
   
 
   ngOnInit(): void {
+
+    if(this.generate.favoriteProductList.length){
+
+      this.like = true
+
+    }else{
+   
+      this.like = false
+    }
+
+    this.count = this.generate.basketShoppingList.length
+
     this.dashbordNameFunc()
       
     console.log(this.dashbordName);

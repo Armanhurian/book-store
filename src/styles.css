@@ -13,6 +13,45 @@ body::-webkit-scrollbar-thumb{
     border-radius: 2rem;
     width: 8px;  
 }
+.shopping-icon-count{
+    width: 18px;
+    height: 19px;
+    background-color: #dc3545;
+    position: absolute;
+    color: white;
+    font-family: 'vazir';
+    display: flex;
+    justify-content: center;
+    top: 18px;
+    right: -11px;
+    align-items: center;
+    border-radius: 50%;
+}
+.shopping-icon-count1{
+    width: 16px;
+    height: 16px;
+    font-size: 0.82rem;
+    background-color: #dc3545;
+    position: absolute;
+    color: white;
+    font-family: 'vazir';
+    display: flex;
+    justify-content: center;
+    right: -2px;
+    bottom: 2px;
+    align-items: center;
+    border-radius: 50%;
+}
+.like-active{
+    
+display: flex;
+align-items: center;
+background-color: #dc3545;
+width: 9px;
+height: 9px;
+border-radius: 50%;
+border: none;
+}
 @font-face {
     font-family: yekan;
     src: url(assets/YekanV3.0/Yekan.woff);

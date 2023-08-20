@@ -1,6 +1,7 @@
 import { Component,OnInit , ElementRef ,ViewChild, HostListener } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { GenerateService } from '../services/generate.service';
 
 @Component({
   selector: 'app-computer-page',
@@ -23,7 +24,7 @@ export class ComputerPageComponent implements OnInit{
   @ViewChild('myInputSearchValue') 'myInputSearchValue' : ElementRef
 
 
-  constructor( private productService : ProductService ){}
+  constructor( private productService : ProductService , private generate : GenerateService){}
 
   inputSearchText : string = ''
 
@@ -34,6 +35,10 @@ export class ComputerPageComponent implements OnInit{
   currentPrices : number[] = []
   
   products : any[] = [] ;
+
+  like : boolean = false
+
+  count : number = 0
   
   offerFilteredProducts : any[] = []
   
@@ -153,6 +158,17 @@ export class ComputerPageComponent implements OnInit{
   }
   
   ngOnInit(): void {
+
+    if(this.generate.favoriteProductList.length){
+
+      this.like = true
+
+    }else{
+   
+      this.like = false
+    }
+
+    this.count = this.generate.basketShoppingList.length
 
     this.dashbordNameFunc()  
     

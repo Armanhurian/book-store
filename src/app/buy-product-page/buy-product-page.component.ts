@@ -1,6 +1,7 @@
 import { Component ,OnInit , ElementRef ,ViewChild, HostListener } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { GenerateService } from '../services/generate.service';
 
 @Component({
   selector: 'app-buy-product-page',
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BuyProductPageComponent implements OnInit{
 
 
-  constructor( private productService : ProductService , private route : ActivatedRoute ){}
+  constructor( private productService : ProductService , private route : ActivatedRoute , private generate :GenerateService){}
 
   @ViewChild('showUserDes') 'showUserDes' : ElementRef
   @ViewChild('clickParent') 'clickParent' : ElementRef
@@ -24,7 +25,11 @@ export class BuyProductPageComponent implements OnInit{
 
   products : any[] = []
 
+  like : boolean = false
+
   basketShopping : any[] = []
+
+  count : any ;
 
   dashbordNameFunc(){
     this.dashbordNameLists.push(localStorage.getItem('dashbordName'))
@@ -69,8 +74,9 @@ export class BuyProductPageComponent implements OnInit{
     
     
   }
-    
+   
   ngOnInit(): void {
+
 
     this.dashbordNameFunc()
     
@@ -84,25 +90,54 @@ export class BuyProductPageComponent implements OnInit{
 
     this.products.forEach( item => this.basketShopping.push(item))
 
-    console.log(this.basketShopping);
+    this.products.forEach( item => this.generate.basketShoppingList.push(item))
+    
   }
   
   minusProductInShoppingBasket(){
     
     this.basketShopping.splice(this.basketShopping.length-1,1)
+    
+    this.generate.basketShoppingList.splice(this.generate.basketShoppingList.length-1,1)
 
-    console.log(this.basketShopping);
   }
   removeToShoppingBasket(){
-
+    
     this.basketShopping = []
+    
+    this.generate.basketShoppingList.splice(this.generate.basketShoppingList.length-1,1)
 
   }
   addToShoppingBasket(){
     
     this.products.forEach( item => this.basketShopping.push(item))
-    
-    console.log(this.basketShopping);
-    
+
+    this.basketShopping.forEach(item => this.generate.basketShoppingList.push(item))
+
+  }
+
+  addToFavorite(event:any){
+
+    if(!this.like ){
+
+      this.products.forEach( item =>  this.generate.favoriteProductList.push(item))
+
+      event.target.style.color = 'red'
+
+      this.like = true
+      
+      console.log(this.generate.favoriteProductList);
+      
+    }else{
+      
+
+      this.generate.favoriteProductList.splice(this.generate.favoriteProductList.length-1,1)
+      
+      event.target.style.color = 'black'
+      
+      this.like = false
+      
+      console.log(this.generate.favoriteProductList);
+    }
   }
 }

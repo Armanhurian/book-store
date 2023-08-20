@@ -50,7 +50,7 @@
             <img class="section-category-details-image" [src]="product.image" alt="" srcset="">
             <ul class="section-category-details-imageBox-list d-flex gap-5 justify-content-center">
               <li class="section-category-details-imageBox-item" style="position: relative;"><i class="fas fa-bag-shopping shopping-icon"></i><span *ngIf="basketShopping.length" class="shopping-icon-count">{{basketShopping.length}}</span></li>
-              <li class="section-category-details-imageBox-item"><i class="fa-regular fa-heart user-description-container-link-favorite-icon1"></i></li>
+              <li class="section-category-details-imageBox-item"><i (click)="addToFavorite($event)" class="fa-solid fa-heart user-description-container-link-favorite-icon1"></i></li>
               <li class="section-category-details-imageBox-item"><i class="fas fa-share-nodes share-Icon"></i></li>
               <li (click)="showUserDescription()" #clickParent class="section-category-details-imageBox-item"><i class="fas fa-user user-Icon"></i></li>
               <div #showUserDes class="user-description-container">
@@ -79,6 +79,7 @@
                     <li class="user-description-container-link-favorite-item">
                       <i class="fa-regular fa-heart user-description-container-link-favorite-icon"></i>
                       علاقه مندی های من
+                      <span *ngIf="like" class="like-active"></span>
                     </li>
                   </a>
                   <a (click)="logoutHandler()" routerLink="/register" class="user-description-container-link-logout">

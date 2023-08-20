@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { GenerateService } from '../services/generate.service';
 
 @Component({
   selector: 'app-not-found',
@@ -14,6 +15,12 @@ export class NotFoundComponent {
 
 
   dashbordName : any =  ''
+
+  like : boolean = false
+
+  count : number = 0
+
+  constructor(private generate : GenerateService){}
 
 
   dashbordNameFunc(){
@@ -61,6 +68,17 @@ export class NotFoundComponent {
   
 
   ngOnInit(): void {
+    if(this.generate.favoriteProductList.length){
+
+      this.like = true
+
+    }else{
+   
+      this.like = false
+    }
+
+    this.count = this.generate.basketShoppingList.length
+
     this.dashbordNameFunc()
       
     console.log(this.dashbordName);

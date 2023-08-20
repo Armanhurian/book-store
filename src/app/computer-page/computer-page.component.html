@@ -46,6 +46,7 @@
                      <li class="user-description-container-link-favorite-item">
                        <i class="fa-regular fa-heart user-description-container-link-favorite-icon"></i>
                        علاقه مندی های من
+                       <span *ngIf="like" class="like-active"></span>
                      </li>
                    </a>
                    <a (click)="logoutHandler()" routerLink="/register" class="user-description-container-link-logout">
@@ -57,7 +58,7 @@
                 </div>
             </div>
             <div class="users-icon-container">
-                <i class="fas fa-bag-shopping shopping-icon"></i>
+                <i class="fas fa-bag-shopping shopping-icon"><span *ngIf="count" class="shopping-icon-count1">{{count}}</span></i>
             </div>
         </div>
     </nav>

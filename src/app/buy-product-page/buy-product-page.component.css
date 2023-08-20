@@ -67,7 +67,7 @@
     font-family: yekan;
 }
 .user-description-container-link-favorite-icon1::after{
-    content:"علاقمندی ها";
+    content:" علاقمندی ";
     position: absolute;
     top: -1.7rem;
     right: -0.9rem;
@@ -160,21 +160,6 @@
 .section-category-details-titleBox-subtitleBox{
     margin-top: 1rem;
 }
-.shopping-icon-count{
-    width: 18px;
-    height: 19px;
-    background-color: #dc3545;
-    position: absolute;
-    color: white;
-    font-family: 'vazir';
-    display: flex;
-    justify-content: center;
-    top: 18px;
-    right: -11px;
-    align-items: center;
-    border-radius: 50%;
-}
-
 .section-category-details-titleBox-subtitle-paragraph{
     
     font-family: vazir;
