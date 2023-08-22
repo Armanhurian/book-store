@@ -54,7 +54,9 @@
         <div class="section-category-details-imageBox">
             <img class="section-category-details-image" [src]="product.image" alt="" srcset="">
             <ul class="section-category-details-imageBox-list d-flex gap-5 justify-content-center">
-              <li class="section-category-details-imageBox-item" style="position: relative;"><i class="fas fa-bag-shopping shopping-icon"></i><span *ngIf="basketShopping.length" class="shopping-icon-count">{{basketShopping.length}}</span></li>
+              <li class="section-category-details-imageBox-item" style="position: relative;"><a routerLink="/shopping-basket">
+                <i class="fas fa-bag-shopping shopping-icon"><span *ngIf="count" class="shopping-icon-count1">{{count}}</span></i>
+              </a><span *ngIf="basketShopping.length" class="shopping-icon-count">{{basketShopping.length}}</span></li>
               <li class="section-category-details-imageBox-item"><i (click)="addToFavorite($event)" class="fa-solid fa-heart user-description-container-link-favorite-icon1"></i></li>
               <li class="section-category-details-imageBox-item"><i (click)="copyShareLink()" class="fas fa-share-nodes share-Icon"></i></li>
               <li (click)="showUserDescription()" #clickParent class="section-category-details-imageBox-item"><i class="fas fa-user user-Icon"></i></li>
@@ -80,7 +82,7 @@
                      </ng-template>
                     </li>
                   </ul>
-                  <a href="" class="user-description-container-link-favorite">
+                  <a routerLink="/favorites" class="user-description-container-link-favorite">
                     <li class="user-description-container-link-favorite-item">
                       <i class="fa-regular fa-heart user-description-container-link-favorite-icon"></i>
                       علاقه مندی های من
@@ -129,7 +131,7 @@
                 <ng-template #linkShoppingCount >
                 <span class="title-for-link-shopping-basket">
                   مشاهده 
-                  <a class="link-for-shopping-basket" routerLink="">سبد خرید</a>
+                  <a class="link-for-shopping-basket" routerLink="/shopping-basket">سبد خرید</a>
                 </span>
                 <span class="add-remove-shopping-basket-box">
                   <i (click)="plusProductInShoppingBasket()" class="fas fa-plus add-shopping-basket-box"></i>

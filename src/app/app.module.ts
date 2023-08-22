@@ -27,6 +27,7 @@ import { BuyProductRomancePageComponent } from './buy-product-romance-page/buy-p
 import { BuyProductLanguagesPageComponent } from './buy-product-languages-page/buy-product-languages-page.component';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
 import { ShoppingBasketPageComponent } from './shopping-basket-page/shopping-basket-page.component'
+import { AuthService } from './auth.service';
 
 const routes : Routes = [
   {path : '' , children : [
@@ -37,7 +38,7 @@ const routes : Routes = [
     {path : 'main' , component : MainPageComponent},
     {path : 'about-us' , component : AboutUsComponent},
     {path : 'contact' , component : ContactComponent},
-    {path : 'favorites' , component : FavoritesPageComponent},
+    {path : 'favorites' , component : FavoritesPageComponent , canActivate : [AuthService]},
     {path : 'shopping-basket' , component : ShoppingBasketPageComponent},
     {path : 'computers-book' , children : [
       {path : '' , component : ComputerPageComponent},
@@ -102,7 +103,7 @@ const routes : Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
   schemas :[CUSTOM_ELEMENTS_SCHEMA]
 })

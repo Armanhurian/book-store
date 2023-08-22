@@ -1,20 +1,19 @@
-
-
 <header>
   <nav class="navbar-container">
     <div class="first-Row-Box">
       <img class="navbar-image-logo-box" src="../../assets/my-logo.PNG" alt="" srcset="">
     </div>
     <div class="searching-box">
-      <form class="searching-box-form" action="">
+      <form [formGroup]="inputSearchValue" (ngSubmit)="clickSearchHandler()" class="searching-box-form" action="">
         <button type="submit" class="searching-box-form-btn">
-          <svg class="text-dark-550 dark:text-white" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg  class="text-dark-550 dark:text-white" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="7.82495" cy="7.82492" r="6.74142" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
               <path d="M12.5137 12.8638L15.1568 15.4999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
+          </svg>
         </button>
+        <i *ngIf="inputSearchText" (click)="removeSearch()" class="fas fa-circle-xmark xmark-icon"></i>
         <label for="search"></label>
-        <input class="searching-box-form-input" type="text" id="search" placeholder="دنبال چی میگردی ؟">
+        <input #myInputSearchValue (keyup)="keyUpSearchInput($event)"  formControlName = 'searchValue' class="searching-box-form-input" type="text" id="search" placeholder="دنبال چی میگردی ؟">
       </form>
     </div> 
     <div class="navbar-user-icon-box">
@@ -43,7 +42,7 @@
                     </ng-template>
                    </li>
                  </ul>
-                 <a href="" class="user-description-container-link-favorite">
+                 <a routerLink="/favorites" class="user-description-container-link-favorite">
                    <li class="user-description-container-link-favorite-item">
                      <i class="fa-regular fa-heart user-description-container-link-favorite-icon"></i>
                      علاقه مندی های من
@@ -59,7 +58,9 @@
               </div>
           </div>
           <div class="users-icon-container">
+            <a routerLink="/shopping-basket">
               <i class="fas fa-bag-shopping shopping-icon"><span *ngIf="count" class="shopping-icon-count1">{{count}}</span></i>
+            </a>
           </div>
       </div>
   </nav>
@@ -103,271 +104,298 @@
 </div>
 </header>
 
-<div>
-  <img class="cover-image" src="../../assets/بهترین-کتاب-برای-زنان-خانه-دار.jpg" alt="" srcset="">
-</div>
-
-
-
-<div >
-  <div class="categories-Book-description">
-    <h2 class="categories-Book-title">دسته بندی کتاب ها</h2>
+<div *ngIf="!inputSearch; else productSearch" class="total-main-container">
+  <div>
+    <img class="cover-image" src="../../assets/بهترین-کتاب-برای-زنان-خانه-دار.jpg" alt="" srcset="">
   </div>
-    <div class="categories-Book-container">
-      <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-        <a class="categories-Book-box-link" routerLink="/computers-book">
-         <div class="img"><img class="categories-Book-images" src="../../assets/Capture-computerr.PNG" alt="" srcset=""></div>
-         <div class="info">
-           <h3 style="font-family: yekan;">برنامه نویسی و کامپیوتر</h3>
-           <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
-         </div>
-        </a>
-      </div>
-      <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-        <a class="categories-Book-box-link" routerLink="/science-book">
-         <div class="img"><img class="categories-Book-images" src="../../assets/Capture-science.PNG" alt="" srcset=""></div>
-         <div class="info">
-           <h3 style="font-family: yekan;"> کتاب های علمی</h3>
-           <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
-         </div>
-        </a>
-      </div>
-      <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-        <a class="categories-Book-box-link" routerLink="/education-book">
-         <div class="img"><img class="categories-Book-images" src="../../assets/Capture-education.PNG" alt="" srcset=""></div>
-         <div class="info">
-           <h3 style="font-family: yekan;">کتاب های آموزشی</h3>
-           <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
-         </div>
-        </a>
-      </div>
-      
-      
-     </div>
-     <div class="categories-Book-container">
-       
-       <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-         <a class="categories-Book-box-link" routerLink="/romance-book">
-          <div class="img"><img class="categories-Book-images" src="../../assets/Capture-romance.PNG" alt="" srcset=""></div>
-          <div class="info">
-            <h3 style="font-family: yekan;">داستان و رمان</h3>
-            <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
-          </div>
-         </a>
-       </div>
-       <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-         <a class="categories-Book-box-link" routerLink="/historical-book">
-          <div class="img"><img class="categories-Book-images" src="../../assets/Capture-history.PNG" alt="" srcset=""></div>
-          <div class="info">
-            <h3 style="font-family: yekan;">کتاب های تاریخی</h3>
-            <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
-          </div>
-         </a>
-       </div>
-       <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
-         <a class="categories-Book-box-link" routerLink="/teach-languages-book">
-          <div class="img"><img class="categories-Book-images" src="../../assets/Capture-teach-languages.PNG" alt="" srcset=""></div>
-          <div class="info">
-            <h3 style="font-family: yekan;">آموزش زبان خارجه</h3>
-            <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
-          </div>
-         </a>
-       </div>
-       
-       
-     </div>
-  </div>
-
-  
 
   <div >
     <div class="categories-Book-description">
-      <h2 class="categories-Book-title">  برنامه نویسی و کامپیوتر </h2>
-      <a class="categories-Book-link-watch" routerLink="/computers-book">
-        مشاهده همه 
-        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
-      </a>
+      <h2 class="categories-Book-title">دسته بندی کتاب ها</h2>
     </div>
-    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
-      
-      <swiper-slide *ngFor="let product of myComputerTypeProducts">
-        <div class="slide-container">
-          <img class="slide-container-images" [src]="product.image" alt="">
-          <h4 class="slide-container-title">{{product.title}}</h4>
-          <p class="slide-container-price">{{product.price}} تومان </p>
-          <p class="slide-container-creator">{{product.creator}} </p>
+      <div class="categories-Book-container">
+        <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
+          <a class="categories-Book-box-link" routerLink="/computers-book">
+           <div class="img"><img class="categories-Book-images" src="../../assets/Capture-computerr.PNG" alt="" srcset=""></div>
+           <div class="info">
+             <h3 style="font-family: yekan;">برنامه نویسی و کامپیوتر</h3>
+             <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
+           </div>
+          </a>
         </div>
-      </swiper-slide>
-      
-    </swiper-container>
-  </div>
-  <div>
-    <div class="categories-Book-description">
-      <h2 class="categories-Book-title"> کتاب های علمی </h2>
-      <a class="categories-Book-link-watch" routerLink="/science-book">
-        مشاهده همه 
-        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
-      </a>
+        <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
+          <a class="categories-Book-box-link" routerLink="/science-book">
+           <div class="img"><img class="categories-Book-images" src="../../assets/Capture-science.PNG" alt="" srcset=""></div>
+           <div class="info">
+             <h3 style="font-family: yekan;"> کتاب های علمی</h3>
+             <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
+           </div>
+          </a>
+        </div>
+        <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
+          <a class="categories-Book-box-link" routerLink="/education-book">
+           <div class="img"><img class="categories-Book-images" src="../../assets/Capture-education.PNG" alt="" srcset=""></div>
+           <div class="info">
+             <h3 style="font-family: yekan;">کتاب های آموزشی</h3>
+             <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
+           </div>
+          </a>
+        </div>
+        
+        
+       </div>
+       <div class="categories-Book-container">
+         
+         <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
+           <a class="categories-Book-box-link" routerLink="/romance-book">
+            <div class="img"><img class="categories-Book-images" src="../../assets/Capture-romance.PNG" alt="" srcset=""></div>
+            <div class="info">
+              <h3 style="font-family: yekan;">داستان و رمان</h3>
+              <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
+            </div>
+           </a>
+         </div>
+         <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
+           <a class="categories-Book-box-link" routerLink="/historical-book">
+            <div class="img"><img class="categories-Book-images" src="../../assets/Capture-history.PNG" alt="" srcset=""></div>
+            <div class="info">
+              <h3 style="font-family: yekan;">کتاب های تاریخی</h3>
+              <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
+            </div>
+           </a>
+         </div>
+         <div class="categories-Book-box ih-item square effect6 from_top_and_bottom">
+           <a class="categories-Book-box-link" routerLink="/teach-languages-book">
+            <div class="img"><img class="categories-Book-images" src="../../assets/Capture-teach-languages.PNG" alt="" srcset=""></div>
+            <div class="info">
+              <h3 style="font-family: yekan;">آموزش زبان خارجه</h3>
+              <p style="font-weight: bold;">برای اطلاعات بیشتر کلیک کنید</p>
+            </div>
+           </a>
+         </div>
+         
+         
+       </div>
     </div>
-    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
-      
-      <swiper-slide *ngFor="let product of myScienceBookTypeProducts">
-        <div class="slide-container">
-          <img class="slide-container-images" [src]="product.image" alt="">
-          <h4 class="slide-container-title">{{product.title}}</h4>
-          <p class="slide-container-price">{{product.price}} تومان </p>
-          <p class="slide-container-creator">{{product.creator}} </p>
-        </div>
-      </swiper-slide>
-      
-    </swiper-container>
-  </div>
-  <div>
-    <div class="categories-Book-description">
-      <h2 class="categories-Book-title">  کتاب های آموزشی </h2>
-      <a class="categories-Book-link-watch" routerLink="/education-book">
-        مشاهده همه 
-        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
-      </a>
-    </div>
-    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
-      <swiper-slide *ngFor="let product of myEducationBookTypeProducts">
-        <div class="slide-container">
-          <img class="slide-container-images" [src]="product.image" alt="">
-          <h4 class="slide-container-title">{{product.title}}</h4>
-          <p class="slide-container-price">{{product.price}} تومان </p>
-          <p class="slide-container-creator">{{product.creator}} </p>
-        </div>
-      </swiper-slide>
-      
-    </swiper-container>
-  </div>
-  <div>
-    <div class="categories-Book-description">
-      <h2 class="categories-Book-title"> کتاب های تاریخی </h2>
-      <a class="categories-Book-link-watch" routerLink="/historical-book">
-        مشاهده همه 
-        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
-      </a>
-    </div>
-    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
-      <swiper-slide *ngFor="let product of myHistoricalBookTypeProducts">
-        <div class="slide-container">
-          <img class="slide-container-images" [src]="product.image" alt="">
-          <h4 class="slide-container-title">{{product.title}}</h4>
-          <p class="slide-container-price">{{product.price}} تومان </p>
-          <p class="slide-container-creator">{{product.creator}} </p>
-        </div>
-      </swiper-slide>
-      
-    </swiper-container>
-  </div>
-  <div>
-    <div class="categories-Book-description">
-      <h2 class="categories-Book-title"> داستان و رمان </h2>
-      <a class="categories-Book-link-watch" routerLink="/romance-book">
-        مشاهده همه 
-        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
-      </a>
-    </div>
-    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
-
-      <swiper-slide *ngFor="let product of myRomanceBookTypeProducts">
-        <div class="slide-container">
-          <img class="slide-container-images" [src]="product.image" alt="">
-          <h4 class="slide-container-title">{{product.title}}</h4>
-          <p class="slide-container-price">{{product.price}} تومان </p>
-          <p class="slide-container-creator">{{product.creator}} </p>
-        </div>
-      </swiper-slide>
-      
-    </swiper-container>
-  </div>
-  <div>
-    <div class="categories-Book-description">
-      <h2 class="categories-Book-title"> آموزش زبان خارجه </h2>
-      <a class="categories-Book-link-watch" routerLink="/teach-languages-book">
-        مشاهده همه 
-        <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
-      </a>
-    </div>
-    <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
-
-      <swiper-slide *ngFor="let product of myLanguagesBookTypeProducts">
-        <div class="slide-container">
-          <img class="slide-container-images" [src]="product.image" alt="">
-          <h4 class="slide-container-title">{{product.title}}</h4>
-          <p class="slide-container-price">{{product.price}} تومان </p>
-          <p class="slide-container-creator">{{product.creator}} </p>
-        </div>
-      </swiper-slide>
-      
-    </swiper-container>
-  </div>
-
-<footer class="my-footer-container">
-   <div class="my-footer-header-box">
-      <div class="my-footer-header-image-box">
-        <img class="my-footer-header-image" src="../../assets/my-logo.PNG" alt="" srcset="">
-      </div>
-      <div class="my-footer-header-icon-box">
-        <a class="my-footer-header-icon-link" href="https://angular.io/">
-          <i class="fab fa-instagram my-footer-header-icon"></i>
-        </a>
-        <a class="my-footer-header-icon-link"  href="https://angular.io/">
-          <i class="fab fa-youtube my-footer-header-icon"></i>
-        </a>
-        <a class="my-footer-header-icon-link" href="https://angular.io/">
-          <i class="fab fa-linkedin my-footer-header-icon"></i>
-        </a>
-        <a class="my-footer-header-icon-link" href="https://angular.io/">
-          <i class="fab fa-twitter my-footer-header-icon"></i>
-        </a>
-        <a class="my-footer-header-icon-link" href="https://angular.io/">
-          <i class="fab fa-facebook my-footer-header-icon"></i>
+    
+    
+    <div >
+      <div class="categories-Book-description">
+        <h2 class="categories-Book-title">  برنامه نویسی و کامپیوتر </h2>
+        <a class="categories-Book-link-watch" routerLink="/computers-book">
+          مشاهده همه 
+          <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
         </a>
       </div>
-   </div>
-   <div class="my-footer-section-box">
-     <div class="my-footer-section-box-about">
-        <h2 class="my-footer-section-box-about-title">درباره کتابچه</h2>
-        <p class="my-footer-section-box-about-subtitle">کتابچه یک پلتفرم آنلاین با هدف تشویق کتاب خوانی تشکیل شده است از آنجایی که جوامع ما روزانه بیشتر با گوشی و کامپیوتر خودشان سروکار دارند بنابراین ما در گروه کتابچه تصمیم گرفتیم که به عنوان یک کامیونیتی کوچک بتوانیم روی فرهنگ کتابخوانی کشورمان تاثیر گذار باشیم. به همین جهت در کتابچه تمامی کتاب ها با قیمت مناسب و تخفیفات ویژه قرار داده شدند</p>
-     </div>
-     <div class="my-footer-section-box-contact">
-        <h2 class="my-footer-section-box-contact-title">راه های ارتباطی</h2>
-        <ul class="my-footer-section-box-contact-subtitle-list">
-          <li class="my-footer-section-box-contact-subtitle-item">
-            <div>
-              <i  class="fa-regular fa-envelope my-footer-section-box-contact-subtitle-icon"></i>
-              <p class="my-footer-section-box-contact-subtitle-text">ایمیل :</p>
-            </div>
-            <div>
-              <a class="my-footer-section-box-contact-subtitle-link" href="https://angular.io/">hurianarman@gmail.com</a>
-            </div>
-          </li>
-          <li class="my-footer-section-box-contact-subtitle-item">
-            <div>
-              <i  class="fa-solid fa-phone-flip my-footer-section-box-contact-subtitle-icon"></i>
-              <p class="my-footer-section-box-contact-subtitle-text">شماره تماس :</p>
-            </div>
-            <div>
-              <a class="my-footer-section-box-contact-subtitle-link" href="https://angular.io/"> 02122638024</a>
-            </div>
-          </li>
-          <li class="my-footer-section-box-contact-subtitle-item">
-            <div>
-              <i  class="fa-regular fa-address-book my-footer-section-box-contact-subtitle-icon"></i>
-              <p class="my-footer-section-box-contact-subtitle-text"> دفتر مرکزی :</p>
-            </div>
-            <div>
-              <a class="my-footer-section-box-contact-subtitle-link" href="https://angular.io/">تهران - خیابان شریعتی - پایین از تقاطع صدر - پلاک 1546</a>
-            </div>
-          </li>
-        </ul>
-     </div>
-   </div>
-   <div class="my-footer--footer-box">
-    <p class="my-footer--footer-box-myParagraph">Challenge by <a href="https://blokchainology.com/"><strong style="font-weight: bold;">blokchainology</strong></a>.Coded by <a href="https://blokchainology.com/team/"><strong style="font-weight: bold;">Arman Hurian</strong></a></p>
- </div>
-</footer>
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+        
+        <swiper-slide *ngFor="let product of myComputerTypeProducts">
+          <div class="slide-container">
+            <img class="slide-container-images" [src]="product.image" alt="">
+            <h4 class="slide-container-title">{{product.title}}</h4>
+            <p class="slide-container-price">{{product.price}} تومان </p>
+            <p class="slide-container-creator">{{product.creator}} </p>
+          </div>
+        </swiper-slide>
+        
+      </swiper-container>
+    </div>
+    <div>
+      <div class="categories-Book-description">
+        <h2 class="categories-Book-title"> کتاب های علمی </h2>
+        <a class="categories-Book-link-watch" routerLink="/science-book">
+          مشاهده همه 
+          <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+        </a>
+      </div>
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+        
+        <swiper-slide *ngFor="let product of myScienceBookTypeProducts">
+          <div class="slide-container">
+            <img class="slide-container-images" [src]="product.image" alt="">
+            <h4 class="slide-container-title">{{product.title}}</h4>
+            <p class="slide-container-price">{{product.price}} تومان </p>
+            <p class="slide-container-creator">{{product.creator}} </p>
+          </div>
+        </swiper-slide>
+        
+      </swiper-container>
+    </div>
+    <div>
+      <div class="categories-Book-description">
+        <h2 class="categories-Book-title">  کتاب های آموزشی </h2>
+        <a class="categories-Book-link-watch" routerLink="/education-book">
+          مشاهده همه 
+          <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+        </a>
+      </div>
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+        <swiper-slide *ngFor="let product of myEducationBookTypeProducts">
+          <div class="slide-container">
+            <img class="slide-container-images" [src]="product.image" alt="">
+            <h4 class="slide-container-title">{{product.title}}</h4>
+            <p class="slide-container-price">{{product.price}} تومان </p>
+            <p class="slide-container-creator">{{product.creator}} </p>
+          </div>
+        </swiper-slide>
+        
+      </swiper-container>
+    </div>
+    <div>
+      <div class="categories-Book-description">
+        <h2 class="categories-Book-title"> کتاب های تاریخی </h2>
+        <a class="categories-Book-link-watch" routerLink="/historical-book">
+          مشاهده همه 
+          <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+        </a>
+      </div>
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+        <swiper-slide *ngFor="let product of myHistoricalBookTypeProducts">
+          <div class="slide-container">
+            <img class="slide-container-images" [src]="product.image" alt="">
+            <h4 class="slide-container-title">{{product.title}}</h4>
+            <p class="slide-container-price">{{product.price}} تومان </p>
+            <p class="slide-container-creator">{{product.creator}} </p>
+          </div>
+        </swiper-slide>
+        
+      </swiper-container>
+    </div>
+    <div>
+      <div class="categories-Book-description">
+        <h2 class="categories-Book-title"> داستان و رمان </h2>
+        <a class="categories-Book-link-watch" routerLink="/romance-book">
+          مشاهده همه 
+          <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+        </a>
+      </div>
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+    
+        <swiper-slide *ngFor="let product of myRomanceBookTypeProducts">
+          <div class="slide-container">
+            <img class="slide-container-images" [src]="product.image" alt="">
+            <h4 class="slide-container-title">{{product.title}}</h4>
+            <p class="slide-container-price">{{product.price}} تومان </p>
+            <p class="slide-container-creator">{{product.creator}} </p>
+          </div>
+        </swiper-slide>
+        
+      </swiper-container>
+    </div>
+    <div>
+      <div class="categories-Book-description">
+        <h2 class="categories-Book-title"> آموزش زبان خارجه </h2>
+        <a class="categories-Book-link-watch" routerLink="/teach-languages-book">
+          مشاهده همه 
+          <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
+        </a>
+      </div>
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+    
+        <swiper-slide *ngFor="let product of myLanguagesBookTypeProducts">
+          <div class="slide-container">
+            <img class="slide-container-images" [src]="product.image" alt="">
+            <h4 class="slide-container-title">{{product.title}}</h4>
+            <p class="slide-container-price">{{product.price}} تومان </p>
+            <p class="slide-container-creator">{{product.creator}} </p>
+          </div>
+        </swiper-slide>
+        
+      </swiper-container>
+    </div>
+    <footer class="my-footer-container">
+      <div class="my-footer-header-box">
+         <div class="my-footer-header-image-box">
+           <img class="my-footer-header-image" src="../../assets/my-logo.PNG" alt="" srcset="">
+         </div>
+         <div class="my-footer-header-icon-box">
+           <a class="my-footer-header-icon-link" href="https://angular.io/">
+             <i class="fab fa-instagram my-footer-header-icon"></i>
+           </a>
+           <a class="my-footer-header-icon-link"  href="https://angular.io/">
+             <i class="fab fa-youtube my-footer-header-icon"></i>
+           </a>
+           <a class="my-footer-header-icon-link" href="https://angular.io/">
+             <i class="fab fa-linkedin my-footer-header-icon"></i>
+           </a>
+           <a class="my-footer-header-icon-link" href="https://angular.io/">
+             <i class="fab fa-twitter my-footer-header-icon"></i>
+           </a>
+           <a class="my-footer-header-icon-link" href="https://angular.io/">
+             <i class="fab fa-facebook my-footer-header-icon"></i>
+           </a>
+         </div>
+      </div>
+      <div class="my-footer-section-box">
+        <div class="my-footer-section-box-about">
+           <h2 class="my-footer-section-box-about-title">درباره کتابچه</h2>
+           <p class="my-footer-section-box-about-subtitle">کتابچه یک پلتفرم آنلاین با هدف تشویق کتاب خوانی تشکیل شده است از آنجایی که جوامع ما روزانه بیشتر با گوشی و کامپیوتر خودشان سروکار دارند بنابراین ما در گروه کتابچه تصمیم گرفتیم که به عنوان یک کامیونیتی کوچک بتوانیم روی فرهنگ کتابخوانی کشورمان تاثیر گذار باشیم. به همین جهت در کتابچه تمامی کتاب ها با قیمت مناسب و تخفیفات ویژه قرار داده شدند</p>
+        </div>
+        <div class="my-footer-section-box-contact">
+           <h2 class="my-footer-section-box-contact-title">راه های ارتباطی</h2>
+           <ul class="my-footer-section-box-contact-subtitle-list">
+             <li class="my-footer-section-box-contact-subtitle-item">
+               <div>
+                 <i  class="fa-regular fa-envelope my-footer-section-box-contact-subtitle-icon"></i>
+                 <p class="my-footer-section-box-contact-subtitle-text">ایمیل :</p>
+               </div>
+               <div>
+                 <a class="my-footer-section-box-contact-subtitle-link" href="https://angular.io/">hurianarman@gmail.com</a>
+               </div>
+             </li>
+             <li class="my-footer-section-box-contact-subtitle-item">
+               <div>
+                 <i  class="fa-solid fa-phone-flip my-footer-section-box-contact-subtitle-icon"></i>
+                 <p class="my-footer-section-box-contact-subtitle-text">شماره تماس :</p>
+               </div>
+               <div>
+                 <a class="my-footer-section-box-contact-subtitle-link" href="https://angular.io/"> 02122638024</a>
+               </div>
+             </li>
+             <li class="my-footer-section-box-contact-subtitle-item">
+               <div>
+                 <i  class="fa-regular fa-address-book my-footer-section-box-contact-subtitle-icon"></i>
+                 <p class="my-footer-section-box-contact-subtitle-text"> دفتر مرکزی :</p>
+               </div>
+               <div>
+                 <a class="my-footer-section-box-contact-subtitle-link" href="https://angular.io/">تهران - خیابان شریعتی - پایین از تقاطع صدر - پلاک 1546</a>
+               </div>
+             </li>
+           </ul>
+        </div>
+      </div>
+      <div class="my-footer--footer-box">
+       <p class="my-footer--footer-box-myParagraph">Challenge by <a href="https://blokchainology.com/"><strong style="font-weight: bold;">blokchainology</strong></a>.Coded by <a href="https://blokchainology.com/team/"><strong style="font-weight: bold;">Arman Hurian</strong></a></p>
+    </div>
+   </footer>
+</div>
+
+<ng-template #productSearch >
+
+  <div *ngIf="products.length ; else noProduct" class="section-show-if-box-container">
+    <a *ngFor="let product of products"  class="col-4 section-show-products-container-linkBox" routerLink="../{{product.type.includes('برنامه نویسی و کامپیوتر') ? 'computers-book' : product.type.includes('علمی') ? 'science-book' : product.type.includes('آموزشی') ? 'education-book' : product.type.includes('تاریخی') ? 'historical-book' : product.type.includes('داستان و رمان') ? 'romance-book' : 'teach-languages-book' }}/{{product.id}}">
+      <div class=" section-show-products-box">
+        <img class="productImage" [src]="product.image" alt="" srcset="">
+        <h5 class="section-show-products-box-title">{{product.title}}</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">{{product.creator}}</p>
+          <p class="show-products-second-box-current-price">{{product.price}} تومان</p>
+        </div>
+        <div *ngIf="product.Discount" class="offerBox">
+          <span class="offerBox-title">% {{product.Discount}}</span>
+          <p class="show-products-third-box-prev-price">{{ ((100 * product.price) / (100 - product.Discount)).toFixed() }} تومان</p>
+        </div>
+        <div *ngIf="product.fastSending" class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+  </div>
+
+  <ng-template #noProduct>
+    <img class="photo-not-available" src="../../assets/not-available.jfif" alt="" srcset="">
+    <span class="my-special-alert">کتابی یافت نشد !!</span>
+   </ng-template>
+</ng-template>
+
 

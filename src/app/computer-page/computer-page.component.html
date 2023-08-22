@@ -42,7 +42,7 @@
                       </ng-template>
                      </li>
                    </ul>
-                   <a href="" class="user-description-container-link-favorite">
+                   <a routerLink="/favorites" class="user-description-container-link-favorite">
                      <li class="user-description-container-link-favorite-item">
                        <i class="fa-regular fa-heart user-description-container-link-favorite-icon"></i>
                        علاقه مندی های من
@@ -58,7 +58,9 @@
                 </div>
             </div>
             <div class="users-icon-container">
+              <a routerLink="/shopping-basket">
                 <i class="fas fa-bag-shopping shopping-icon"><span *ngIf="count" class="shopping-icon-count1">{{count}}</span></i>
+              </a>
             </div>
         </div>
     </nav>
