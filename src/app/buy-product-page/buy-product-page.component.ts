@@ -112,7 +112,7 @@ export class BuyProductPageComponent implements OnInit{
     this.productId = Number(this.route.snapshot.params['id'])
 
     this.products = this.productService.computerProductsInMainPage.filter(item => item.id === this.productId)
-    
+ 
   }
 
   plusProductInShoppingBasket(){
@@ -147,7 +147,7 @@ export class BuyProductPageComponent implements OnInit{
 
   addToFavorite(event:any){
 
-    if(!this.like ){
+    if(!this.like){
 
       this.products.forEach( item =>  this.generate.favoriteProductList.push(item))
 
@@ -167,6 +167,18 @@ export class BuyProductPageComponent implements OnInit{
       this.like = false
       
       console.log(this.generate.favoriteProductList);
-    }
+    } 
   }
 }
+
+
+
+// this.products.forEach(item => {
+      
+//   if(this.generate.favoriteProductList.includes(item)){
+        
+//     this.like = !this.like
+    
+//   }
+
+// })

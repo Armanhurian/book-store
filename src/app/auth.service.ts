@@ -14,7 +14,7 @@ export class AuthService implements CanActivate , OnInit{
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
 
     if(this.generate.favoriteProductList.length){
-
+      
       return true
       
     }else{

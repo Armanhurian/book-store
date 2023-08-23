@@ -3,6 +3,11 @@
     font-family: yekan;
     margin: 1rem 5rem;
 }
+@font-face {
+    font-family: vazir;
+    src: url(../../assets/Farsi-Digits-Non-Latin/fonts/webfonts/Vazirmatn-RD-FD-NL-Black.woff2);
+}
+
 /* h2{
    font-size: 1.3rem; 
 }
@@ -113,4 +118,109 @@ p{
     right: 10rem;
     text-decoration: none;
     font-size: 1.2rem;
+}
+.section-show-if-box-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+  .section-show-products-box{
+    width: 100%;
+    font-family: yekan;
+}
+  .section-show-products-box-title{
+    margin: 1rem;
+    text-align: center;
+    color: #212529;
+    font-size: 1.04rem;
+    line-height: 2rem
+}
+  .productImage{
+    width: 100%;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    height: 20rem
+}
+  .section-show-products-container-linkBox{
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 0.4rem;
+    margin: 2rem auto;
+    transition: all 200ms ease-in;
+    text-decoration: none;
+    width: 21%
+}
+  .section-show-if-box-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column
+}
+  .show-products-second-box{
+    margin: 0 1rem;
+    color: #212529;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+  .show-products-second-box-creator ,.show-products-second-box-current-price{
+    font-size: 0.87rem
+}
+  .show-products-second-box-current-price{
+    font-family: vazir
+}
+  .offerBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: vazir;
+    margin: 0 1rem;
+}
+  .offerBox-title{
+    color: white;
+    padding: 0.2rem;
+    background-color: #dc3545;
+    border-radius: 0.6rem;
+}
+  .show-products-third-box-prev-price{
+    font-family: vazir;
+    color: #7d7d7d;
+    font-size: 0.83rem;
+    text-decoration: line-through;
+}
+  .show-products-third-box{
+    text-align: end;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+}
+  .show-products-third-box-icon{
+  
+    color: #1028ff;
+    font-size: 0.8rem;
+}
+  .section-show-products-container-linkBox:hover{
+    transform: scale(1.03);
+}
+  .col-4{
+    width: 20% !important;
+}
+  .show-products-third-box-icon span{
+    font-family: vazir;
+    margin-right: 0.2rem;
+    color: #495057;
+}
+  .photo-not-available{
+  
+    width: 16rem;
+    display: flex;
+    justify-content: center;
+    margin: 3rem auto;
+    
+}
+  .my-special-alert{
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    font-family: vazir;
 }

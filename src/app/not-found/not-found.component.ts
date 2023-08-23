@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { GenerateService } from '../services/generate.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-not-found',
@@ -10,9 +12,17 @@ export class NotFoundComponent {
   @ViewChild('showUserDes') 'showUserDes' : ElementRef
   @ViewChild('clickParent') 'clickParent' : ElementRef
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
+  @ViewChild('myInputSearchValue') 'myInputSearchValue' : ElementRef
 
   dashbordNameLists : any = []
+  
+  products : any[] = [] ;
 
+  inputSearchText : string = ''
+
+  categoriesTitle : string = ''
+
+  inputSearch: any = ''
 
   dashbordName : any =  ''
 
@@ -20,7 +30,7 @@ export class NotFoundComponent {
 
   count : number = 0
 
-  constructor(private generate : GenerateService){}
+  constructor(private Products : ProductService , private generate : GenerateService){}
 
 
   dashbordNameFunc(){
@@ -64,6 +74,58 @@ export class NotFoundComponent {
     }
     
     
+  }
+
+  inputSearchValue = new FormGroup({
+
+    searchValue  : new FormControl('')
+    
+  })
+
+  
+  keyUpSearchInput(event:any){
+
+    if(event.target.value){
+
+      this.inputSearchText = event.target.value
+      
+    }else{
+       
+      this.inputSearchText = ''
+      
+    }
+    
+  }
+  
+  
+  removeSearch(){
+
+    this.myInputSearchValue.nativeElement.value = ''
+    this.inputSearchText = ''
+    this.inputSearchValue.value.searchValue = ''
+    
+  }
+
+  clickSearchHandler(){
+
+    this.inputSearch =  this.inputSearchValue.value.searchValue
+
+    this.products = this.Products.computerProductsInMainPage.concat(
+
+      this.Products.educationProductsInMainPage,
+      this.Products.historicalProductsInMainPage,
+      this.Products.languagesProductsInMainPage,
+      this.Products.romanceProductsInMainPage,
+      this.Products.scienceProductsInMainPage
+
+    )
+
+
+    this.products = this.products.filter(item => item.title.includes(this.inputSearch))
+
+    
+    
+
   }
   
 

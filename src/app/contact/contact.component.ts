@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild ,ElementRef} from '@angular/core';
-import { FormControl , FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ProductService } from '../services/product.service';
 import Swal from 'sweetalert2';
 import { GenerateService } from '../services/generate.service';
 
@@ -15,9 +16,17 @@ export class ContactComponent implements OnInit{
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
   @ViewChild('emailTextValue') 'emailTextValue' : ElementRef
   @ViewChild('textareaValue') 'textareaValue' : ElementRef
+  @ViewChild('myInputSearchValue') 'myInputSearchValue' : ElementRef
 
   dashbordNameLists : any = []
 
+  products : any[] = [] ;
+
+  inputSearchText : string = ''
+
+  categoriesTitle : string = ''
+
+  inputSearch: any = ''
 
   dashbordName : any =  ''
 
@@ -25,7 +34,7 @@ export class ContactComponent implements OnInit{
 
   count : number = 0
 
-  constructor(private generate : GenerateService){}
+  constructor(private Products : ProductService  , private generate : GenerateService){}
 
   dashbordNameFunc(){
     this.dashbordNameLists.push(localStorage.getItem('dashbordName'))
@@ -118,6 +127,59 @@ export class ContactComponent implements OnInit{
       )
     }
     
+  }
+  
+  
+  inputSearchValue = new FormGroup({
+
+    searchValue  : new FormControl('')
+    
+  })
+
+  
+  keyUpSearchInput(event:any){
+
+    if(event.target.value){
+
+      this.inputSearchText = event.target.value
+      
+    }else{
+       
+      this.inputSearchText = ''
+      
+    }
+    
+  }
+  
+  
+  removeSearch(){
+
+    this.myInputSearchValue.nativeElement.value = ''
+    this.inputSearchText = ''
+    this.inputSearchValue.value.searchValue = ''
+    
+  }
+
+  clickSearchHandler(){
+
+    this.inputSearch =  this.inputSearchValue.value.searchValue
+
+    this.products = this.Products.computerProductsInMainPage.concat(
+
+      this.Products.educationProductsInMainPage,
+      this.Products.historicalProductsInMainPage,
+      this.Products.languagesProductsInMainPage,
+      this.Products.romanceProductsInMainPage,
+      this.Products.scienceProductsInMainPage
+
+    )
+
+
+    this.products = this.products.filter(item => item.title.includes(this.inputSearch))
+
+    
+    
+
   }
   
 

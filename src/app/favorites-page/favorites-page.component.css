@@ -1,0 +1,186 @@
+@import '../buy-product-page/buy-product-page.component.css';
+.section-category-details-options{
+    width: 20rem;
+}
+.favorites-section-categories-container{
+    padding: 2rem;
+    font-family: 'yekan';
+    border: 1px solid #dee2e6;
+    margin: 1rem 3rem;
+    border-radius: 0.5rem;
+}
+.favorites-section-categories-product-box{
+    margin: 0 auto;
+    width: 100%; 
+    font-family: yekan;
+    border-top: 1px solid #bbb;
+    display: flex;
+    flex-direction: column;
+}
+.col-2{
+    width: 40%;
+}
+
+  .section-show-products-box{
+    width: 100%;
+    font-family: yekan;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+  .show-products-first-box{
+    margin-top: 2rem;
+  }
+  .section-show-products-box-title{
+    margin-bottom: 1rem;
+    text-align: start;
+    color: #212529;
+    font-size: 1.04rem;
+    line-height: 2rem;
+    font-family: vazir;
+  }
+  .show-products-second-box-creator{
+    font-family: vazir;
+    text-align: start;
+  }
+  .productImage{
+    width: 15rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .show-products-third-box{
+    text-align: start !important;
+  }
+  .section-show-products-container-linkBox{
+    background-color: white;
+    margin: 2rem auto;
+    transition: all 200ms ease-in;
+    text-decoration: none;
+    width: 100%;
+  }
+  .section-show-if-box-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .show-products-second-box{
+    margin: 0 1rem;
+    color: #212529;
+    display: flex;
+    flex-direction: column;
+  }
+  .show-products-second-box-creator ,.show-products-second-box-current-price{
+    font-size: 0.9rem;
+  }
+  .show-products-second-box-current-price{
+    font-family: vazir;
+  }
+  .offerBox{
+    font-family: vazir;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+  }
+  .offerBox-title{
+    color: white;
+    padding: 0.2rem;
+    background-color: #dc3545;
+    border-radius: 0.6rem;
+  }
+  .show-products-third-box-prev-price{
+    font-family: vazir;
+    color: #bbb;
+    font-size: 0.83rem;
+    text-decoration: line-through;
+  
+  }
+  .show-products-third-box{
+    text-align: end;
+    margin-bottom: 1.5rem;
+  }
+  .favorites-section-categories-container{
+    height: 38rem;
+    overflow-y: scroll;
+  }
+  .favorites-section-categories-Titlebox{
+    margin-bottom: 1rem;
+  }
+  .show-products-third-box-icon{
+  
+    color: #1028ff;
+    font-size: 0.8rem;
+  }
+  .show-products-third-box-icon span{
+    font-family: vazir;
+    margin-right: 0.2rem;
+    color: #212529;
+  }
+  .style-Flex-container{
+    display: flex;
+  }
+  .section-show-products-container-linkBox:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  .col-4{
+    width: 20% !important;
+  }
+  
+.offerBox-title{
+      font-family: vazir;
+      margin-right: 0.2rem;
+      color: white;
+
+  }
+  .photo-not-available{
+  
+    width: 16rem;
+    display: flex;
+    justify-content: center;
+    margin: 3rem auto;
+    
+  }
+  .my-special-alert{
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    font-family: vazir;
+  }
+
+  .favorites-section-categories-box-title{
+    position: relative;
+  }
+  .favorites-section-categories-box-title::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1rem;
+    width: 3px;
+    height: 2rem;
+    background-color: rgb(32, 32, 216);
+  }
+  .remove-icon-btn{
+    background-color: white;
+    border: 1px solid #ef4056;
+    color: #ef4056;
+    width: 10rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    justify-content: center;
+  }
+  .add-to-basket-link{
+    margin-left: 1rem;
+    text-decoration: none;
+    padding: 0.3rem 4.5rem;
+    background-color: white;
+    color:#1028ff ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border: 1px solid #1028ff;
+    border-radius: 0.5rem;
+  }

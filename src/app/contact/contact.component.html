@@ -4,15 +4,16 @@
       <img class="navbar-image-logo-box" src="../../assets/my-logo.PNG" alt="" srcset="">
     </div>
     <div class="searching-box">
-      <form class="searching-box-form" action="">
+      <form [formGroup]="inputSearchValue" (ngSubmit)="clickSearchHandler()" class="searching-box-form" action="">
         <button type="submit" class="searching-box-form-btn">
-          <svg class="text-dark-550 dark:text-white" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg  class="text-dark-550 dark:text-white" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="7.82495" cy="7.82492" r="6.74142" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
               <path d="M12.5137 12.8638L15.1568 15.4999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
+          </svg>
         </button>
+        <i *ngIf="inputSearchText" (click)="removeSearch()" class="fas fa-circle-xmark xmark-icon"></i>
         <label for="search"></label>
-        <input class="searching-box-form-input" type="text" id="search" placeholder="دنبال چی میگردی ؟">
+        <input #myInputSearchValue (keyup)="keyUpSearchInput($event)"  formControlName = 'searchValue' class="searching-box-form-input" type="text" id="search" placeholder="دنبال چی میگردی ؟">
       </form>
     </div> 
     <div class="navbar-user-icon-box">
@@ -44,7 +45,7 @@
                  <a routerLink="/favorites" class="user-description-container-link-favorite">
                    <li class="user-description-container-link-favorite-item">
                      <i class="fa-regular fa-heart user-description-container-link-favorite-icon"></i>
-                     علاقه مندی های من 
+                     علاقه مندی های من
                      <span *ngIf="like" class="like-active"></span>
                    </li>
                  </a>
@@ -103,36 +104,68 @@
 </div>
 </header>
 
-<div class="contacts-container">
-  <h2 class="contacts-container-title">ارتباط با ما</h2>
-  <div class="contact-description-box">
-    <div class="contacts-container-right-box">
-      <div class="contacts-container-right-box-header">
-        <div class="contacts-container-right-box__header">
-          <i class="contacts-container-right-box-header-icon fas fa-envelope-open-text"></i>
-          <h2 class="contacts-container-right-box-header-title">پیام به پشتیبانی</h2>
+<div *ngIf="!inputSearch; else productSearch" class="total-main-container">
+  
+  <div class="contacts-container">
+    <h2 class="contacts-container-title">ارتباط با ما</h2>
+    <div class="contact-description-box">
+      <div class="contacts-container-right-box">
+        <div class="contacts-container-right-box-header">
+          <div class="contacts-container-right-box__header">
+            <i class="contacts-container-right-box-header-icon fas fa-envelope-open-text"></i>
+            <h2 class="contacts-container-right-box-header-title">پیام به پشتیبانی</h2>
+          </div>
+          <p class="contacts-container-right-box-header-text">نظرات، مشکلات و پیشنهادهایتان را برای ما بنویسید.</p>
+          <form action="" [formGroup]="myFormGroup" (ngSubmit)="submitComment()" class="contacts-container-right-box-header-form" form>  
+            <input formControlName="email" #emailTextValue class="contacts-container-right-box-header-input" type="text" placeholder="لطفا ایمیل خود را وارد کنید">
+            <textarea formControlName="textarea" #textareaValue class="contacts-container-right-box-header-textarea" name="" id="" cols="30" rows="10" placeholder="نظرات خود را اینجا بنویسید ..."></textarea>
+            <button type="submit" class="contacts-container-right-box-header-btn">ارسال پیام</button>
+          </form>
         </div>
-        <p class="contacts-container-right-box-header-text">نظرات، مشکلات و پیشنهادهایتان را برای ما بنویسید.</p>
-        <form action="" [formGroup]="myFormGroup" (ngSubmit)="submitComment()" class="contacts-container-right-box-header-form" form>  
-          <input formControlName="email" #emailTextValue class="contacts-container-right-box-header-input" type="text" placeholder="لطفا ایمیل خود را وارد کنید">
-          <textarea formControlName="textarea" #textareaValue class="contacts-container-right-box-header-textarea" name="" id="" cols="30" rows="10" placeholder="نظرات خود را اینجا بنویسید ..."></textarea>
-          <button type="submit" class="contacts-container-right-box-header-btn">ارسال پیام</button>
-        </form>
+        
       </div>
-      
-    </div>
-    <div class="contacts-container-left-box">
-      <div class="contacts-container-left-box-header">
-        <div class="contacts-container-right-box__header">
-          <i class="fas fa-location-dot contacts-container-left-header-icon"></i>
-          <h2 class="contacts-container-left-box-header-title"> آدرس</h2>
-        </div>
-        <p class="contacts-container-left-box-header-subtitle">تهران - خیابان شریعتی - پایین از تقاطع صدر - روبروی سوپر تهران - پلاک 1546</p>
-        <div >
-          <img class="contacts-container-left-box-header-image" src="../../assets/map.webp" alt="" srcset="">
-          <a  href="https://balad.ir/p/PrJaDsosKlXvus" class="contacts-container-left-box-header-link">مسیریابی با نقشه</a>
+      <div class="contacts-container-left-box">
+        <div class="contacts-container-left-box-header">
+          <div class="contacts-container-right-box__header">
+            <i class="fas fa-location-dot contacts-container-left-header-icon"></i>
+            <h2 class="contacts-container-left-box-header-title"> آدرس</h2>
+          </div>
+          <p class="contacts-container-left-box-header-subtitle">تهران - خیابان شریعتی - پایین از تقاطع صدر - روبروی سوپر تهران - پلاک 1546</p>
+          <div >
+            <img class="contacts-container-left-box-header-image" src="../../assets/map.webp" alt="" srcset="">
+            <a  href="https://balad.ir/p/PrJaDsosKlXvus" class="contacts-container-left-box-header-link">مسیریابی با نقشه</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>
+
+<ng-template #productSearch >
+
+  <div *ngIf="products.length ; else noProduct" class="section-show-if-box-container">
+    <a *ngFor="let product of products"  class="col-4 section-show-products-container-linkBox" routerLink="../{{product.type.includes('برنامه نویسی و کامپیوتر') ? 'computers-book' : product.type.includes('علمی') ? 'science-book' : product.type.includes('آموزشی') ? 'education-book' : product.type.includes('تاریخی') ? 'historical-book' : product.type.includes('داستان و رمان') ? 'romance-book' : 'teach-languages-book' }}/{{product.id}}">
+      <div class=" section-show-products-box">
+        <img class="productImage" [src]="product.image" alt="" srcset="">
+        <h5 class="section-show-products-box-title">{{product.title}}</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">{{product.creator}}</p>
+          <p class="show-products-second-box-current-price">{{product.price}} تومان</p>
+        </div>
+        <div *ngIf="product.Discount" class="offerBox">
+          <span class="offerBox-title">% {{product.Discount}}</span>
+          <p class="show-products-third-box-prev-price">{{ ((100 * product.price) / (100 - product.Discount)).toFixed() }} تومان</p>
+        </div>
+        <div *ngIf="product.fastSending" class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+  </div>
+
+  <ng-template #noProduct>
+    <img class="photo-not-available" src="../../assets/not-available.jfif" alt="" srcset="">
+    <span class="my-special-alert">کتابی یافت نشد !!</span>
+   </ng-template>
+</ng-template>

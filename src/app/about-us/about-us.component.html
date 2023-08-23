@@ -4,15 +4,16 @@
       <img class="navbar-image-logo-box" src="../../assets/my-logo.PNG" alt="" srcset="">
     </div>
     <div class="searching-box">
-      <form class="searching-box-form" action="">
+      <form [formGroup]="inputSearchValue" (ngSubmit)="clickSearchHandler()" class="searching-box-form" action="">
         <button type="submit" class="searching-box-form-btn">
-          <svg class="text-dark-550 dark:text-white" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg  class="text-dark-550 dark:text-white" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="7.82495" cy="7.82492" r="6.74142" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
               <path d="M12.5137 12.8638L15.1568 15.4999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
+          </svg>
         </button>
+        <i *ngIf="inputSearchText" (click)="removeSearch()" class="fas fa-circle-xmark xmark-icon"></i>
         <label for="search"></label>
-        <input class="searching-box-form-input" type="text" id="search" placeholder="دنبال چی میگردی ؟">
+        <input #myInputSearchValue (keyup)="keyUpSearchInput($event)"  formControlName = 'searchValue' class="searching-box-form-input" type="text" id="search" placeholder="دنبال چی میگردی ؟">
       </form>
     </div> 
     <div class="navbar-user-icon-box">
@@ -103,11 +104,43 @@
 </div>
 </header>
 
-<div class="about-us-container">
-   <h2 class="about-us-container-title">درباره ما</h2>
-   <p class="about-us-container-text">کتابچه در قالب یک پلتفرم جهت تشویق جوامع برای یافتن استعداد ها و همچنین افزایش مهارت در کار برای کاربران خود در سال 1398 تشکیل شده و بر این اصول که برای آپدیت شدن کاربران خود از هیچ تلاشی دریغ نکند پایبند خواهیم بود. این پلتفرم میتواند برای جوامع توسعه دهنده نرم افزار و وب بسیار مفید باشد چرا که تمامی کتاب های مرتبط با این حوزه با جدیدترین آپدیت قرار میگیرد و با جدیدترین تغییرات در چاپ و نشر کتاب ها پلتفرم ما به روز خواهد شد نه تنها در بخش توسعه کامپیوتر و برنامه نویسی در بخش تاریخی و همینطور زبان خارجه و ... نیز همینطور می باشد . همینطور دانش آموزان و کنکوری های عزیز می توانند کتب مد نظر خود را با قیمت پایین تر در کتابچه فراهم کنند.
+<div *ngIf="!inputSearch; else productSearch" class="total-main-container">
+  
+  <div class="about-us-container">
+     <h2 class="about-us-container-title">درباره ما</h2>
+     <p class="about-us-container-text">کتابچه در قالب یک پلتفرم جهت تشویق جوامع برای یافتن استعداد ها و همچنین افزایش مهارت در کار برای کاربران خود در سال 1398 تشکیل شده و بر این اصول که برای آپدیت شدن کاربران خود از هیچ تلاشی دریغ نکند پایبند خواهیم بود. این پلتفرم میتواند برای جوامع توسعه دهنده نرم افزار و وب بسیار مفید باشد چرا که تمامی کتاب های مرتبط با این حوزه با جدیدترین آپدیت قرار میگیرد و با جدیدترین تغییرات در چاپ و نشر کتاب ها پلتفرم ما به روز خواهد شد نه تنها در بخش توسعه کامپیوتر و برنامه نویسی در بخش تاریخی و همینطور زبان خارجه و ... نیز همینطور می باشد . همینطور دانش آموزان و کنکوری های عزیز می توانند کتب مد نظر خود را با قیمت پایین تر در کتابچه فراهم کنند.
+  
+       در واقع هدف ما تشویق مردم و دوستی دوباره با کتاب می باشد  قیمت اکثر کتاب ها با تخفیف می باشد و کاربر میتواند بعد از ثبت نام وارد صفحه اصلی شود و ویترین کتاب های کتابچه را ملاحظه بکند و سپس جهت خرید وارد دسته بندی مورد نظر خود شود امیدوار و خوشبین هستیم که تا سال 1404 درصد جوامع کتابخوان حداقل افزایش 10 درصدی داشته باشد 
+       ما پشتیبان شما هستیم و بهترین دوست شما را با شما آشنا خواهیم کرد...
+     </p>
+  </div>
 
-     در واقع هدف ما تشویق مردم و دوستی دوباره با کتاب می باشد  قیمت اکثر کتاب ها با تخفیف می باشد و کاربر میتواند بعد از ثبت نام وارد صفحه اصلی شود و ویترین کتاب های کتابچه را ملاحظه بکند و سپس جهت خرید وارد دسته بندی مورد نظر خود شود امیدوار و خوشبین هستیم که تا سال 1404 درصد جوامع کتابخوان حداقل افزایش 10 درصدی داشته باشد 
-     ما پشتیبان شما هستیم و بهترین دوست شما را با شما آشنا خواهیم کرد...
-   </p>
 </div>
+
+<ng-template #productSearch >
+
+  <div *ngIf="products.length ; else noProduct" class="section-show-if-box-container">
+    <a *ngFor="let product of products"  class="col-4 section-show-products-container-linkBox" routerLink="../{{product.type.includes('برنامه نویسی و کامپیوتر') ? 'computers-book' : product.type.includes('علمی') ? 'science-book' : product.type.includes('آموزشی') ? 'education-book' : product.type.includes('تاریخی') ? 'historical-book' : product.type.includes('داستان و رمان') ? 'romance-book' : 'teach-languages-book' }}/{{product.id}}">
+      <div class=" section-show-products-box">
+        <img class="productImage" [src]="product.image" alt="" srcset="">
+        <h5 class="section-show-products-box-title">{{product.title}}</h5>
+        <div class="show-products-second-box">
+          <p class="show-products-second-box-creator">{{product.creator}}</p>
+          <p class="show-products-second-box-current-price">{{product.price}} تومان</p>
+        </div>
+        <div *ngIf="product.Discount" class="offerBox">
+          <span class="offerBox-title">% {{product.Discount}}</span>
+          <p class="show-products-third-box-prev-price">{{ ((100 * product.price) / (100 - product.Discount)).toFixed() }} تومان</p>
+        </div>
+        <div *ngIf="product.fastSending" class="show-products-third-box">
+          <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+        </div>
+      </div> 
+    </a>
+  </div>
+
+  <ng-template #noProduct>
+    <img class="photo-not-available" src="../../assets/not-available.jfif" alt="" srcset="">
+    <span class="my-special-alert">کتابی یافت نشد !!</span>
+   </ng-template>
+</ng-template>

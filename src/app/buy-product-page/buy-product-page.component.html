@@ -57,7 +57,7 @@
               <li class="section-category-details-imageBox-item" style="position: relative;"><a routerLink="/shopping-basket">
                 <i class="fas fa-bag-shopping shopping-icon"><span *ngIf="count" class="shopping-icon-count1">{{count}}</span></i>
               </a><span *ngIf="basketShopping.length" class="shopping-icon-count">{{basketShopping.length}}</span></li>
-              <li class="section-category-details-imageBox-item"><i (click)="addToFavorite($event)" class="fa-solid fa-heart user-description-container-link-favorite-icon1"></i></li>
+              <li  class="section-category-details-imageBox-item"><i (click)="addToFavorite($event)" class="fa-solid fa-heart user-description-container-link-favorite-icon1"></i></li>
               <li class="section-category-details-imageBox-item"><i (click)="copyShareLink()" class="fas fa-share-nodes share-Icon"></i></li>
               <li (click)="showUserDescription()" #clickParent class="section-category-details-imageBox-item"><i class="fas fa-user user-Icon"></i></li>
               <div #showUserDes class="user-description-container">
@@ -131,7 +131,7 @@
                 <ng-template #linkShoppingCount >
                 <span class="title-for-link-shopping-basket">
                   مشاهده 
-                  <a class="link-for-shopping-basket" routerLink="shopping-basket">سبد خرید</a>
+                  <a class="link-for-shopping-basket" routerLink="/shopping-basket">سبد خرید</a>
                 </span>
                 <span class="add-remove-shopping-basket-box">
                   <i (click)="plusProductInShoppingBasket()" class="fas fa-plus add-shopping-basket-box"></i>

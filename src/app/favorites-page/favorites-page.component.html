@@ -1,1 +1,95 @@
-<p>favorites-page works!</p>
+<header>
+    <div class="navbar-list-box">
+      <ul class="navbar-list">
+         <li class="navbar-list-item">
+           <a routerLink="/main"><i class="fas fa-house home-icon"></i>صفحه اصلی </a>
+         </li>
+         <li  class="navbar-list-item">
+           <a (click)="showCategoryList($event)"  class="navbar-list-item-category-link"><i class="fas fa-layer-group category-icon"></i>دسته بندی ها <i style="margin-right: 0.2rem;" class="fas fa-caret-down navbar-icon-down"></i></a>
+           <div #categoriesList class="categories-Book-list-container">
+            <ul class="categories-Book-list">
+              <a routerLink="/computers-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">برنامه نویسی و کامپیوتر</li>
+              </a>
+              <a routerLink="/science-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">کتاب های علمی</li>
+              </a>
+              <a routerLink="/education-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">کتاب های آموزشی</li>
+              </a>
+              <a routerLink="/historical-book" class="categories-Book-list-link">
+                  <li class="categories-Book-item">کتاب های تاریخی</li>
+              </a>
+              <a routerLink="/romance-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">داستان و رمان</li>
+              </a>
+              <a routerLink="/teach-languages-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">آموزش زبان خارجه</li>    
+              </a>
+            </ul>
+           </div>
+         </li>
+         <li class="navbar-list-item">
+           <a routerLink="/contact"><i class="fas fa-headset support-icon"></i>ارتباط با ما</a>
+         </li>
+         <li class="navbar-list-item">
+           <a routerLink="/about-us"><i class="fa-regular fa-face-smile about-icon"></i>درباره  ما</a>
+         </li>
+      </ul> 
+  </div>
+  </header>
+
+  <div class="favorites-section-categories-container">
+      <div class="favorites-section-categories-box">
+          
+          <div class="favorites-section-categories-Titlebox">
+              <h4 class="favorites-section-categories-box-title">لیست علاقمندی ها</h4>
+          </div>
+          <div *ngIf="products.length ; else noProduct" class="favorites-section-categories-product-box">
+
+              <a *ngFor="let product of products" class="col-2 section-show-products-container-linkBox" >
+                <div class="section-show-products-box">
+                    <div class="style-Flex-container">
+
+                        <img class="productImage" [src]="product.image" alt="" srcset="">
+                        <div>
+                            <div class="show-products-first-box">   
+                                <h5 class="section-show-products-box-title">{{product.title}}</h5>
+                                <p class="show-products-second-box-creator" >اثر {{product.creator}}</p>
+                            </div>
+                            <div *ngIf="product.fastSending" class="show-products-third-box">
+                              <i class="fas fa-truck-fast show-products-third-box-icon"><span>ارسال فوری</span></i>
+                            </div>
+                            <span *ngIf="product.Discount" class="offerBox-title">% {{product.Discount}}</span>
+                        </div>
+                    </div>
+                  <div style="margin-bottom: 3rem;">
+                      <div class="offerBox">
+                        
+                        <div class="show-products-second-box">
+                            <p class="show-products-second-box-current-price">{{product.price}} تومان</p>
+                            <p *ngIf="product.Discount" class="show-products-third-box-prev-price">{{ ((100 * product.price) / (100 - product.Discount)).toFixed() }}</p>
+                        </div>
+                      </div>
+                      <div style="display: flex; gap: 1rem;">
+                          <button  (click)="removeOnFavorites(product.title)" class="remove-icon-btn">
+                            <i class="fa-regular fa-trash-can remove-icon"></i>
+                            حذف از لیست
+                          </button>
+                          <a routerLink="../{{product.type.includes('برنامه نویسی و کامپیوتر') ? 'computers-book' : product.type.includes('علمی') ? 'science-book' : product.type.includes('آموزشی') ? 'education-book' : product.type.includes('تاریخی') ? 'historical-book' : product.type.includes('داستان و رمان') ? 'romance-book' : 'teach-languages-book' }}/{{product.id}}" class="add-to-basket-link">
+                            <i class="fas fa-bag-shopping shoppiing-icon"></i>
+                            افزودن به سبد خرید
+                          </a>
+                      </div>
+                  </div>
+                </div> 
+              </a> 
+
+
+        </div>
+        <ng-template #noProduct>
+            <img class="photo-not-available" src="../../assets/not-available.jfif" alt="" srcset="">
+            <span class="my-special-alert">کتابی یافت نشد !!</span>
+        </ng-template>
+    </div>
+  </div>
