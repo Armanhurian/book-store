@@ -1,0 +1,95 @@
+@import '../buy-product-page/buy-product-page.component.css';
+.add-remove-shopping-basket-box{
+    width: 9.5rem;
+}
+.shopping-basket-product-container{
+    margin-top: 3rem;
+}
+.shopping-basket-product-box{
+    width: 100%;
+    display: flex;
+}
+.right-container{
+
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.shopping-basket-product-right-box{
+    margin: 2rem ;
+    border: 1px solid #e2e2e3;
+    background-color: #fff;
+    border-radius: 12px;
+    font-family: yekan;
+}
+.shopping-basket-product-left-box{
+
+    padding: 1rem;
+    margin: 2rem ;
+    border: 1px solid #e2e2e3;
+    background-color: #fff;
+    border-radius: 12px;
+    font-family: yekan;
+
+}
+.shopping-basket-offer-price-prev-price{
+    color: #9e9e9e;
+    text-decoration: line-through;
+}
+.shopping-basket-offer-price-offer-percent{
+    height: 16px;
+    line-height: 16px;
+    background: #f15b5b;
+    border-radius: 100px;
+    padding: 2px 4px;
+    color: #fff;
+}
+.shopping-basket-product-left-box{
+    width: 30%;
+}
+.shopping-basket-product-right-detailsBox{
+  padding: 1rem;
+  display: flex;
+  gap: 2rem;
+}
+.shopping-basket-product-right-image-box{
+    width: 10rem;
+    border-radius: 0.5rem;
+}
+.shopping-basket-product-price-count-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-top: 1px solid #e2e2e3;
+    align-items: center;
+    margin: auto 0 ;
+}
+.shopping-basket-offer-price{
+    font-family: vazir;
+}
+.prev-price-box{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.shopping-basket-product-left-title-box{
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e2e2e3;
+}
+.shopping-basket-product-left-name-box ,.shopping-basket-product-left-total-price-box ,.shopping-basket-product-left-delivery-price-box ,.total--price-box{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e2e2e3;
+    margin-bottom: 1rem;
+}
+.shopping-basket-product-left-box{
+    height: 24rem;
+}
+.shopping-basket-product-left-btn-submit{
+    width: 100%;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.7rem;
+    background-color: #32ba8c;
+    border: none;
+}

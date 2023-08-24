@@ -1,1 +1,107 @@
-<p>shopping-basket-page works!</p>
+<header>
+    <div class="navbar-list-box">
+      <ul class="navbar-list">
+         <li class="navbar-list-item">
+           <a routerLink="/main"><i class="fas fa-house home-icon"></i>صفحه اصلی </a>
+         </li>
+         <li  class="navbar-list-item">
+           <a (click)="showCategoryList($event)"  class="navbar-list-item-category-link"><i class="fas fa-layer-group category-icon"></i>دسته بندی ها <i style="margin-right: 0.2rem;" class="fas fa-caret-down navbar-icon-down"></i></a>
+           <div #categoriesList class="categories-Book-list-container">
+            <ul class="categories-Book-list">
+              <a routerLink="/computers-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">برنامه نویسی و کامپیوتر</li>
+              </a>
+              <a routerLink="/science-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">کتاب های علمی</li>
+              </a>
+              <a routerLink="/education-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">کتاب های آموزشی</li>
+              </a>
+              <a routerLink="/historical-book" class="categories-Book-list-link">
+                  <li class="categories-Book-item">کتاب های تاریخی</li>
+              </a>
+              <a routerLink="/romance-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">داستان و رمان</li>
+              </a>
+              <a routerLink="/teach-languages-book" class="categories-Book-list-link">
+                <li class="categories-Book-item">آموزش زبان خارجه</li>    
+              </a>
+            </ul>
+           </div>
+         </li>
+         <li class="navbar-list-item">
+           <a routerLink="/contact"><i class="fas fa-headset support-icon"></i>ارتباط با ما</a>
+         </li>
+         <li class="navbar-list-item">
+           <a routerLink="/about-us"><i class="fa-regular fa-face-smile about-icon"></i>درباره  ما</a>
+         </li>
+      </ul> 
+  </div>
+  </header>
+
+  <!-- *ngIf="products.length ; else noProduct" -->
+
+<div class="shopping-basket-product-container">
+    <div  class="shopping-basket-product-box">
+      <div class="right-container">
+          <div *ngFor="let product of products" class="shopping-basket-product-right-box">
+              <div class="shopping-basket-product-right-detailsBox">
+                  <img class="shopping-basket-product-right-image-box" [src]="product.image" alt="" srcset="">
+                  <div class="shopping-basket-product-right-details">
+                      <h5 class="shopping-basket-product-right-details-title">{{product.title}}</h5>
+                      <p class="shopping-basket-product-right-details-creator">{{product.creator}}</p>
+                      <p class="shopping-basket-product-right-details-category">{{product.type}}</p>
+                  </div>
+              </div>
+              <div class="shopping-basket-product-price-count-box">
+                  <span  #linkShoppingCount >
+  
+                      <span class="add-remove-shopping-basket-box">
+                        <i (click)="plusProductInShoppingBasket()" class="fas fa-plus add-shopping-basket-box"></i>
+                        <span class="shopping-basket-box-count">{{basketShopping.length}}</span>
+                        <i (click)="removeToShoppingBasket()" *ngIf="basketShopping.length===1;else minusIcon" class="fa-regular fa-trash-can remove-shopping-basket-box"></i>
+                        <ng-template #minusIcon>
+                          <i (click)="minusProductInShoppingBasket()" class="fas fa-minus minus-in-shopping-basket-box"></i>
+                        </ng-template>
+                      </span>
+                  </span >
+                  <span class="shopping-basket-offer-price">
+                      <div class="prev-price-box">
+                          <p class="shopping-basket-offer-price-prev-price">{{ ((100 * product.price) / (100 - product.Discount)).toFixed() }}</p>
+                          <p class="shopping-basket-offer-price-offer-percent">{{product.Discount}}%</p>
+                      </div>
+                      <div class="current-price-box">
+                          <p class="current-price">{{product.price}} تومان</p>
+                      </div>
+                  </span>
+              </div>
+          </div>
+      </div> 
+        <div class="shopping-basket-product-left-box">
+            <div class="shopping-basket-product-left-title-box">
+               <h5 class="shopping-basket-product-left-box-container-title">جزِییات سفارش</h5>
+            </div>
+            <div class="shopping-basket-product-left-name-box">
+               <p class="shopping-basket-product-left-name-title">نام خریدار : </p>
+               <p class="shopping-basket-product-left-name-subtitle">نام و نام خانوادگی</p>
+            </div>
+            <div class="shopping-basket-product-left-total-price-box">
+                <p class="shopping-basket-product-left-total-price-title">جمع قیمت : </p>
+                <p class="shopping-basket-product-left-total-price-subtitle">250000 تومان</p>
+            </div> 
+            <div class="shopping-basket-product-left-delivery-price-box">
+                <p class="shopping-basket-product-left-delivery-price-title">هزینه ارسال :  </p>
+                <p class="shopping-basket-product-left-delivery-price-subtitle">20000 تومان</p>
+            </div>
+            <div class="total--price-box">
+                <p class="total--price-title">قیمت نهایی :  </p>
+                <p class="total--price-subtitle">270000 تومان</p>
+            </div>
+            <button class="shopping-basket-product-left-btn-submit">تایید و پرداخت</button>
+        </div>
+    </div>
+    <!-- <ng-template #noProduct>
+        <img class="photo-not-available" src="../../assets/not-available.jfif" alt="" srcset="">
+        <span class="my-special-alert">کتابی یافت نشد !!</span>
+    </ng-template> -->
+</div>
