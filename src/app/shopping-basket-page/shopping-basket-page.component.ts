@@ -1,5 +1,7 @@
 import { Component  , ViewChild , ElementRef, OnInit  } from '@angular/core';
 import { GenerateService } from '../services/generate.service';
+import swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-basket-page',
@@ -16,7 +18,23 @@ export class ShoppingBasketPageComponent implements OnInit{
 
   countIndex : number = 0
 
-  constructor(private generate : GenerateService){}
+  oneCount : number = 0
+
+  anyCount :number = 0
+
+  dashbordNameLists : any = []
+
+  dashbordName : any =  ''
+
+  totalPrice : number = 0
+
+  constructor(private generate : GenerateService , private router : Router){}
+
+  dashbordNameFunc(){
+    this.dashbordNameLists.push(localStorage.getItem('dashbordName'))
+    this.dashbordNameLists.push(localStorage.getItem('nameValueInput'))
+    this.dashbordName = this.dashbordNameLists[this.dashbordNameLists.length - 1]
+  }
 
   showCategoryList(event:any){
     event.preventDefault()
@@ -35,59 +53,100 @@ export class ShoppingBasketPageComponent implements OnInit{
     
   }
 
-  plusProductInShoppingBasket(){
+  plusProductInShoppingBasket(myProduct:any){
 
-    if([...new Set(this.generate.basketShoppingList)].length !== this.generate.basketShoppingList.length){
+    this.products = this.generate.basketShoppingList
 
-      if([...new Set(this.generate.basketShoppingList)].length === 1){
+    this.basketShopping = this.products
 
-        this.basketShopping = this.generate.basketShoppingList
-        
-        this.products.forEach(item => this.basketShopping.push(item))
+    this.basketShopping.push(myProduct)
+
+    console.log(this.basketShopping);
+
+    this.totalPrice += myProduct.price
+
+
+    console.log(this.totalPrice);
+
+
   
-        this.products = [...new Set(this.generate.basketShoppingList)]
-        
-        console.log(this.basketShopping);
-        
-      }else{
-        
-        this.products = [...new Set(this.generate.basketShoppingList)]
+  }
+  
+  removeProductInShoppingBasket(myProduct:any){
+    
 
+    
+    let indexMinus = this.basketShopping.findIndex(item => item == myProduct)
+    
+    console.log(indexMinus);
+
+    this.basketShopping.splice(indexMinus,1)
+
+    this.totalPrice -= myProduct.price
+
+
+    console.log(this.totalPrice);
+
+  }
+  
+
+
+totalPriceFunc(){
+
+  for (let index = 0; index < this.basketShopping.length; index++) {
+
+    this.totalPrice += this.basketShopping[index].price
+
+    console.log(this.totalPrice);
+    
+
+  }
+
+}
+
+
+submitBtnForPay(){
+  if(this.dashbordName){
+    swal.fire(
+      {
+        title: 'تبریک',
+        text : 'سبد خرید شما با موفقیت ثبت شد',
+        confirmButtonText: 'ورود به درگاه پرداخت',
+        icon : 'success'
       }
-
-      
-    }
-
-    
+    )
+  }else{
+    swal.fire(
+      {
+        title: 'متاسفم !',
+        text : ' لطفا ابتدا وارد شوید',
+        confirmButtonText: ' ورود به صفحه لاگین ',
+        icon : 'error'
+      }
+    ).then((res)=>{
+      if(res){
+        this.router.navigate(['/login'])
+      }
+    })
   }
+}
 
+
+
+ngOnInit(): void {
+
+   
   
+    this.products = this.generate.basketShoppingList
 
 
-  
-  minusProductInShoppingBasket(){
-    
-    // this.basketShopping.splice(this.basketShopping.length-1,1)
-    
-    // this.generate.basketShoppingList.splice(this.generate.basketShoppingList.length-1,1)
+    this.basketShopping = this.products
 
-  }
-  removeToShoppingBasket(){
-    
-    // this.basketShopping = []
-    
-    // this.generate.basketShoppingList.splice(this.generate.basketShoppingList.length-1,1)
+    this.dashbordNameFunc() 
 
-  }
+    this.totalPriceFunc()
 
-  ngOnInit(): void {
-
-    // console.log(this.generate.basketShoppingList);
-    
-
-    // this.products = this.generate.basketShoppingList
-    
-    this.plusProductInShoppingBasket()
+    console.log(this.dashbordName);
     
   }
 }

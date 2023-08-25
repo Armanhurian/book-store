@@ -42,8 +42,8 @@
   <!-- *ngIf="products.length ; else noProduct" -->
 
 <div class="shopping-basket-product-container">
-    <div  class="shopping-basket-product-box">
-      <div class="right-container">
+    <div *ngIf="basketShopping.length ;else noProduct"  class="shopping-basket-product-box">
+      <div  class="right-container">
           <div *ngFor="let product of products" class="shopping-basket-product-right-box">
               <div class="shopping-basket-product-right-detailsBox">
                   <img class="shopping-basket-product-right-image-box" [src]="product.image" alt="" srcset="">
@@ -57,12 +57,9 @@
                   <span  #linkShoppingCount >
   
                       <span class="add-remove-shopping-basket-box">
-                        <i (click)="plusProductInShoppingBasket()" class="fas fa-plus add-shopping-basket-box"></i>
-                        <span class="shopping-basket-box-count">{{basketShopping.length}}</span>
-                        <i (click)="removeToShoppingBasket()" *ngIf="basketShopping.length===1;else minusIcon" class="fa-regular fa-trash-can remove-shopping-basket-box"></i>
-                        <ng-template #minusIcon>
-                          <i (click)="minusProductInShoppingBasket()" class="fas fa-minus minus-in-shopping-basket-box"></i>
-                        </ng-template>
+                        <i (click)="plusProductInShoppingBasket(product)" class="fas fa-plus add-shopping-basket-box"></i>
+                        <span  class="shopping-basket-box-count">1</span>
+                        <i (click)="removeProductInShoppingBasket(product)" class="fa-regular fa-trash-can remove-shopping-basket-box"></i>
                       </span>
                   </span >
                   <span class="shopping-basket-offer-price">
@@ -83,11 +80,12 @@
             </div>
             <div class="shopping-basket-product-left-name-box">
                <p class="shopping-basket-product-left-name-title">نام خریدار : </p>
-               <p class="shopping-basket-product-left-name-subtitle">نام و نام خانوادگی</p>
+               <p *ngIf="dashbordName;else noLogin" class="shopping-basket-product-left-name-subtitle">{{dashbordName}}</p>
+               <ng-template #noLogin> نامشخص</ng-template>
             </div>
             <div class="shopping-basket-product-left-total-price-box">
                 <p class="shopping-basket-product-left-total-price-title">جمع قیمت : </p>
-                <p class="shopping-basket-product-left-total-price-subtitle">250000 تومان</p>
+                <p class="shopping-basket-product-left-total-price-subtitle">{{totalPrice}} تومان</p>
             </div> 
             <div class="shopping-basket-product-left-delivery-price-box">
                 <p class="shopping-basket-product-left-delivery-price-title">هزینه ارسال :  </p>
@@ -95,13 +93,15 @@
             </div>
             <div class="total--price-box">
                 <p class="total--price-title">قیمت نهایی :  </p>
-                <p class="total--price-subtitle">270000 تومان</p>
+                <p class="total--price-subtitle">{{totalPrice + 20000}} تومان</p>
             </div>
-            <button class="shopping-basket-product-left-btn-submit">تایید و پرداخت</button>
+            <button (click)="submitBtnForPay()" class="shopping-basket-product-left-btn-submit">تایید و پرداخت</button>
         </div>
     </div>
-    <!-- <ng-template #noProduct>
-        <img class="photo-not-available" src="../../assets/not-available.jfif" alt="" srcset="">
-        <span class="my-special-alert">کتابی یافت نشد !!</span>
-    </ng-template> -->
+
+    <ng-template #noProduct>
+      <img class="photo-not-available" src="../../assets/empty-cart.gif" alt="" srcset="">
+      <span class="my-special-alert">سبد شما خالی است !!</span>
+    </ng-template>
+
 </div>

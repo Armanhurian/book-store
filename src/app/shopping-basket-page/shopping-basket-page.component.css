@@ -93,3 +93,20 @@
     background-color: #32ba8c;
     border: none;
 }
+.total--price-subtitle{
+    font-weight: bold;
+}
+.photo-not-available{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 9rem;
+    width: 20rem;
+    margin-bottom: 3rem;
+}
+.my-special-alert{
+    font-family: vazir;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
