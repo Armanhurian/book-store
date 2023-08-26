@@ -1,5 +1,8 @@
-<header>
-  <nav class="navbar-container">
+<header class="myHeader">
+  <nav #navbarContainerElem class="navbar-container">
+    <div class="navbar-menu">
+      <i (click)="showMenuResponse($event)" class="fas fa-bars navbar-menu-icon"></i>
+    </div>
     <div class="first-Row-Box">
       <img class="navbar-image-logo-box" src="../../assets/my-logo.PNG" alt="" srcset="">
     </div>
@@ -63,13 +66,13 @@
             </a>
           </div>
       </div>
-  </nav>
-  <div class="navbar-list-box">
-    <ul class="navbar-list">
+  </nav> 
+  <div #showMenuElem class="navbar-list-box">
+    <ul #navBarListElem class="navbar-list">
        <li class="navbar-list-item">
          <a routerLink="/main"><i class="fas fa-house home-icon"></i>صفحه اصلی </a>
        </li>
-       <li  class="navbar-list-item">
+       <li (click)="showCategoryListResponsive()"  class="navbar-list-item">
          <a (click)="showCategoryList($event)" href="" class="navbar-list-item-category-link"><i class="fas fa-layer-group category-icon"></i>دسته بندی ها <i style="margin-right: 0.2rem;" class="fas fa-caret-down navbar-icon-down"></i></a>
          <div #categoriesList class="categories-Book-list-container">
           <ul class="categories-Book-list">
@@ -104,9 +107,9 @@
 </div>
 </header>
 
-<div *ngIf="!inputSearch; else productSearch" class="total-main-container">
+<div #sectionElem *ngIf="!inputSearch; else productSearch" class="total-main-container">
   <div>
-    <img class="cover-image" src="../../assets/بهترین-کتاب-برای-زنان-خانه-دار.jpg" alt="" srcset="">
+    <img #coverImageElem class="cover-image" src="../../assets/بهترین-کتاب-برای-زنان-خانه-دار.jpg" alt="" srcset="">
   </div>
 
   <div >

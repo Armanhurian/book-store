@@ -22,6 +22,9 @@ export class LanguagesPageComponent implements OnInit{
   @ViewChild('inputElemMinPrice') 'inputElemMinPrice' : ElementRef
   @ViewChild('inputElemMaxPrice') 'inputElemMaxPrice' : ElementRef
   @ViewChild('myInputSearchValue') 'myInputSearchValue' : ElementRef
+  @ViewChild('showMenuElem') 'showMenuElem' : ElementRef
+  @ViewChild('navBarListElem') 'navBarListElem' : ElementRef
+  @ViewChild('navbarContainerElem') 'navbarContainerElem' : ElementRef
 
   inputSearchText : string = ''
 
@@ -107,6 +110,40 @@ export class LanguagesPageComponent implements OnInit{
     
     
   }
+
+    
+
+  showMenuResponse(event : any){
+    
+    if(this.showMenuElem.nativeElement.style.opacity != 1){
+      
+      this.showMenuElem.nativeElement.style.opacity = 1 
+
+      this.showMenuElem.nativeElement.style.visibility = 'visible'  
+
+      event.target.style.backgroundColor = '#2778c4bd';
+      
+    }else{
+      
+      this.showMenuElem.nativeElement.style.opacity = 0 
+
+      this.showMenuElem.nativeElement.style.visibility = 'hidden'  
+
+      event.target.style.backgroundColor = 'white';
+    }
+
+  }
+
+  showCategoryListResponsive(){
+    if(this.categoriesList.nativeElement.style.display != 'block'){
+
+      this.categoriesList.nativeElement.style.display = 'block'
+    }else{
+      
+      this.categoriesList.nativeElement.style.display = 'none'
+    }
+  }
+
   
   inputSearchValue = new FormGroup({
 

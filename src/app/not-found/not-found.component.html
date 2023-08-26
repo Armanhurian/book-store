@@ -1,5 +1,8 @@
-<header>
+<header class="myHeader">
   <nav class="navbar-container">
+    <div #navbarContainerElem class="navbar-menu">
+      <i (click)="showMenuResponse($event)" class="fas fa-bars navbar-menu-icon"></i>
+    </div>
     <div class="first-Row-Box">
       <img class="navbar-image-logo-box" src="../../assets/my-logo.PNG" alt="" srcset="">
     </div>
@@ -64,12 +67,12 @@
           </div>
       </div>
   </nav>
-  <div class="navbar-list-box">
+  <div #showMenuElem class="navbar-list-box">
     <ul class="navbar-list">
        <li class="navbar-list-item">
          <a routerLink="/main"><i class="fas fa-house home-icon"></i>صفحه اصلی </a>
        </li>
-       <li  class="navbar-list-item">
+       <li (click)="showCategoryListResponsive()" class="navbar-list-item">
          <a (click)="showCategoryList($event)" href="" class="navbar-list-item-category-link"><i class="fas fa-layer-group category-icon"></i>دسته بندی ها <i style="margin-right: 0.2rem;" class="fas fa-caret-down navbar-icon-down"></i></a>
          <div #categoriesList class="categories-Book-list-container">
           <ul class="categories-Book-list">
