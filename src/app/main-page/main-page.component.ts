@@ -40,7 +40,7 @@ export class MainPageComponent implements OnInit{
 
   count : number = 0
 
-  constructor( private Products : ProductService , private generate : GenerateService ){}
+  constructor( private Products : ProductService , private generate : GenerateService){}
 
 
   myComputerTypeProducts:any = [] 
@@ -178,6 +178,10 @@ export class MainPageComponent implements OnInit{
     }
   }
 
+  
+  
+  
+  
   ngOnInit(): void {
 
     if(this.generate.favoriteProductList.length){

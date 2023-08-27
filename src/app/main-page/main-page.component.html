@@ -189,10 +189,27 @@
           مشاهده همه 
           <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
         </a>
-      </div>
-      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
         
-        <swiper-slide *ngFor="let product of myComputerTypeProducts">
+      </div>
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar" [breakpoints]="{
+        '300': {
+          slidesPerView: 1,
+        },
+        '500': {
+          slidesPerView: 2,
+        },
+        '640': {
+          slidesPerView: 3,
+        },
+        '768': {
+          slidesPerView: 4,
+        },
+        '1024': {
+          slidesPerView: 5,
+        }
+      }" autoplay-delay="2500">
+        
+        <swiper-slide class="swiper-slides" *ngFor="let product of myComputerTypeProducts">
           <div class="slide-container">
             <img class="slide-container-images" [src]="product.image" alt="">
             <h4 class="slide-container-title">{{product.title}}</h4>
@@ -211,7 +228,23 @@
           <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
         </a>
       </div>
-      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar" [breakpoints]="{
+        '300': {
+          slidesPerView: 1,
+        },
+        '500': {
+          slidesPerView: 2,
+        },
+        '640': {
+          slidesPerView: 3,
+        },
+        '768': {
+          slidesPerView: 4,
+        },
+        '1024': {
+          slidesPerView: 5,
+        }
+      }" autoplay-delay="2500">
         
         <swiper-slide *ngFor="let product of myScienceBookTypeProducts">
           <div class="slide-container">
@@ -232,7 +265,23 @@
           <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
         </a>
       </div>
-      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"[breakpoints]="{
+        '300': {
+          slidesPerView: 1,
+        },
+        '500': {
+          slidesPerView: 2,
+        },
+        '640': {
+          slidesPerView: 3,
+        },
+        '768': {
+          slidesPerView: 4,
+        },
+        '1024': {
+          slidesPerView: 5,
+        }
+      }" autoplay-delay="2500">
         <swiper-slide *ngFor="let product of myEducationBookTypeProducts">
           <div class="slide-container">
             <img class="slide-container-images" [src]="product.image" alt="">
@@ -252,7 +301,23 @@
           <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
         </a>
       </div>
-      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"[breakpoints]="{
+        '300': {
+          slidesPerView: 1,
+        },
+        '500': {
+          slidesPerView: 2,
+        },
+        '640': {
+          slidesPerView: 3,
+        },
+        '768': {
+          slidesPerView: 4,
+        },
+        '1024': {
+          slidesPerView: 5,
+        }
+      }" autoplay-delay="2500">
         <swiper-slide *ngFor="let product of myHistoricalBookTypeProducts">
           <div class="slide-container">
             <img class="slide-container-images" [src]="product.image" alt="">
@@ -272,7 +337,23 @@
           <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
         </a>
       </div>
-      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"[breakpoints]="{
+        '300': {
+          slidesPerView: 1,
+        },
+        '500': {
+          slidesPerView: 2,
+        },
+        '640': {
+          slidesPerView: 3,
+        },
+        '768': {
+          slidesPerView: 4,
+        },
+        '1024': {
+          slidesPerView: 5,
+        }
+      }" autoplay-delay="2500">
     
         <swiper-slide *ngFor="let product of myRomanceBookTypeProducts">
           <div class="slide-container">
@@ -293,7 +374,23 @@
           <i class="fas fa-chevron-left categories-Book-icon-watch"></i>
         </a>
       </div>
-      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"slides-per-view="5" autoplay-delay="2500">
+      <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar"[breakpoints]="{
+        '300': {
+          slidesPerView: 1,
+        },
+        '500': {
+          slidesPerView: 2,
+        },
+        '640': {
+          slidesPerView: 3,
+        },
+        '768': {
+          slidesPerView: 4,
+        },
+        '1024': {
+          slidesPerView: 5,
+        }
+      }" autoplay-delay="2500">
     
         <swiper-slide *ngFor="let product of myLanguagesBookTypeProducts">
           <div class="slide-container">
