@@ -26,6 +26,8 @@ export class EducationPageComponent implements OnInit {
   @ViewChild('showMenuElem') 'showMenuElem' : ElementRef
   @ViewChild('navBarListElem') 'navBarListElem' : ElementRef
   @ViewChild('navbarContainerElem') 'navbarContainerElem' : ElementRef
+  @ViewChild('sectionOfFilteredElem') 'sectionOfFilteredElem' : ElementRef
+  @ViewChild('openFilteredBox') 'openFilteredBox' : ElementRef
 
 
   inputSearchText : string = ''
@@ -159,7 +161,16 @@ export class EducationPageComponent implements OnInit {
 
   }
 
-  
+  openFilterHandler(){
+
+    this.sectionOfFilteredElem.nativeElement.style.display = 'block'
+
+  }
+  closeFilteredHandler(){
+
+    this.sectionOfFilteredElem.nativeElement.style.display = 'none'
+
+  }
 
   
 

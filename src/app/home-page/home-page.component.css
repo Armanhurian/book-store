@@ -31,3 +31,32 @@
  text-decoration: none;
  font-family: yekan;
 }
+@media screen and (max-width:1190px){
+    .home-container{
+        margin-top: 6rem;
+    }
+}
+@media screen and (max-width:870px){
+    .home-container{
+        margin-top: 2rem;
+        display: block !important;
+    }
+    .imageContainer{
+        width: 100% !important;
+    }
+    .description-box{
+        width: 100% !important;
+
+    }
+}
+@media screen and (max-width:500px){
+    .description-box-link{
+        padding: 0.2rem 2rem;
+    }
+    .description-box-subtitle{
+        font-size: 0.9rem;
+    }
+    .description-box-title{
+        font-size: 1.4rem;
+    }
+}

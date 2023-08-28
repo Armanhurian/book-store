@@ -26,6 +26,8 @@ export class HistoricalPageComponent implements OnInit {
   @ViewChild('showMenuElem') 'showMenuElem' : ElementRef
   @ViewChild('navBarListElem') 'navBarListElem' : ElementRef
   @ViewChild('navbarContainerElem') 'navbarContainerElem' : ElementRef
+  @ViewChild('sectionOfFilteredElem') 'sectionOfFilteredElem' : ElementRef
+  @ViewChild('openFilteredBox') 'openFilteredBox' : ElementRef
 
   inputSearchText : string = ''
 
@@ -210,6 +212,18 @@ export class HistoricalPageComponent implements OnInit {
     
     
     console.log(this.dashbordName);
+  }
+
+  
+  openFilterHandler(){
+
+    this.sectionOfFilteredElem.nativeElement.style.display = 'block'
+
+  }
+  closeFilteredHandler(){
+
+    this.sectionOfFilteredElem.nativeElement.style.display = 'none'
+
   }
 
   offerLableClick(){

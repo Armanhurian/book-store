@@ -622,7 +622,7 @@ input[type="range"]:focus::-moz-range-thumb {
     }
   }
   @media screen and (max-width:430px){
-    .col-4{
+    .col-4{   
         width: 60% !important;
     }
     .searching-box-form-input{

@@ -286,3 +286,185 @@
     color: #1ad51a;
     font-size: 1.3rem;
 }
+.categories-Book-list-container{
+  opacity: 1;
+  visibility: visible;
+  display: none;
+}
+.navbar-menu{
+    display: none;
+}
+
+@media screen and (max-width:1190px){
+    .section-category-details-container{
+        display: block;
+    }
+    .section-category-details-right-container{
+        width: 90%;
+    }
+    .section-category-details-options{
+        width: 50%;
+        margin: 2rem auto;
+    }
+}
+@media screen and (max-width:1100px){
+    .categories-Book-list-container{
+        display: none;
+        position: relative;
+        top: 1rem;
+        right: -2rem;
+        width: 11rem;
+    }
+    .alert-box-for-sharingLink{
+        top: 6rem;
+    }
+    .section-category-details-container{
+        margin-top: 8rem;
+    }
+    .navbar-list{
+        flex-direction: column;
+        position: absolute;
+        background-color: #f8f9fa;
+        z-index: 5;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        top: 7.2rem;
+        right: 0;
+        height: auto;
+        position: fixed;
+        border-radius: 0.5rem;
+    }
+    .navbar-list-box{
+
+        background-color: #f8f9fa;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        position: fixed;
+        top: 0;
+        right: 4rem;
+        z-index: 10;
+    }
+    .menuImage{
+        width: 10rem;
+        border-radius:3rem
+    }
+    .navbar-menu-icon{
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 0.4rem;
+    }
+    .navbar-list{
+        display: none;
+    }
+    .navbar-menu{
+        display: flex ;
+        justify-content: space-between;
+        align-items: center;
+        width:90%;
+    }
+}
+@media screen and (max-width:820px){
+    .section-category-details-image{
+        width: 15rem;
+        height: 19rem;
+    }
+    .navbar-list-box{
+
+        right: 2.5rem;
+
+    }
+    .section-category-details-right-container{
+        margin-right: 2.5rem;
+    }
+}
+@media screen and (max-width:750px){
+    .section-category-details-right-container{
+        display: block;
+    }
+    .user-description-container-item svg{
+        width: 25px;
+        height: 25px;
+    }
+    .user-description-container-link-favorite-item , .user-description-container-link-logout-item{
+        font-size: 1rem;
+    }
+    .user-description-container{
+        position: absolute;
+        top: 23.1rem;
+        left: -1rem;
+    }
+}
+@media screen and (max-width:665px){
+
+    .section-category-details-titleBox{
+        margin-top: 2rem;
+    }
+    .section-category-details-options{
+        width: 60%;
+    }
+    .navbar-list-box{
+        right: 1.5rem;
+    }
+    .section-category-details-right-container{
+        margin-right: 1.5rem;
+    }
+    .user-description-container{
+        position: absolute;
+        top: 23.1rem;
+        right:10rem;
+    }
+}
+@media screen and (max-width:500px){
+
+    .section-category-details-image{
+        width: 12rem;
+        height: 15rem;
+    }
+    .user-description-container{
+        position: absolute;
+        top: 19.5rem;
+        right:5rem;
+    }
+    .user-description-container-link-favorite-icon, .user-description-container-link-favorite-icon1, .share-Icon, .shopping-icon, .user-Icon {
+        font-size: 1.2rem;
+        color: #343a40;
+        cursor: pointer;
+    }
+    .section-category-details-titleBox-title {
+        font-size: 1rem;
+    }
+    .section-category-details-titleBox-subtitle{
+        font-size: 0.9rem;
+    }
+    .menuImage{
+        width: 8rem;
+        border-radius: 3rem;
+    }
+    .section-category-details-options{
+        width: 90%;
+    }
+    .navbar-list-item{
+        padding: 1rem 0;
+        position: relative;
+        cursor: pointer;
+    }
+    .navbar-list{
+        font-size: 0.9rem;
+    }
+    .navbar-list-box{
+        right: 1.2rem;
+    }
+    .section-category-details-right-container{
+        margin-right: 1.2rem;
+    }
+
+}
+@media screen and (max-width:400px){
+    .user-description-container{
+        right: 2rem;
+    }
+} 
+@media screen and (min-width:1100px){
+    .navbar-list{
+       display: flex !important;
+    }
+}

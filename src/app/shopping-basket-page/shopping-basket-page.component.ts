@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ShoppingBasketPageComponent implements OnInit{
 
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
+  @ViewChild('showMenuElem') 'showMenuElem' : ElementRef
 
   products : any[] = [] ;
 
@@ -39,14 +40,13 @@ export class ShoppingBasketPageComponent implements OnInit{
   showCategoryList(event:any){
     event.preventDefault()
 
-    if(this.categoriesList.nativeElement.style.opacity!== '1'){
-  
-      this.categoriesList.nativeElement.style.opacity = '1'
-      this.categoriesList.nativeElement.style.visibility = 'visible'
+    if(this.categoriesList.nativeElement.style.display!== 'block'){
 
+      this.categoriesList.nativeElement.style.display = 'block'
+      
     }else{
-      this.categoriesList.nativeElement.style.opacity = '0'
-      this.categoriesList.nativeElement.style.visibility = 'hidden'
+
+      this.categoriesList.nativeElement.style.display = 'none'
    
     }
     
@@ -104,6 +104,24 @@ totalPriceFunc(){
 
 }
 
+    
+showMenuResponse(event : any){
+
+    
+  if(this.showMenuElem.nativeElement.style.display != 'block'){
+    
+    this.showMenuElem.nativeElement.style.display = 'block'
+
+    event.target.style.backgroundColor = '#2778c4bd';
+    
+  }else{
+    
+    this.showMenuElem.nativeElement.style.display = 'none'
+
+    event.target.style.backgroundColor = 'white';
+  }
+
+}
 
 submitBtnForPay(){
   if(this.dashbordName){

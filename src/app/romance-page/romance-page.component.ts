@@ -25,6 +25,8 @@ export class RomancePageComponent implements OnInit {
   @ViewChild('showMenuElem') 'showMenuElem' : ElementRef
   @ViewChild('navBarListElem') 'navBarListElem' : ElementRef
   @ViewChild('navbarContainerElem') 'navbarContainerElem' : ElementRef
+  @ViewChild('sectionOfFilteredElem') 'sectionOfFilteredElem' : ElementRef
+  @ViewChild('openFilteredBox') 'openFilteredBox' : ElementRef
 
   inputSearchText : string = ''
 
@@ -281,6 +283,18 @@ export class RomancePageComponent implements OnInit {
       this.products = this.products.filter(item => item.fastSending === true)
 
     }
+  }
+
+    
+  openFilterHandler(){
+
+    this.sectionOfFilteredElem.nativeElement.style.display = 'block'
+
+  }
+  closeFilteredHandler(){
+
+    this.sectionOfFilteredElem.nativeElement.style.display = 'none'
+
   }
   
   sendSpecialClick(){

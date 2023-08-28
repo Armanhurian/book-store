@@ -31,3 +31,21 @@ h4{
   border-radius: 0.5rem;
   
 }
+
+@media screen and (max-width:930px){
+  
+  .waitingTitle{
+    width: 30%;
+    
+  }
+} 
+@media screen and (max-width:430px){
+
+  .myImage{
+    width: 22rem;
+  }
+  .waitingTitle{
+    width: 50%;
+    
+  }
+} 

@@ -2,6 +2,10 @@
   <nav class="navbar-container">
     <div #navbarContainerElem class="navbar-menu">
       <i (click)="showMenuResponse($event)" class="fas fa-bars navbar-menu-icon"></i>
+      <div #openFilteredBox (click)="openFilterHandler()" class="open-filter-box">
+        <i class="fas fa-sliders open-filtered-box-header-icon d-flex align-items-center"></i>
+        <p class="open-filter-text">فیلترها</p>
+      </div>
     </div>
     <div class="first-Row-Box">
       <img class="navbar-image-logo-box" src="../../assets/my-logo.PNG" alt="" srcset="">
@@ -110,8 +114,9 @@
 <!-- start body of catogories -->
 
 <div  class="section-category-container  ">
-  <div  class="section-category-filtered-container ">
+  <div #sectionOfFilteredElem class="section-category-filtered-container ">
     <div class="section-category-filtered-box">
+       <i (click)="closeFilteredHandler()" class="circle-Xmark-close-Filtered fas fa-circle-xmark"></i>
        <div class="section-category-filtered-box-header d-flex">
          <i class="fas fa-sliders section-category-filtered-box-header-icon d-flex align-items-center"></i>
          <p class="section-category-filtered-box-header-title d-flex align-items-center m-3">فیلترها</p>

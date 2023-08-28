@@ -9,6 +9,7 @@ import { GenerateService } from '../services/generate.service';
 export class FavoritesPageComponent implements OnInit{
 
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
+  @ViewChild('showMenuElem') 'showMenuElem' : ElementRef
 
   constructor(private generate : GenerateService){}
 
@@ -18,20 +19,37 @@ export class FavoritesPageComponent implements OnInit{
 
   showCategoryList(event:any){
     event.preventDefault()
-    if(this.categoriesList.nativeElement.style.opacity!== '1'){
-  
-      this.categoriesList.nativeElement.style.opacity = '1'
-      this.categoriesList.nativeElement.style.visibility = 'visible'
+    if(this.categoriesList.nativeElement.style.display!== 'block'){
 
+      this.categoriesList.nativeElement.style.display = 'block'
+      
     }else{
-      this.categoriesList.nativeElement.style.opacity = '0'
-      this.categoriesList.nativeElement.style.visibility = 'hidden'
+
+      this.categoriesList.nativeElement.style.display = 'none'
    
     }
     
     
   }
 
+      
+showMenuResponse(event : any){
+
+    
+  if(this.showMenuElem.nativeElement.style.display != 'block'){
+    
+    this.showMenuElem.nativeElement.style.display = 'block'
+
+    event.target.style.backgroundColor = '#2778c4bd';
+    
+  }else{
+    
+    this.showMenuElem.nativeElement.style.display = 'none'
+
+    event.target.style.backgroundColor = 'white';
+  }
+
+}
 
   ngOnInit(): void {
     

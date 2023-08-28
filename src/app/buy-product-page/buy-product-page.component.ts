@@ -18,6 +18,7 @@ export class BuyProductPageComponent implements OnInit{
   @ViewChild('clickParent') 'clickParent' : ElementRef
   @ViewChild('categoriesList') 'categoriesList' : ElementRef
   @ViewChild('alertBoxForSharingLink') 'alertBoxForSharingLink' : ElementRef
+  @ViewChild('showMenuElem') 'showMenuElem' : ElementRef
 
   dashbordNameLists : any = []
 
@@ -65,14 +66,14 @@ export class BuyProductPageComponent implements OnInit{
   }
   showCategoryList(event:any){
     event.preventDefault()
-    if(this.categoriesList.nativeElement.style.opacity!== '1'){
-  
-      this.categoriesList.nativeElement.style.opacity = '1'
-      this.categoriesList.nativeElement.style.visibility = 'visible'
 
+    if(this.categoriesList.nativeElement.style.display!== 'block'){
+
+      this.categoriesList.nativeElement.style.display = 'block'
+      
     }else{
-      this.categoriesList.nativeElement.style.opacity = '0'
-      this.categoriesList.nativeElement.style.visibility = 'hidden'
+
+      this.categoriesList.nativeElement.style.display = 'none'
    
     }
     
@@ -100,6 +101,24 @@ export class BuyProductPageComponent implements OnInit{
       },1000)
     }).subscribe((data)=>console.log(data))
 
+
+  }
+
+  showMenuResponse(event : any){
+
+    
+    if(this.showMenuElem.nativeElement.style.display != 'block'){
+      
+      this.showMenuElem.nativeElement.style.display = 'block'
+
+      event.target.style.backgroundColor = '#2778c4bd';
+      
+    }else{
+      
+      this.showMenuElem.nativeElement.style.display = 'none'
+
+      event.target.style.backgroundColor = 'white';
+    }
 
   }
    

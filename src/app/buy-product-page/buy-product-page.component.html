@@ -1,6 +1,10 @@
 <header>
     <div class="navbar-list-box">
-      <ul class="navbar-list">
+      <div #navbarContainerElem class="navbar-menu">
+        <i (click)="showMenuResponse($event)" class="fas fa-bars navbar-menu-icon"></i>
+        <img class="menuImage" src="../../assets/my-logo.PNG" alt="" srcset="">
+      </div>
+      <ul #showMenuElem class="navbar-list">
          <li class="navbar-list-item">
            <a routerLink="/main"><i class="fas fa-house home-icon"></i>صفحه اصلی </a>
          </li>
